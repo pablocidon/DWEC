@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html lang="es">
+    <head>
+        <title>EjercicioJS</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <script>
+			var miC = new Array("casa","chalet",["habitacion","comedor","baño",["completo","aseo"],"piso"]); 
+			miC.forEach(recorre);
+			function recorre(item,index,arr){
+				if(Array.isArray(arr[index])){
+					for(seInd in arr[index]){
+						if(Array.isArray(arr[index][seInd])){
+							for(terInd in arr[index][seInd]){
+								document.write(arr[index][seInd][terInd]);
+							}
+						} else {
+							document.write(a[index][seInd]);
+						}
+					}
+				} else {
+					document.write(a[index]);
+				}
+			}
+        </script>
+    </body>
+</html>
+			<!-- var miB[0] = "9"; -->
+            <!-- var miB["Empresa"] = ("Cereales","Trigo","Cebada","Maiz"); -->
+            <!-- var miB.comercio = ("Madrid", "Valencia"); -->
+			<!-- var miA = new Array("SMR1","SMR2","DAW1",["DWEC","FOL","DWES","DAW","DIW"],"DAW2"); -->

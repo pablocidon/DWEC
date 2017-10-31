@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html lang="es">
+    <head>
+        <title>Practica 3</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+		<script src="js/cadenasDAW1.js"></script>
+		<script>
+			var animal = new Array("Gato","Perro","Pulpo");
+			var nuevoAnimal = prompt("Dame un nuevo animal: ");
+			//agregar al array
+			animal.push(nuevoAnimal);
+			animal.forEach(recorreDosIndices);
+			document.write('<br>');
+			//borrar elemento del array
+			animal.pop();
+			animal.forEach(recorreDosIndices);
+			document.write('<br>');
+			//agregar al principio
+			animal.unshift(nuevoAnimal);
+			animal.forEach(recorreDosIndices);
+			document.write('<br>');
+			//borrar el primer elemento
+			animal.shift();
+			animal.forEach(recorreDosIndices);
+			document.write('<br>');
+			//añadir en punto intermedio
+			animal.splice(2,0,nuevoAnimal,"Caballo","Vaca");
+			animal.forEach(recorreDosIndices);
+			document.write('<br>');
+			//borrar en punto intermedio
+			animal.splice(3,2);
+			animal.forEach(recorreDosIndices);
+			document.write('<br>');
+        </script>
+    </body>
+</html>

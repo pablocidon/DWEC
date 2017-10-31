@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <script>
+            var frase = prompt("Introduzca una frase: ");
+            var palabras = frase.split(" ");
+            var contadorPalabras = 0;
+            var contadorCaracteres = 0;
+            var caracteres = palabras.length;
+            for (var i=0;i<palabras.length;i++){
+                contadorPalabras++;
+            }
+            document.write("Palabras: "+contadorPalabras+'<br>');
+            for (var j=0;j<caracteres.length;j++){
+                contadorCaracteres++;
+            }
+            document.write("Caracteres: "+contadorCaracteres+'<br>');
+        </script>
+    </body>
+</html>

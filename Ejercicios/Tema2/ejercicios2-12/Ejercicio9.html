@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Ejercicio 9</title>
+  </head>
+  <body>
+    <script>
+		var n1 = prompt("Escribe un número");
+		var n2 = prompt("Escribe otro número");
+		var x;
+		var y;
+		for(x=1;x<=n1/2;x++){
+			for(y=1;y<=n2/2;y++){
+				if(n1%x==0 && n2%y==0 && x===y){
+					document.write(x+', ');
+				}
+			}
+		}	
+    </script>
+  </body>
+</html>

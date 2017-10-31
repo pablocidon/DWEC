@@ -1,0 +1,92 @@
+*{
+	margin: 0, auto;
+	padding: 0, auto;
+}
+body{
+	background-color: 	#008000;
+}
+button{
+	width: 10%;
+	font-size: 30px;
+	margin-left: 5%;
+	margin-top: 1%;
+	margin-bottom: 1%;
+}
+.amarillo{
+	background-color: yellow;
+}
+.rojo{
+	background-color: red;
+}
+.azul{
+	background-color: blue;
+	color: white;
+}
+.verde{
+	background-color: green;
+}
+.negro{
+	background-color: black;
+	color: white;
+}
+.entrar{
+	font-size: 100%;
+	width: 30%;
+}
+.cuerpo{
+	width: 70%;
+	margin-left: 10%;
+}
+nav{
+	margin-top: 2%;
+	background-color: #90EE90;
+}
+img{
+	margin: 5%;
+	width: 10%;
+}
+main{
+	margin-top: 2%;
+	width: 69%;
+	float: left;
+	background-color: #7FFF00;
+}
+aside{
+	width: 29%;
+	margin-top: 2%;
+	float: right;
+	background-color: #ADFF2F;
+}
+aside>*{
+	margin: 5%;
+}
+article>h3{
+	margin-left: 5%;
+	color: #4169E1;
+	font-size: 30px;
+}
+p{
+	font-size: 20px;
+}
+.pie{
+	margin-left: 5%;
+	font-style: italic;
+	font-weight: bold;
+}
+header{
+	background-color: #3CB371;
+	height: 15%;
+}
+footer{
+	margin-top: 2%;
+	float: clear;
+	clear: both;
+	text-align: right;
+	background-color: #3CB371;
+}
+#pie{
+	margin-right: 5%;
+}
+img:hover{
+	width: 12%;
+}

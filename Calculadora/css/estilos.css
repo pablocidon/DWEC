@@ -1,0 +1,22 @@
+#visor{
+    text-align: right;
+    width: 160px;
+    height: 40px;
+    font-size: 20px;
+}
+.boton{
+    width: 80px;
+    height: 40px;
+    margin-top: 10px;
+    border-radius: 4px;
+    font-size: 15px;
+    background-color: cyan;
+}
+form{
+    border-style: solid;
+    margin: 5%;
+    padding: 1%;
+    width: 24%;
+    background-color: blue;
+    border-color: cornflowerblue;
+}

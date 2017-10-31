@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Ejercicio 6</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/cadenasDAW1.js"></script>
+    </head>
+    <body>
+        <script>
+            var dni = prompt("Introduzca un DNI (sin letra): ");
+            var letra = letraDNI(dni);
+            if(dni.length==8){
+                alert(dni+letra);
+            }else{
+                alert("El DNI no se ajusta al tamaño.");
+            }
+        </script>
+    </body>
+</html>

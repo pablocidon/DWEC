@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+    <!--Visualizar acción a partir de un tiempo-->
+    <head>
+        <title>Práctica 4</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">	
+    </head>
+    <body>
+        <p id="verResultado"></p>
+        <p id="resultado"></p>
+        <script>
+            /*a) llamada a función*/
+            /*var tiempo = 3000;
+             intervalo = setTimeout(verMensaje, tiempo);
+             function verMensaje() {
+             salida = document.getElementById("verResultado");
+             salida.innerHTML = "Buenos Días";
+             }*/
+            /*b) función anónima*/
+            var tiempo = 3000;
+            intervalo = setTimeout(
+                function () {
+                    salida = document.getElementById("verResultado");
+                    salida.innerHTML = "Buenos Días";
+                }, tiempo);
+            /*limpiar*/
+            /*clearTimeout(intervalo);*/
+        </script>
+    </body>
+</html>

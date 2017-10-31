@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Ejercicio 7</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <script src="js/cadenasDAW1.js"></script>
+        <script>
+            var frase = prompt("Introduzca una frase: ");
+            var palabras = new Array(frase.split(" "));
+            var contrario = new Array(palabras.reverse());
+            document.write("Frase en mayúsculas: " + frase.toUpperCase() + '<br>');
+            document.write("Frase en minúsculas: " + frase.toLowerCase() + '<br>');
+            document.write("Frase en array: " + palabras + '<br>');
+            document.write("Array invertido: " + contrario + '<br>');
+
+            /*for (var i = 0; i <= palabras.length; i++) {
+                for (var j = contrario.length; j = 0; j--) {
+                    if (palabras.equals(contrario)) {
+                        document.write("Las cadenas son iguales.");
+                    } else {
+                        document.write("Las cadenas no son iguales.");
+                    }
+                }
+            }*/
+        </script>
+    </body>
+</html>

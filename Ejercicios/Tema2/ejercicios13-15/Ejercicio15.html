@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Ejercicio 15</title>
+  </head>
+  <body>
+    <script>
+		var filas = new Array();
+		var columnas = new Array();
+		for(var i=0; i<=filas; i++){
+			var salida = "";
+			for(var j=0; j<=filas-i;j++){
+				salida += "&nbsp";
+			}
+		
+			for(var k=0; k <=i;k++) {
+				salida += "*&nbsp"
+			}
+			
+			document.write(salida);
+			document.write("<br>");
+		}
+		for(var i=filas; i>=0; i--){
+			var salida = ""; 
+			for(var j=0; j<=filas-i;j++){ 
+				salida += "&nbsp";
+			} 
+			for(var k=0; k <=i;k++) { 
+				salida += "*&nbsp" 
+			} 
+			document.write(salida); 
+			document.write("<br>"); 
+		}
+    </script>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html lang="es">
+    <head>
+        <title>EjercicioJS</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <script>
+            var miA = new Array("SMR1","SMR2","DAW1",["DWEC","FOL","DWES","DAW","DIW"],"DAW2");
+			for (var i in miA){
+				if(Array.isArray(miA[i])){
+					for(var j in miA[i]){
+						document.write(" miA["+i+"]["+j+"] "+miA[i][j]+"<br>");
+					}
+				} else {
+					document.write(" miA["+i+"] "+miA[i]);
+				}
+			}
+        </script>
+    </body>
+</html>
+			<!-- var miB[0] = "9"; -->
+            <!-- var miB["Empresa"] = ("Cereales","Trigo","Cebada","Maiz"); -->
+            <!-- var miB.comercio = ("Madrid", "Valencia"); -->

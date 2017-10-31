@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Ejercicio 9</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/cadenasDAW1.js"></script>
+        <style type="text/css">
+            #entidad,#oficina{
+                width: 2.5%;
+            }
+            #dc{
+                width: 1.25%;
+            }
+            #cuenta{
+                width: 5.5%;
+            }
+        </style>
+    </head>
+    <body>
+        <label for="entidad">Entidad</label>
+        <input type="text" id="entidad" name="entidad" pattern="(0-9){4}">
+        <label for="oficina">Oficina</label>
+        <input type="text" id="oficina" name="oficina" pattern="(0-9){4}">
+        <label for="dc">D.C.</label>
+        <input type="text" id="dc" name="dc" pattern="(0-9){2}">
+        <label for="cuenta">Nº Cuenta</label>
+        <input type="text" id="cuenta" name="cuenta" pattern="(0-9){10}">
+        <script>
+            var entidad = document.getElementById("entidad");
+            var oficina = document.getElementById("oficina");
+            var dc = document.getElementById("dc");
+            var cuenta = document.getElementById("cuenta");
+            comprobarCCC(entidad,oficina,dc,cuenta);
+            if(!comprobarCCC){
+                alert("El numero no es correcto");
+            }
+        </script>
+        <br><br><input type="button" value="Comprobar" onclick="comprobarCCC()">
+    </body>
+</html>

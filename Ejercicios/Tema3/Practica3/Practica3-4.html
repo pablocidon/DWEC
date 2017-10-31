@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+	<!--Visualizar resultados en un identificador-->
+    <head>
+        <title>Práctica 4</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">	
+    </head>
+    <body>
+		<!--a--><p id="verResultado">
+			SALIDA
+		</p>
+		<!--b--><p id="resultado">
+			SALIDA
+		</p>
+    </body>
+	<script>
+		var fechaActual = new Date();
+		var saludo = "Buenos días ...";
+		/*a*/document.getElementById("verResultado").innerHTML=saludo+"<br/>"+fechaActual;
+		/*b*/etiqueta=document.getElementById("resultado");
+		window.etiqueta.innerHTML=saludo;
+    </script>
+</html>

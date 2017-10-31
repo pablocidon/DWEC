@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<title>Ejercicio 1</title>
+	</head>
+	<body>
+		<script>
+			var array1 = new Array();
+			var array2 = new Array();
+			var contador = 0;
+			var i;
+			var j;
+			var x;
+			var y;
+			for(i=0;i<=2;i++){
+				for(j=0;j<=2;j++){
+				contador++;
+					array1[i,j]= parseInt(prompt("Introduzca un número: "+contador));
+					document.write("A: "+array1[i,j]);
+				}
+			}
+			for(x=0;x<=2;x++){
+				for(y=0;y<=2;y++){
+				contador++;
+					array2[x,y]= parseInt(prompt("Introduzca un número: "+contador));
+					document.write("B: "+array2[x,y]);
+				}
+			}
+		</script>
+	</body>
+</html>

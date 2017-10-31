@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<title>Ejercicio 1</title>
+	</head>
+	<body>
+		<script>
+			function burbuja(miArray){
+				for (var i=1;i<miArray.lenght;i++){
+					for (var j=0;j<(miArray.lenght-i);j++){
+						if(miArray[j]>miArray[j+1]){
+							k=miArray[j+1];
+							miArray[j+1]=miArray[j];
+							miArray[j]=k;
+						}
+					}
+				}
+				return miArray;
+			}
+			var miArray = new Array(5,9,4,7,3,8,2,1,6);
+			document.write("Valores iniciales: ");
+			for(var i=0;i<miArray.lenght;i++){ 
+				document.write(miArray[i]); 
+			} 
+			var arrayB=burbuja(miArray);
+ 
+			document.write("Valores ordenados: "); 
+			for(i=0;i<arrayB.length;i++){ 
+				document.write(arrayB[i]); 
+			} 
+		</script>
+	</body>
+</html>

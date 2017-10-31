@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+    <!--Visualizar acción a partir de un tiempo-->
+    <head>
+        <title>Práctica 4</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">	
+    </head>
+    <body>
+        <p id="verResultado"></p>
+        <p id="resultado"></p>
+        <script>
+            var leeTiempo = prompt("Introduzca el número de segundos que debe permanecer abierta la ventana: ");
+            /*var cierra = setTimeout(
+             function () {
+             window.close();
+             },parseInt(leeTiempo) * 1000);*/
+            var tiempoInicial = new Date();
+            var miliActual = tiempoInicial.getTime();
+            var tiempoFinal = miliActual + (parseInt(leeTiempo) * 1000);
+            var nuevaVentana = window.open();
+            do {
+                var tiempoAhora=new Date().getTime();
+                if (tiempoFinal <= tiempoAhora){
+                    nuevaVentana.window.close();
+                }
+            } while (true); 
+            
+        </script>
+    </body>
+</html>

@@ -1,0 +1,45 @@
+*{
+	margin: 0, auto;
+	padding: 0, auto;
+}
+body{
+	background-color: #ffe6e6;
+}
+img{
+	height: 5%;
+	width: 5%;
+}
+main{	
+	width: 80%;
+	/* float:left;  */
+}
+/* aside{ */
+	/* width: 20%; */
+	/* float: right;  */
+/* } */
+nav{
+	background-color: #00ffbf;
+}
+img.bus{
+	margin-left: 7%;
+	margin-right: 7%;
+}
+img.bus:hover{
+	width: 6%;
+}
+footer{
+	float: clear;
+	position: absolute; 
+	background-color: #ffbf00;
+	clear: both;
+}
+img.nav{
+	width: 2%;
+}
+aside>h3:hover{
+	background-color: #40ff00;
+	color: #ff00ff;
+}
+aside>h3{
+	text-align: center;
+}

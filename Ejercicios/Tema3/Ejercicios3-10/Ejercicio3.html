@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html lang="es">
+    <head>
+        <title>Ejercicio 3</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <script>
+            var frase = prompt("Introduzca una palabra: ");
+			var palabras = frase.split(" ");
+			var contador = 0;
+			document.write("Cadena original: "+palabras);
+			document.write('<br>');
+			document.write("Primera palabra: "+palabras[0]);
+			document.write('<br>');
+			document.write("Cadena en orden inverso: "+palabras.reverse());
+			document.write('<br>');
+			for (var i=0;i<palabras.length;i++){
+				contador++;
+			}
+			document.write("Número de palabras: "+contador);
+			document.write('<br>');
+			document.write("Orden alfabético: "+palabras.sort());
+			document.write('<br>');
+			<!-- document.write("Orden alfabético inverso: "+palabras.rsort()); -->
+			<!-- document.write('<br>'); -->
+			document.write("Última palabra: "+palabras.pop());
+			document.write('<br>');
+        </script>
+    </body>
+</html>

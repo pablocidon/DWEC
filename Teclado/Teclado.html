@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>TECLADO</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
+        <script src="js/teclado.js"></script>
+    </head>
+
+    <body onload="tecladoMayusculas();">
+        <form id="teclado">
+            <textarea rows="10" cols="100" name="areaEscritura" id="verEscritura"></textarea>
+            <br/>
+            <p id="numeroCaracteres"></p>
+            <p id="numeroPalabras"></p>
+            <br/>
+            <div>
+                <input type="button" name="letraQ" value=" " id="idQ" onclick="escribeCaracter(letraQ.value);"/>
+                <input type="button" name="letraW" value=" " id="idW" onclick="escribeCaracter(letraW.value);"/>
+                <input type="button" name="letraE" value=" " id="idE" onclick="escribeCaracter(letraE.value);"/>
+                <input type="button" name="letraR" value=" " id="idR" onclick="escribeCaracter(letraR.value);"/>
+                <input type="button" name="letraT" value=" " id="idT" onclick="escribeCaracter(letraT.value);"/>
+                <input type="button" name="letraY" value=" " id="idY" onclick="escribeCaracter(letraY.value);"/>
+                <input type="button" name="letraU" value=" " id="idU" onclick="escribeCaracter(letraU.value);"/>
+                <input type="button" name="letraI" value=" " id="idI" onclick="escribeCaracter(letraI.value);"/>
+                <input type="button" name="letraO" value=" " id="idO" onclick="escribeCaracter(letraO.value);"/>
+                <input type="button" name="letraP" value=" " id="idP" onclick="escribeCaracter(letraP.value);"/>
+                <!--<input type="button" name="inicializa" value="INICIALIZA" class="especial" onclick="tecladoMayusculas()"/>-->
+                <br/>
+                <input type="button" name="letraA" value=" " id="idA" onclick="escribeCaracter(letraA.value);"/>
+                <input type="button" name="letraS" value=" " id="idS" onclick="escribeCaracter(letraS.value);"/>
+                <input type="button" name="letraD" value=" " id="idD" onclick="escribeCaracter(letraD.value);"/>
+                <input type="button" name="letraF" value=" " id="idF" onclick="escribeCaracter(letraF.value);"/>
+                <input type="button" name="letraG" value=" " id="idG" onclick="escribeCaracter(letraG.value);"/>
+                <input type="button" name="letraH" value=" " id="idH" onclick="escribeCaracter(letraH.value);"/>
+                <input type="button" name="letraJ" value=" " id="idJ" onclick="escribeCaracter(letraJ.value);"/>
+                <input type="button" name="letraK" value=" " id="idK" onclick="escribeCaracter(letraK.value);"/>
+                <input type="button" name="letraL" value=" " id="idL" onclick="escribeCaracter(letraL.value);"/>
+                <input type="button" name="letraNN" value=" " id="idNN" onclick="escribeCaracter(letraNN.value);"/>
+                <br/>
+                <input type="button" class="especial" name="shift" value="SHIFT" onclick="estadoMayMin();"/>
+                <input type="button" name="letraZ" value=" " id="idZ" onclick="escribeCaracter(letraZ.value);"/>
+                <input type="button" name="letraX" value=" " id="idX" onclick="escribeCaracter(letraX.value);"/>
+                <input type="button" name="letraC" value=" " id="idC" onclick="escribeCaracter(letraC.value);"/>
+                <input type="button" name="letraV" value=" " id="idV" onclick="escribeCaracter(letraV.value);"/>
+                <input type="button" name="letraB" value=" " id="idB" onclick="escribeCaracter(letraB.value);"/>
+                <input type="button" name="letraN" value=" " id="idN" onclick="escribeCaracter(letraN.value);"/>
+                <input type="button" name="letraM" value=" " id="idM" onclick="escribeCaracter(letraM.value);"/>
+                <input type="button" class="especial" name="borrar" id="idBorrar" value="BORRAR" onclick="borrar();"/>
+                <br/>
+                <input type="button" name="numerico" value="?123" onclick=""/>
+                <input type="button" name="micro" value="MICRO" onclick=""/>
+                <input type="button" id="espace" name="space" value=' ' onclick="escribeCaracter(space.value);"/>
+                <input type="button" name="punto" value="." onclick="escribeCaracter(punto.value);"/>
+                <input type="button" class="especial" name="enter" value="ENTER" onclick=""/>
+            </div>
+        </form>
+    </body>
+</html>

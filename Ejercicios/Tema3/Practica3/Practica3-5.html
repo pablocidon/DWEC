@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+    <!--Establecer temporizaciones-->
+    <head>
+        <title>Práctica 4</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">	
+    </head>
+    <body>
+        <p id="verResultado"></p>
+        <p id="resultado"></p>
+        <script>
+            /*Caso 1:*/
+            /*a) llamada a función*/
+            var tiempo = 1000, contador = 0;
+            intervalo = setInterval(verHora, tiempo);
+            function verHora() {
+                salida = document.getElementById("verResultado");
+                salida.innerHTML = Date() + " Cuenta: " + contador;
+                contador += 1;
+                if (contador == 5) {
+                    clearInterval(intervalo);
+                }
+            }
+            /*b) función anónima*/
+            var tiempo = 1000, contador = 0;
+            intervalo = setInterval(
+                    function () {
+                        salida = document.getElementById("resultado");
+                        salida.innerHTML = Date() + " Cuenta: " + contador;
+                        contador += 1;
+                        if (contador == 5) {
+                            clearInterval(intervalo);
+                        }
+                    }, tiempo);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Ejercicio 13</title>
+  </head>
+  <body>
+    <script>
+		var filas = parseInt(prompt("Introduzca un número: "));
+		/*var miX = "*";
+		for (x=1;x<=n;x++){
+			for (i=50;i=x;i--){
+				document.write("");
+				for (y=1;y<=x;y++){
+					document.write(miX+"");
+				}
+			}
+			document.write(x+'</br>');
+		}
+		*/
+		
+		
+		for(var i=0; i<filas; i++){
+			var salida = "";
+			for(var j=0; j<filas-i;j++){
+				salida += "&nbsp";
+			}
+		
+			for(var k=0; k <=i;k++) {
+				salida += "*&nbsp"
+			}
+			
+			document.write(salida);
+			document.write("<br>");
+		
+		}
+		
+		
+    </script>
+  </body>
+</html>
