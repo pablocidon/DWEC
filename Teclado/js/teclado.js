@@ -14,10 +14,12 @@ var estadoSHIFT;
 var teclaPunto = false;
 var cuentaCaracteres = 0;
 var caracterMayuscula = 0;
-var misTeclasNombre = new Array("idQ", "idW", "idE", "idR", "idT", "idY", "idU", "idQ", "idI", "idO", "idP",
-        "idA", "idS", "idD", "idF", "idG", "idH", "idJ", "idK", "idL", "idNN", "idZ", "idX", "idC", "idV",
-        "idB", "idN", "idM");
-var misTeclasValores = new Array('Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'Q', 'I', 'O', 'P', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'Ñ', 'Z', 'X', 'C', 'V', 'B', 'N', 'M');
+var teclaNumerico = true;
+var misTeclasNombre = new Array("idQ","idW","idE","idR","idT","idY","idU","idI","idO","idP",
+        "idA","idS","idD","idF","idG","idH","idJ","idK","idL","idNN","idZ","idX","idC","idV",
+        "idB","idN","idM");
+var misTeclasValores = new Array('Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Ñ','Z','X','C','V','B','N','M');
+var misTeclasNumericas = new Array('1','2','3','4','5','6','7','8','9','0','@','#','€','_','&','-','+','(', ')','/','*','"','\'',':',';','!','?');
 //Definición de funciones
 function escribeCaracter(letra) {
     switch (letra) {
@@ -43,10 +45,12 @@ function escribeCaracter(letra) {
         {
             caracteresArea += letra;
             cuentaCaracteres++;
-            visualizar();
             verCaracteres();
-            tecladoMayusculas();
-            teclaPunto = true;
+            visualizar();
+            if (teclaNumerico){
+                tecladoMayusculas();
+                teclaPunto = true;
+            }
             caracterMayuscula=0;
             break;
         }
@@ -102,5 +106,21 @@ function estadoMayMin() {
 function cargaValoresTeclas() {
     for (var i in misTeclasNombre) {
         misTeclasNombre[i].value = misTeclasValores[i];
+    }
+}
+
+function cargaValoresNumericos() {
+    for (var i in misTeclasNombre) {
+        document.getElementById(misTeclasNombre[i]).value = misTeclasNumericas[i];
+    }
+
+}
+function controlCambioTeclado() {
+    if(teclaNumerico){
+        cargaValoresNumericos();
+        tecladoNumerico=false;
+    }else{
+        cargaValoresTeclas();
+        teclaNumerico=true;
     }
 }

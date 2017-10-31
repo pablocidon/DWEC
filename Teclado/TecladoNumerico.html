@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>TECLADO</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
+    <script src="js/teclado.js"></script>
+</head>
+
+<body onload="tecladoMayusculas();">
+<form id="teclado">
+    <textarea rows="10" cols="100" name="areaEscritura" id="verEscritura"></textarea>
+    <br/>
+    <p id="numeroCaracteres"></p>
+    <p id="numeroPalabras"></p>
+    <br/>
+    <div>
+        <input type="button" name="numero1" value=" " id="id1" onclick="escribeCaracter(numero1.value);"/>
+        <input type="button" name="numero2" value=" " id="id2" onclick="escribeCaracter(numero2.value);"/>
+        <input type="button" name="numero3" value=" " id="id3" onclick="escribeCaracter(numero3.value);"/>
+        <input type="button" name="numero4" value=" " id="id4" onclick="escribeCaracter(numero4.value);"/>
+        <input type="button" name="numero5" value=" " id="id5" onclick="escribeCaracter(numero5.value);"/>
+        <input type="button" name="numero6" value=" " id="id6" onclick="escribeCaracter(numero6.value);"/>
+        <input type="button" name="numero7" value=" " id="id7" onclick="escribeCaracter(numero7.value);"/>
+        <input type="button" name="numero8" value=" " id="id8" onclick="escribeCaracter(numero8.value);"/>
+        <input type="button" name="numero9" value=" " id="id9" onclick="escribeCaracter(numero9.value);"/>
+        <input type="button" name="numero0" value=" " id="id0" onclick="escribeCaracter(numero0.value);"/>
+        <!--<input type="button" name="inicializa" value="INICIALIZA" class="especial" onclick="tecladoMayusculas()"/>-->
+        <br/>
+        <input type="button" name="arroba" value=" " id="id@" onclick="escribeCaracter(arroba.value);"/>
+        <input type="button" name="hastag" value=" " id="id#" onclick="escribeCaracter(hastag.value);"/>
+        <input type="button" name="euro" value=" " id="id€" onclick="escribeCaracter(euro.value);"/>
+        <input type="button" name="porcentage" value=" " id="id%" onclick="escribeCaracter(porcentage.value);"/>
+        <input type="button" name="unpersan" value=" " id="id&" onclick="escribeCaracter(unpersan.value);"/>
+        <input type="button" name="menos" value=" " id="idMenos" onclick="escribeCaracter(menos.value);"/>
+        <input type="button" name="mas" value=" " id="idMas" onclick="escribeCaracter(mas.value);"/>
+        <input type="button" name="abreParentesis" value=" " id="id(" onclick="escribeCaracter(abreParentesis.value);"/>
+        <input type="button" name="cierraParentesis" value=" " id="id)" onclick="escribeCaracter(cierraParentesis.value);"/>
+        <input type="button" name="barra" value=" " id="id/" onclick="escribeCaracter(barra.value);"/>
+        <br/>
+        <input type="button" name="simbolos" value=" " onclick=""/>
+        <input type="button" name="multiplica" value=" " id="id*" onclick="escribeCaracter(multiplica.value);"/>
+        <input type="button" name="comillas" value=" " id="idComillas" onclick="escribeCaracter(comillas.value);"/>
+        <input type="button" name="comilla" value=" " id="idComilla" onclick="escribeCaracter(comilla.value);"/>
+        <input type="button" name="dosPuntos" value=" " id="id:" onclick="escribeCaracter(dosPuntos.value);"/>
+        <input type="button" name="puntoComa" value=" " id="id;" onclick="escribeCaracter(puntoComa.value);"/>
+        <input type="button" name="exclama" value=" " id="id!" onclick="escribeCaracter(exclama.value);"/>
+        <input type="button" name="interroga" value=" " id="id?" onclick="escribeCaracter(interroga.value);"/>
+        <input type="button" class="especial" name="borrar" id="idBorrar" value="BORRAR" onclick="borrar();"/>
+        <br/>
+        <input type="button" name="alfabetico" value="ABC" onclick=""/>
+        <input type="button" name="guionBajo" value="_" onclick="escribeCaracter(guionBajo.value);"/>
+        <input type="button" id="espace" name="space" value=' ' onclick="escribeCaracter(space.value);"/>
+        <input type="button" name="punto" value="." onclick="escribeCaracter(punto.value);"/>
+        <input type="button" class="especial" name="enter" value="ENTER" onclick=""/>
+    </div>
+</form>
+</body>
+</html>
