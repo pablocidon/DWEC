@@ -14,7 +14,7 @@ var estadoSHIFT;
 var teclaPunto = false;
 var cuentaCaracteres = 0;
 var caracterMayuscula = 0;
-var teclaNumerico = true;
+var tecladoNumerico = true;
 var misTeclasNombre = new Array("idQ","idW","idE","idR","idT","idY","idU","idI","idO","idP",
         "idA","idS","idD","idF","idG","idH","idJ","idK","idL","idNN","idZ","idX","idC","idV",
         "idB","idN","idM");
@@ -47,7 +47,7 @@ function escribeCaracter(letra) {
             cuentaCaracteres++;
             verCaracteres();
             visualizar();
-            if (teclaNumerico){
+            if (tecladoNumerico){
                 tecladoMayusculas();
                 teclaPunto = true;
             }
@@ -104,23 +104,32 @@ function estadoMayMin() {
     }
 }
 function cargaValoresTeclas() {
-    for (var i in misTeclasNombre) {
-        misTeclasNombre[i].value = misTeclasValores[i];
+    var j;
+    for(var i in misTeclasNombre){
+        if(tecladoNumerico){
+            misTeclasNombre[i].value = misTeclasValores[i];
+        }else{
+            document.getElementById(misTeclasNombre[i]).value = misTeclasNumericas[i];
+        }
+        j++;
     }
+    /*for (var i in misTeclasNombre) {
+        misTeclasNombre[i].value = misTeclasValores[i];
+    }*/
 }
 
-function cargaValoresNumericos() {
+/*function cargaValoresNumericos() {
     for (var i in misTeclasNombre) {
         document.getElementById(misTeclasNombre[i]).value = misTeclasNumericas[i];
     }
 
-}
+}*/
 function controlCambioTeclado() {
-    if(teclaNumerico){
-        cargaValoresNumericos();
+    if(tecladoNumerico){
+        cargaValoresTeclas();
         tecladoNumerico=false;
     }else{
         cargaValoresTeclas();
-        teclaNumerico=true;
+        tecladoNumerico=true;
     }
 }
