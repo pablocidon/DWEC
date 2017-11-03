@@ -134,9 +134,15 @@ function esNumero(x) {
         return "El número es nulo";
     }
 }
-function tipo(x) {
-    if(isNaN(x)){
-        esPrimo(x);
+function tipoValor(x) {
+    if(!isNaN(x)){
+        return "El valor es un número."
+        if(esPrimo(x)){
+            return("Es primo.");
+        }
+        else {
+            return ("No es primo.");
+        }
     }else{
         return "El valor es una cadena";
     }

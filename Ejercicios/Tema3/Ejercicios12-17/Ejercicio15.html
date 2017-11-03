@@ -10,7 +10,10 @@
 <body>
 <script>
     var x=prompt("Introduzca un valor: ");
-    alert(esNumero(x));
+    while(!esUnNumero(x)){
+        var x=prompt("Introduzca un valor: ");
+    }
+    alert(tipoValor(x));
 </script>
 </body>
 </html>
