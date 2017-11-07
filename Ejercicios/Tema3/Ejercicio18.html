@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Ejercicio 18</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/funciones.js"></script>
+    </head>
+    <body>
+        <form id="formulario">
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" id="campoNombre" placeholder="Nombre">
+            <br><br>
+            <label for="apellido">Apellido:</label>
+            <input type="text" name="apellido" id="campoApellido" placeholder="Apellido" disabled>
+            <br><br>
+            <input type="button" name="mayusculas" value="MAY" id="idMay" onclick="convertirMayusculas(nombre.value);"/>
+            <input type="button" name="minusculas" value="min" id="idMin" onclick="convertirMinusculas(nombre.value);"/>
+        </form>
+    </body>
+</html>
