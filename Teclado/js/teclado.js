@@ -80,18 +80,18 @@ function visualizar() {
     verEscritura.value = caracteresArea;
 }
 function verCaracteres() {
-    let objEscribe = document.getElementById("numeroCaracteres");
+    var objEscribe = document.getElementById("numeroCaracteres");
     objEscribe.innerHTML = "Caracteres: " + cuentaCaracteres;
 }
 //Cambio de teclas a mayúsculas/minúsculas
 function tecladoMayusculas() {
-    for (let i = 0; i < misTeclasNombre.length; i++) {
+    for (var i = 0; i < misTeclasNombre.length; i++) {
         document.getElementById(misTeclasNombre[i]).value = misTeclasValores[i].toUpperCase();
     }
     estadoSHIFT = true;
 }
 function tecladoMinusculas() {
-    for (let i = 0; i < misTeclasNombre.length; i++) {
+    for (var i = 0; i < misTeclasNombre.length; i++) {
         document.getElementById(misTeclasNombre[i]).value = misTeclasValores[i].toLowerCase();
     }
     estadoSHIFT = false;

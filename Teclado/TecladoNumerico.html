@@ -54,6 +54,12 @@
         <input type="button" id="espace" name="space" value=' ' onclick="escribeCaracter(space.value);"/>
         <input type="button" name="punto" value="." onclick="escribeCaracter(punto.value);"/>
         <input type="button" class="especial" name="enter" value="ENTER" onclick=""/>
+        <br/>
+        <menu>
+            <input type="button" name="negrita" id="idNegrita" value="Negrita" onclick="document.execCommand('bold','false','');">
+            <input type="button" name="cursiva" id="idCursiva" value="Cursiva" onclick="document.execCommand('italic','false','');">
+            <input type="button" name="subrayado" id="idSubrayado" value="Subrayado" onclick="document.execCommand('underline','false','');">
+        </menu>
     </div>
 </form>
 </body>
