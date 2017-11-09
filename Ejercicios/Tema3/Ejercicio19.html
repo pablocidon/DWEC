@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Ejercicio 19</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <script>
+            var miRed = new ConfiRed("192.168.3.100","255.255.255.0","192.168.3.1");
+            function ConfiRed(ip,subred,puerta) {
+                this.ip=ip;
+                this.subred=subred;
+                this.puerta=puerta;
+            }
+            console.log(miRed);
+        </script>
+    </body>
+</html>
