@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>EDITOR</title>
+        <link href="css/style.css" rel="stylesheet" type="text/css"/>
+        <script src="js/teclado.js"></script>
+    </head>
+    <body>
+        <section class="opciones">
+            <button onclick="document.execCommand('bold',false,' ');">Negrita</button>
+            <button onclick="document.execCommand('italic',false,' ');">Cursiva</button>
+            <button onclick="document.execCommand('underline',false,' ');">Subrayado</button>
+            <select><!--Pendiente de evento onchange-->
+                <option class="heading" selected>Formato</option>
+                <option value="<h1>">Cabecera &lt;h1&gt;</option>
+                <option value="<h2>">H2 &lt;h2&gt;</option>
+                <option value="<h3>">H3 &lt;h2&gt;</option>
+                <option value="<h4>">H4 &lt;h4&gt;</option>
+                <option value="<h5>">H5 &lt;h5&gt;</option>
+                <option value="<h6>">H6 &lt;h6&gt;</option>
+                <option value="<p>">Párrafo &lt;p&gt;</option>
+                <option value="<pre>">Preformateado &lt;pre&gt;</option>
+            </select>
+            <button>Hipervínculo</button><!--Pendiente de evento JavaScript-->
+            <input type="url" id="szURL" placeholder="URL" required/>
+            <select><!--Pendiente de evento onchange-->
+                <option class="heading" selected>Color</option>
+                <option value="red">Rojo</option>
+                <option value="blue">Azul</option>
+                <option value="green">Verde</option>
+                <option value="black">Negro</option>
+            </select>
+        </section>
+        <section class="opciones">
+            <button onclick="document.execCommand('insertUnorderedList',false,' ');">Punto Lista</button>
+            <button onclick="document.execCommand('insertOrderedList',false,' ');">Numerar Párrafos</button>
+            <button onclick="document.execCommand('justifyLeft',false,' ');">Izquierda</button>
+            <button onclick="document.execCommand('justifyCenter',false,' ');">Centro</button>
+            <button onclick="document.execCommand('justifyRight',false,' ');">Derecha</button>
+            <button onclick="document.execCommand('copy',false,' ');">Copiar</button>
+            <button onclick="document.execCommand('cut',false,' ');">Cortar</button>
+            <button onclick="document.execCommand('paste',false,' ');">Pegar</button>
+            <select><!--Pendiente de evento onchange-->
+                <option class="heading" selected>Fuente</option>
+                <option value="1">Muy Pequeña</option>
+                <option value="2">Pequeña</option>
+                <option value="3">Normal</option>
+                <option value="4">Mediana</option>
+                <option value="5">Grande</option>
+                <option value="6">Muy Grande</option>
+                <option value="7">Enorme</option>
+            </select>
+        </section>
+        <div id="textBox" contenteditable="true">
+            <h1 style="color: red">Mi Editor</h1>
+            <p>Comience a escribir aqui....</p>
+        </div>
+    </body>
+</html>
