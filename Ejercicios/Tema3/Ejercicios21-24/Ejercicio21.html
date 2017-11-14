@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 21</title>
+</head>
+<body>
+    <script>
+        try{
+            var msg = {};
+            var x=prompt("Introduzca un número: ");
+            var y=prompt("Introduzca otro número: ");
+            if(x==0 && y==0){
+                throw 'DIVISIONCERO';
+            } else if(y==0){
+                throw 'CERO';
+            }else if(isNaN(y)){
+                throw 'CADENA';
+            }else if(x==null || y==null){
+                throw 'CADENAVACIA';
+            }else if(typeof x == 'boolean' || typeof y == 'boolean'){
+                throw 'CADENABOOLEAN';
+            }
+            msg='Operación realizada '+(x/y);
+        }catch (e){
+            if(e=='CERO') msg='No se puede dividir entre 0';
+            if(e=='DIVISIONCERO') msg='Error!! Disión 0 entre 0';
+            if(e=='CADENA') msg='No se puede dividir entre una cadena';
+            if(e=='CADENAVACIA') msg='Una de las cadenas está vacía';
+            if(e=='CADENABOOLEAN') msg='Ninguna de las cadenas puede ser booleana';
+        }finally {
+            alert(msg);
+        }
+    </script>
+</body>
+</html>
