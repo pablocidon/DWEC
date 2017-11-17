@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>MINI EDITOR</title>
+        <link href="css/style.css" rel="stylesheet" type="text/css"/>
+        <script type="text/javascript">
+            window.onload=function() {
+                editarFormato();
+                enlazar();
+                mostrarCodigo();
+            }
+            function editarFormato() {
+                var botonNegrita=document.getElementById("botonNegrita");
+                var botonItalica=document.getElementById("botonItalica");
+                var botonSubrayado=document.getElementById("botonSubrayado");
+                botonNegrita.onclick=function () {
+                    document.execCommand('bold',false,null);
+                }
+                botonItalica.onclick=function () {
+                    document.execCommand('italic',false,null);
+                }
+                botonSubrayado.onclick=function () {
+                    document.execCommand('underline',false,null);
+                }
+            }
+            function enlazar() {
+                var botonEnlace=document.getElementById("botonEnlace");
+                botonEnlace.onclick=function () {
+                    var direccionURL=prompt("Escribe la dirección de enlace: ","http://");
+                    if(direccionURL){
+                        document.execCommand('createlink',false,direccionURL);
+                    }
+                }
+            }
+            function mostrarCodigo() {
+                var botonMostrar=document.getElementById("botonMostrar");
+                botonMostrar.onclick=function () {
+                    var codigoArea=document.getElementById("textBox").innerHTML;
+                    //Cambio Caracteres
+                    codigoArea.replace(/</g,'&lt;');
+                    codigoArea.replace(/>/g,'&gt;');
+                    alert(codigoArea);
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <form name="SupuestoB">
+            <section class="opciones">
+                <input type="button" id="botonNegrita" value="Negrita" onclick=""/>
+                <input type="button" id="botonItalica" value="Italica" onclick=""/>
+                <input type="button" id="botonSubrayado" value="Subrayado" onclick=""/>
+                <input type="button" id="botonEnlace" value="Enlace" onclick=""/>
+                <input type="button" id="botonMostrar" value="Mostrar Código" onclick=""/>
+            </section>
+            <div id="textBox" contenteditable="true"></div>
+        </form>
+    </body>
+</html>
