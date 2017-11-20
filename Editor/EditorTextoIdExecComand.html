@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="UTF-8">
         <title>EDITOR</title>
@@ -11,7 +11,7 @@
             <button onclick="document.execCommand('bold',false,' ');">Negrita</button>
             <button onclick="document.execCommand('italic',false,' ');">Cursiva</button>
             <button onclick="document.execCommand('underline',false,' ');">Subrayado</button>
-            <select><!--Pendiente de evento onchange-->
+            <select onchange="formatoFuente('formatblock',this[this.selectedIndex].value); this.selectedIndex=0">
                 <option class="heading" selected>Formato</option>
                 <option value="<h1>">Cabecera &lt;h1&gt;</option>
                 <option value="<h2>">H2 &lt;h2&gt;</option>
@@ -22,9 +22,11 @@
                 <option value="<p>">Párrafo &lt;p&gt;</option>
                 <option value="<pre>">Preformateado &lt;pre&gt;</option>
             </select>
-            <button>Hipervínculo</button><!--Pendiente de evento JavaScript-->
+            <button onclick="if(document.getElementById('szURL').checkValidity()){
+                document.execCommand('createlink',false,document.getElementById('szURL').value);
+                    }">Hipervínculo</button>
             <input type="url" id="szURL" placeholder="URL" required/>
-            <select><!--Pendiente de evento onchange-->
+            <select onchange="formatoFuente('forecolor',this[this.selectedIndex].value); this.selectedIndex=0">
                 <option class="heading" selected>Color</option>
                 <option value="red">Rojo</option>
                 <option value="blue">Azul</option>
@@ -41,7 +43,7 @@
             <button onclick="document.execCommand('copy',false,' ');">Copiar</button>
             <button onclick="document.execCommand('cut',false,' ');">Cortar</button>
             <button onclick="document.execCommand('paste',false,' ');">Pegar</button>
-            <select><!--Pendiente de evento onchange-->
+            <select onchange="formatoFuente('fontsize',this[this.selectedIndex].value); this.selectedIndex=0">
                 <option class="heading" selected>Fuente</option>
                 <option value="1">Muy Pequeña</option>
                 <option value="2">Pequeña</option>

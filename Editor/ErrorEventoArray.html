@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Errores</title>
+        <script type="text/javascript">
+            window.onerror=miError;//Función de carga
+            var msArray=new Array();
+            var urlArray=new Array();
+            var lineaArray=new Array();
+            function miError(msg,url,linea) {
+                msArray[msArray.length]=msg;
+                urlArray[msArray.length]=url;
+                lineaArray[msArray.length]=linea;
+                return true;
+            }
+            function visualizarError() {
+                win2=window.open('','ventana2','scrollbars=yes');
+                win2.document.writeln('<b> ERROR: en la carga </b>');
+                for (i in msArray){
+                    win2.document.writeln('<b>Error: </b>'+i);
+                }
+            }
+            win2.document.close();
+        </script>
+    </head>
+    <body>
+    </p>
+        <form>
+            <input type="button" value="Tengo un error" onclick="alert('Error sin determinar')" name="button">
+        </form>
+    <p>
+    <input type="button" value="Ver Error" onclick="visualizarError()">
+    </body>
+</html>
