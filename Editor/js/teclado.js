@@ -1,8 +1,9 @@
 function formatoFuente(comando,valor) {
     document.execCommand(comando,false,valor);
 }
-function formatoColor() {
-
+function Ignorar(e) {
+    e.stopPropagation();
+    e.preventDefault();
 }
 function tamanioFuente() {
 

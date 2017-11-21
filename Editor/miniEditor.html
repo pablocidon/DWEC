@@ -9,6 +9,11 @@
                 editarFormato();
                 enlazar();
                 mostrarCodigo();
+                //window.addEventListener('click',botonPulsado);
+                window.addEventListener('click',function (e) {
+                    console.log("Target: "+e.target);
+                    console.log("Type: "+e.type);
+                })
             }
             function editarFormato() {
                 var botonNegrita=document.getElementById("botonNegrita");
@@ -42,6 +47,14 @@
                     codigoArea.replace(/>/g,'&gt;');
                     alert(codigoArea);
                 }
+            }
+            function EventoBoton(e) {
+                console.log("Target: "+e.target);
+                console.log("Type: "+e.type);
+            }
+            function botonPulsado() {
+                miBoton=document.getElementById('botonMostrar');
+                EventoBoton(miBoton);
             }
         </script>
     </head>
