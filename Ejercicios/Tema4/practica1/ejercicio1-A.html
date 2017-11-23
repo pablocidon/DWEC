@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Ejercicio 1</title>
+        <script type="text/javascript">
+            function validarCampos() {
+                if(document.getElementsById('nombre').length<2){
+                    alert("La longitud mínima del nombre debe ser de 3 caracteres");
+                    return false;
+                }else if(document.getElementsById('apellidos').length<2){
+                    alert("La longitud mínima de los apellidos debe ser de 3 caracteres");
+                    return false;
+                }else if(document.getElementsById('email').length<2){
+                    alert("La longitud mínima del email debe ser de 3 caracteres");
+                    return false;
+                }else if(document.getElementsById('ciudad').length<2){
+                    alert("La longitud mínima de la ciudad debe ser de 3 caracteres");
+                    return false;
+                }else if(document.getElementsById('pais').length<2){
+                    alert("La longitud mínima del país debe ser de 3 caracteres");
+                    return false;
+                }else{
+                    alert("Formulario realizado correctamente");
+                    return true;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <form name="formulario" onsubmit="validarCampos()">
+            <label for="nombre">Nombre: </label>
+            <input type="text" name="nombre" id="nombre" placeholder="Nombre">
+            <br><br>
+            <label for="apellidos">Apellidos: </label>
+            <input type="text" name="apellidos" id="apellidos" placeholder="Apellidos">
+            <br><br>
+            <label for="email">Email: </label>
+            <input type="email" name="email" id="email" placeholder="Email">
+            <br><br>
+            <label for="ciudad">Ciudad: </label>
+            <input type="text" name="ciudad" id="ciudad" placeholder="Ciudad">
+            <br><br>
+            <label for="email">País: </label>
+            <input type="text" name="pais" id="pais" placeholder="Pais">
+            <br><br>
+            <input type="submit" name="enviar" value="Enviar">
+        </form>
+    </body>
+</html>

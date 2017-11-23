@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 1</title>
+    <script type="text/javascript">
+        function validarCampos() {
+            var formulario=document.getElementsByName('formularioContacto');
+            for(var i=0;i<formulario.length;i++){
+                if(formulario[i].length<3){
+                    alert("La longitud mínima del campo "+i+" debe ser 3");
+                }else {
+                    alert("Formulario realizado correctamente");
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<form name="formularioContacto" onsubmit="validarCampos()">
+    <label for="nombre">Nombre: </label>
+    <input type="text" name="nombre" placeholder="Nombre">
+    <br><br>
+    <label for="apellidos">Apellidos: </label>
+    <input type="text" name="apellidos" placeholder="Apellidos">
+    <br><br>
+    <label for="email">Email: </label>
+    <input type="email" name="email" placeholder="Email">
+    <br><br>
+    <label for="ciudad">Ciudad: </label>
+    <input type="text" name="ciudad" placeholder="Ciudad">
+    <br><br>
+    <label for="email">País: </label>
+    <input type="text" name="pais" placeholder="Pais">
+    <br><br>
+    <input type="submit" name="enviar" value="Enviar">
+</form>
+</body>
+</html>
