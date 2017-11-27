@@ -1,15 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Tres en Raya</title>
     <link rel="stylesheet" type="text/css" href="css/estilos.css">
     <script type="text/javascript">
-        function ganador() {
+        window.addEventListener('load',iniciar,false);
+        var jugador='X';
+        var b = new Array();
+        function iniciar() {
+            for(i=1;i<=9;i++){
+                document.getElementById('boton'+i).addEventListener('click',teclaPulsada,false);
+            }
+        }
+        function teclaPulsada(evt) {
+            if(evt.target.value=jugador){
+            if(jugador=='X'){
+                jugador='0'
+            }else{
+                jugador='X';
+            }
+                pruebaGana();
+            }else{
+                evt.target.value=" ";
+                if(jugador=='X'){
+                    jugador='0';
+                }else{
+                    jugador='X';
+                }
+            }
 
         }
-        function valor() {
-
+        function pruebaGana() {
+            /*Opción A:
+            * var b1=document.getElementById('boton1').value;
+            * (...)
+            * */
+            //Opción B:
+            for(i=1;i<=9;i++){
+                 b[i]=document.getElementById('boton'+i).value;
+            }
+            if(b[1]=='X'&& b[2]=='X' && b[3]=='X'){
+                alert('Ha ganado X');
+            }else if(b[4]=='X'&& b[5]=='X' && b[6]=='X'){
+                alert('Ha ganado X');
+            }else if(b[7]=='X'&& b[8]=='X' && b[9]=='X'){
+                alert('Ha ganado X');
+            }else if(b[1]=='X'&& b[5]=='X' && b[9]=='X') {
+                alert('Ha ganado X');
+            }else if(b[7]=='X'&& b[5]=='X' && b[3]=='X') {
+                alert('Ha ganado X');
+            }else if(b[1]=='X'&& b[4]=='X' && b[7]=='X'){
+                alert('Ha ganado X');
+            }else if(b[2]=='X'&& b[5]=='X' && b[8]=='X'){
+                alert('Ha ganado X');
+            }else if(b[3]=='X'&& b[6]=='X' && b[9]=='X'){
+                alert('Ha ganado X');
+            }else if(b[1]=='0'&& b[2]=='0' && b[3]=='0'){
+                alert('Ha ganado 0');
+            }else if(b[4]=='0'&& b[5]=='0' && b[6]=='0'){
+                alert('Ha ganado 0');
+            }else if(b[7]=='0'&& b[8]=='0' && b[9]=='0'){
+                alert('Ha ganado 0');
+            }else if(b[1]=='0'&& b[5]=='0' && b[9]=='0') {
+                alert('Ha ganado 0');
+            }else if(b[7]=='0'&& b[5]=='0' && b[3]=='0') {
+                alert('Ha ganado 0');
+            }else if(b[1]=='0'&& b[4]=='0' && b[7]=='0'){
+            alert('Ha ganado 0');
+            }else if(b[2]=='0'&& b[5]=='0' && b[8]=='0'){
+                alert('Ha ganado 0');
+            }else if(b[3]=='0'&& b[6]=='0' && b[9]=='0') {
+                alert('Ha ganado 0');
+            }
+            /*Opción C:
+            * var b=new Object()
+            * */
+            /*Opción D:
+            * Prototipos
+            * */
         }
     </script>
 </head>
@@ -17,17 +86,17 @@
     <div id="juego">
         <h1>JUEGO TRES EN RAYA</h1>
         <br>
-        <input type="button" value="" name="boton1" onclick="valor();">
-        <input type="button" value="" name="boton2" onclick="valor();">
-        <input type="button" value="" name="boton3" onclick="valor();">
+        <input type="button" value="" name="boton1" id="boton1">
+        <input type="button" value="" name="boton2" id="boton2">
+        <input type="button" value="" name="boton3" id="boton3">
         <br>
-        <input type="button" value="" name="boton4" onclick="valor();">
-        <input type="button" value="" name="boton5" onclick="valor();">
-        <input type="button" value="" name="boton6" onclick="valor();">
+        <input type="button" value="" name="boton4" id="boton4">
+        <input type="button" value="" name="boton5" id="boton5">
+        <input type="button" value="" name="boton6" id="boton6">
         <br>
-        <input type="button" value="" name="boton7" onclick="valor();">
-        <input type="button" value="" name="boton8" onclick="valor();">
-        <input type="button" value="" name="boton9" onclick="valor();">
+        <input type="button" value="" name="boton7" id="boton7">
+        <input type="button" value="" name="boton8" id="boton8">
+        <input type="button" value="" name="boton9" id="boton9">
     </div>
 </body>
 </html>
