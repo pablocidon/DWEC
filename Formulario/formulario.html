@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Formulario</title>
+        <script type="text/javascript" src="js/funciones.js"></script>
+    </head>
+    <body>
+        <form name="formulario">
+            <legend>
+                <h1>Formulario de Reclamación</h1>
+            </legend>
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" placeholder="Nombre">
+            <br><br>
+            <label for="apellidos">Apellidos:</label>
+            <input type="text" name="apellidos" placeholder="Apellidos">
+            <br><br>
+            <label for="dni">DNI:</label>
+            <input type="text" name="dni" placeholder="DNI">
+            <br><br>
+            <label for="correo">Dirección de correo:</label>
+            <input type="text" id="correo" name="correo" placeholder="Correo">
+            <br><br>
+            <label for="reclamacion">Reclamaciones:</label><br>
+            <textarea id="texto" placeholder="Introduzca aquí su reclamación" onkeypress="return limita(event,1000);"
+            onkeyup="actualizaInfo(1000);" rows="8" cols="80"></textarea>
+            <div id="info">Máximo 1000 caracteres</div>
+            <br><br>
+            <input type="submit" value="Enviar">
+        </form>
+    </body>
+</html>
