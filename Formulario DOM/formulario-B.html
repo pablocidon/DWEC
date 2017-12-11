@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario DOM</title>
+    <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
+</head>
+    <body>
+        <!--<form oninput="x.value=parseInt(a.value)+parseInt(b.value)">0
+            <input type="range" id="a" value="50"> 100 +
+            <input type="number" id="b" value="50"> =
+            <output name="x" for="a b"></output>
+        </form>-->
+        <script type="text/javascript">
+            var x = document.createElement("form");
+            x.setAttribute("oninput","x.value=parseInt(a.value)+parseInt(b.value)");
+            x.setAttribute("id","output");
+            document.body.appendChild(x);
+            var y = document.createTextNode("0 ");
+            document.getElementById("output").appendChild(y);
+            var z = document.createElement("input");
+            z.setAttribute("type","range");
+            z.setAttribute("id","a");
+            z.setAttribute("value","50");
+            document.getElementById("output").appendChild(z);
+            var y1 = document.createTextNode(" 100 + ");
+            document.getElementById("output").appendChild(y1);
+            var z1 = document.createElement("input");
+            z1.setAttribute("type","number");
+            z1.setAttribute("id","b");
+            z1.setAttribute("value","50");
+            document.getElementById("output").appendChild(z1);
+            var y2 = document.createTextNode(" = ");
+            document.getElementById("output").appendChild(y2);
+            var sal = document.createElement("output");
+            sal.setAttribute("name","x");
+            sal.setAttribute("for","a b");
+            document.getElementById("output").appendChild(sal);
+        </script>
+    </body>
+</html>

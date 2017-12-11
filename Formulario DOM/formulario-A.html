@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario DOM</title>
+    <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
+</head>
+    <body>
+        <script type="text/javascript">
+            var x = document.createElement("form");
+            x.setAttribute("id","primero");
+            x.setAttribute("oninput","calcula();");
+            document.body.appendChild(x);
+            var y = document.createTextNode("Nombre usuario: ");
+            document.getElementById("primero").appendChild(y);
+            var z = document.createElement("input");
+            z.setAttribute("type","text");
+            z.setAttribute("name","nombre");
+            document.getElementById("primero").appendChild(z);
+            var br1 = document.createElement("br");
+            document.getElementById("primero").appendChild(br1);
+            var edad = document.createTextNode("Edad: ");
+            document.getElementById("primero").appendChild(edad);
+            var miedad = document.createElement("input");
+            miedad.setAttribute("type","number");
+            miedad.setAttribute("name","edad");
+            miedad.setAttribute("value","18");
+            miedad.setAttribute("min","18");
+            miedad.setAttribute("max","99");
+            document.getElementById("primero").appendChild(miedad);
+            var br2 = document.createElement("br");
+            document.getElementById("primero").appendChild(br2);
+            var vl = document.createTextNode("Valoracion: ");
+            document.getElementById("primero").appendChild(vl);
+            var intervalo = document.createElement("input");
+            intervalo.setAttribute("type","range");
+            intervalo.setAttribute("name","rangoControl");
+            intervalo.setAttribute("value","5");
+            intervalo.setAttribute("min","0");
+            intervalo.setAttribute("max","10");
+            document.getElementById("primero").appendChild(intervalo);
+            var sal = document.createElement("output");
+            sal.setAttribute("name","salida");
+            sal.value=50;
+            //sal.setAttribute("value","0");
+            //sal.setAttribute(salida.value=0);
+                 document.getElementById("primero").appendChild(sal);
+            var br3 = document.createElement("br");
+            document.getElementById("primero").appendChild(br3);
+            var leef = document.createElement("input");
+            leef.setAttribute("name","abrir");
+            leef.setAttribute("type", "file");
+            document.getElementById("primero").appendChild(leef);
+            function calcula() {
+                return sal.value=parseInt(intervalo.value)*10;
+            }
+        </script>
+    </body>
+</html>
