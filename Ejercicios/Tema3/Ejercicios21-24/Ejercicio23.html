@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 23</title>
+    <link rel="shortcut icon" href="../../../../favicon.ico" type="image/x-icon">
+</head>
+<body>
+<script type="text/javascript">
+    var frase = prompt("Introduzca una frase: ");
+    var palabras = frase.split(" ");
+    var contadorPalabras = 0;
+    var contadorCaracteres = 0;
+    var caracteres = frase.length;
+    for (var i=0;i<palabras.length;i++){
+        contadorPalabras++;
+    }
+    document.write("Palabras: "+contadorPalabras+'<br>');
+    debugger;
+    for (var j=0;j<caracteres.length;j++){
+        contadorCaracteres++;
+    }
+    document.write("Caracteres: "+contadorCaracteres+'<br>');
+</script>
+</body>
+</html>

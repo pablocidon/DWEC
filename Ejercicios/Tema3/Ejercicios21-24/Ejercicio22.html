@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 21</title>
+    <link rel="shortcut icon" href="../../../../favicon.ico" type="image/x-icon">
+</head>
+<body>
+<script type="text/javascript">
+    var matriz=["alumnos", "profesores", "aulas", "mesas", "sillas", "pizarras"];
+    var elemento;
+    for(elemento in matriz){
+        if(matriz.indexOf(5)!=''){
+            document.write("El elemento 5 contiene."+matriz[5]);
+        }
+        if(matriz.indexOf(0).isNaN){
+            document.write("El elemento 0 es una cadena.");
+        }
+        if(matriz.find("aulas")){
+            document.write("El elemento aulas se ha encontrado.");
+        }else{
+            document.write("No se ha encontrado el elemento aulas.")
+        }
+    }
+</script>
+</body>
+</html>
