@@ -2,7 +2,21 @@
 <project version="4">
   <component name="PublishConfigData" serverName="USED">
     <serverData>
+      <paths name="ED">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
       <paths name="USED">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="USEE">
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="/" />

@@ -10,6 +10,22 @@
           <option name="port" value="22" />
         </fileTransfer>
       </webServer>
+      <webServer id="365fe8cf-5f0d-496f-bc40-6f7c994055a3" name="USEE" url="http://daw-usee.sauces.local/DAW211/public_html/DWEC">
+        <fileTransfer host="daw-usee.sauces.local" port="22" rootFolder="/public_html/DWEC" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+      <webServer id="7095e411-cf9c-45d4-a000-015a4273ba04" name="ED" url="http://192.168.1.150">
+        <fileTransfer host="192.168.1.150" port="22" rootFolder="/var/www/html/DWEC" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
     </option>
   </component>
 </project>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 2</title>
+    <link rel="shortcut icon" href="../../../../favicon.ico" type="image/x-icon">
+    <script type="text/javascript">
+        function validarCampos() {
+            var campos=document.getElementsByName('formulario');
+            for(var i=0;i<campos.length;i++){
+                if(campos[i].text==''){
+                    alert("No puede haber campos vacios");
+                }
+            }
+        }
+        function validarAnyo() {
+            var anyo=document.getElementById('anyo');
+            var hoy=new Date();
+            var actual=hoy.getFullYear();
+            if(anyo>actual){
+                alert("El año no debe ser mayor al actual");
+            }
+        }
+        function deshabilitar(value) {
+            if(value=="no"){
+                '#cursos'.disabled;
+            }
+        }
+    </script>
+</head>
+<body>
+    <form name="formulario" onsubmit="validarCampos()">
+        <label for="nombre">Nombre: </label>
+        <input type="text" name="nombre" placeholder="Nombre">
+        <br><br>
+        <label for="apellidos">Apellidos: </label>
+        <input type="text" name="apellidos" placeholder="Apellidos">
+        <br><br>
+        <select id="titulacion" onchange="deshabilitar(this.value);">
+            <option class="heading" selected>Titulación</option>
+            <option value="eso">ESO</option>
+            <option value="bachillerato">Bachillerado</option>
+            <option value="fp">Formación Profesional</option>
+            <option value="cfgm">Ciclos Formativos de Grado Medio</option>
+            <option value="cfgs">Ciclos Formativos de Grado Superior</option>
+            <option value="no">Sin Estudios</option>
+        </select>
+        <br><br>
+        <select id="cursos" onchange="">
+            <option class="heading" selected>Curso</option>
+            <option value="1">1º Primero</option>
+            <option value="2">2º Segundo</option>
+            <option value="3">3º Tercero</option>
+            <option value="4">4º Cuarto</option>
+        </select>
+        <br><br>
+        <label for="curso">Curso académico: </label>
+        <input type="text" name="curso" id="anyo" placeholder="Curso Académico" onsubmit="validarAnyo()">
+        <br><br>
+        <input type="submit" name="enviar" value="Enviar">
+    </form>
+</body>
+</html>
