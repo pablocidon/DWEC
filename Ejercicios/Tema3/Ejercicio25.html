@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 25</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon">
+</head>
+<body>
+<script type="text/javascript">
+    function letraDNI(dni){
+        var cadena = "TRWAGMYFPDXBNJZSQVHLCKET";
+        var posicion = dni % 23;
+        var letra = cadena.substring(posicion, posicion + 1);
+        return letra;
+    }
+    function Alumnos(nombre,apellido1,apellido2,fechaNacimiento,estadoCivil,DNI) {
+        this.nombre=nombre;
+        this.apellido1=apellido1;
+        this.apellido2=apellido2;
+        this.fechaNacimiento=fechaNacimiento;
+        this.estadoCivil=estadoCivil;
+        this.dni=letraDNI(DNI);
+    }
+    var modulos = ['DAW','DWES','DWEC','DIW','EIE'];
+    Array.prototype.modulos = function () {
+        for (var i=0;i<=modulos.length;i++){
+            this[i]=this[i];
+        }
+
+    }
+    var evaluaciones = ['primeraEva','segundaEva','terceraEva'];
+</script>
+</body>
+</html>
