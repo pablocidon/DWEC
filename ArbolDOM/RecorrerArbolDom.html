@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>ARBOL DOM</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
+        <script type="text/javascript">
+            var estru = "";
+            function cambia() {
+                var nuevousuario = document.getElementById('usuario').getAttribute('value');
+                document.getElementById('pusuario').firstChild.nodeValue = nuevousuario
+                document.getElementById('pclave').firstChild.nodeValue = document.getElementById('clave').getAttribute('value')
+            }
+            function estructura() {
+                //Creamos y Añadimos una etiqueta <p> al <div> caja
+                var parrafo = document.createElement("p");
+                var texto = document.createTextNode("Texto del Párrafo");
+                parrafo.appendChild(texto);
+                document.getElementById("caja").appendChild(parrafo);
+
+                estru = estru + "<p><b>Primer Elemento Nombre Nodo :</b></p> <h2>" + document.lastChild.tagName + "</h2>"
+
+                if (!document.lastChild.hasChildNodes())
+                {
+                    //     alert("No Tiene hijos")
+                    estru = estru + "<h2>No Tiene hijos</h2>"
+                    return;
+                }
+                else
+                {
+                    // alert("Tiene hijos")
+                    estru = estru + "<i>Tiene hijos</i>"
+                    oo = document.documentElement;
+                    // alert(oo.firstChild.tagName)
+                    estru = estru + "<p><b>Primer Hijo</b></p><h3>" + oo.firstChild.tagName + "</h3>";
+                    //  alert(oo.lastChild.tagName)
+                    estru = estru + "<p><b>Ultimo Hijo</b></p><h3>" + oo.lastChild.tagName + "</h3>";
+
+
+
+                    oo2 = oo.lastChild;// recorremos el body
+
+                    estru = estru + "<p><i>Primer hijo de body</i></p>";
+
+                    //  alert(oo2.firstChild.firstChild.nodeValue);
+
+                    estru = estru + "<p><b>" + oo2.tagName + "</b></p>";//+oo2.firstChild.firstChild.nodeValue+"</p>"
+                    estru = estru + "<p><i>Ahora todos los objetos contenidos en el objeto :</i>" + oo2.tagName + "</p>"
+
+                    //    alert(estru);
+                    var i = 0;
+                    for (i = 1; i < oo2.childNodes.length; i++)
+                    {
+                        if (oo2.childNodes[i].tagName != undefined) {
+
+
+
+                            //     alert("tipo de Nodo:"+oo2.childNodes[i].nodeType+"Nombre Etiqueta:"+oo2.childNodes[i].tagName + " Id" + oo2.childNodes[i].getAttribute("id")+" " +oo2.childNodes[i].childNodes[0].nodeValue);
+                            estru = estru + "<p>Elemento: <b>" + oo2.childNodes[i].tagName + " </b>Id:<b>" + oo2.childNodes[i].getAttribute("id") + "</b> Value:<b> " + oo2.childNodes[i].childNodes[0].nodeValue + "</b></p>"
+                            if (oo2.childNodes[i].tagName == "FORM" || oo2.childNodes[i].tagName == "DIV")
+                            {
+                                estru = estru + "<p><i>Ahora todos los objetos contenidos en el objeto :</i><b>" + oo2.childNodes[i].tagName + "</b></p>";
+
+                                anadeelementosContenedor(oo2.childNodes[i])
+
+                            }
+                        }
+                        else {
+                            //  alert("undefined"+oo2.childNodes[i].nodeType)
+                        }
+                    }
+                }
+
+
+                //  document.write(estru)
+
+
+                estru = estru + "<h1>Siguiente Anterior</h1>"
+                estru = estru + "<h3>Siguiente nextSibling<h3>"
+                objeto = document.getElementById("caja");
+                nodo1 = objeto.firstChild;
+
+
+                estru = estru + "-->:" + nodo1.nextSibling.tagName;
+                estru = estru + "<h3>Siguiente previousSibling<h3>"
+                nodo1 = objeto.lastChild;
+                //  estru = estru +"-->:" +nodo1.previousSibling.tagName;
+                estru = estru + "-->:" + nodo1.previousSibling.previousSibling.tagName;
+
+
+
+                //      alert(estru)
+                //   document.write(estru)
+                cajalistado = document.createElement("div");
+                cajalistado.setAttribute("id", "cajalistado");
+                //    alert( "---"+cajalistado.getAttribute("id"));
+                document.documentElement.appendChild(cajalistado);
+                document.getElementById("cajalistado").innerHTML = estru;
+
+
+
+            }
+            function anadeelementosContenedor(contenedor)
+
+            {
+                for (i = 1; i < contenedor.childNodes.length; i++)
+                {
+                    if (contenedor.childNodes[i].tagName != undefined) {
+                        //        alert("-->:"+i+" "+contenedor.childNodes[i].tagName);
+                        estru = estru + "<p><b>" + contenedor.childNodes[i].tagName + "</b> </p>"
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <p id="pusuario">Usuario</p>
+        <p id="pclave" >Clave</p>
+        <p  id="otrapclave" onclick="estructura()" style="color:cyan;background-color:teal;font-weight:bold">Pinchame para Visualizar Estrutura del documento</p>
+        <form  id="fclave">
+            <input type="hidden" value="Clave_Oculta" id="clave"/>
+            <input type="hidden" value="Usuario_Oculto" id="usuario"/>
+            <input type="button" value="Pinchame para saber la clave" id="boton" onclick="cambia()"/>
+        </form>
+        <div id="caja">
+            <img src="actualizar.jpg" alt="Actualizar"></img>
+            <a href="#">Actualiza</a>
+        </div>
+    </body>
+    <script type="text/javascript">
+        //estructura();
+    </script>
+</html>
