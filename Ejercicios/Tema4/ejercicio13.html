@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 13</title>
+    <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <script type="text/javascript">
+        var formulario = document.createElement("form");
+        formulario.setAttribute("method","post");
+        formulario.setAttribute("action","tratamiento.php");
+        formulario.setAttribute("id","formulario2");
+        document.body.appendChild(formulario);
+        var parrafo = document.createElement("p");
+        parrafo.setAttribute("id","parrafo");
+        document.getElementById("formulario2").appendChild(parrafo);
+        var texto1 = document.createTextNode("Marca las comidas que te gustan: ");
+        document.getElementById('parrafo').appendChild(texto1);
+        var br = document.createElement("br");
+        document.getElementById('parrafo').appendChild(br);
+        var input1 = document.createElement("input");
+        input1.setAttribute("type","checkbox");
+        input1.setAttribute("name","patatas fritas");
+        input1.setAttribute("id","patatas fritas");
+        document.getElementById('parrafo').appendChild(input1);
+        var label1 = document.createElement("label");
+        label1.setAttribute("for","patatas fritas");
+        var patata = document.createTextNode("Patatas Fritas");
+        label1.appendChild(patata);
+        document.getElementById('parrafo').appendChild(label1);
+        var br2 = document.createElement("br");
+        document.getElementById('parrafo').appendChild(br2);
+        var input2 = document.createElement("input");
+        input2.setAttribute("type","checkbox");
+        input2.setAttribute("name","hamburguesas");
+        input2.setAttribute("id","hamburguesas");
+        document.getElementById('parrafo').appendChild(input2);
+        var label2 = document.createElement("label");
+        label2.setAttribute("for","hamburguesas");
+        var hamburguesa = document.createTextNode("Hamburguesas");
+        label2.appendChild(hamburguesa);
+        document.getElementById('parrafo').appendChild(label2);
+        var br3 = document.createElement("br");
+        document.getElementById('parrafo').appendChild(br3);
+        var input3 = document.createElement("input");
+        input3.setAttribute("type","checkbox");
+        input3.setAttribute("name","espinacas");
+        input3.setAttribute("id","espincacas");
+        document.getElementById('parrafo').appendChild(input3);
+        var label3 = document.createElement("label");
+        label3.setAttribute("for","espinacas");
+        var espinaca = document.createTextNode("Espinacas");
+        label3.appendChild(espinaca);
+        document.getElementById('parrafo').appendChild(label3);
+        var br4 = document.createElement("br");
+        document.getElementById('parrafo').appendChild(br4);
+        var input4 = document.createElement("input");
+        input4.setAttribute("type","checkbox");
+        input4.setAttribute("name","ostras");
+        input4.setAttribute("id","ostras");
+        document.getElementById('parrafo').appendChild(input4);
+        var label4 = document.createElement("label");
+        label4.setAttribute("for","ostras");
+        var ostra = document.createTextNode("Ostras");
+        label4.appendChild(ostra);
+        document.getElementById('parrafo').appendChild(label4);
+    </script>
+</body>
+</html>
