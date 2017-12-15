@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 12</title>
+    <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <script type="text/javascript">
+        var form = document.createElement("form");
+        form.setAttribute("onsubmit","valida();");
+        form.setAttribute("method","GET");
+        form.setAttribute("action","pruebas.php");
+        form.setAttribute("name","validaClave");
+        form.setAttribute("id","formulario");
+        document.body.appendChild(form);
+        var comentario1 = document.createComment("Introduzca el nombre de usuario o clave principal");
+        document.getElementById('formulario').appendChild(comentario1);
+        var label1 = document.createElement("label");
+        label1.setAttribute("for","nombre");
+        var nombre = document.createTextNode("Nombre: ");
+        label1.appendChild(nombre);
+        document.getElementById('formulario').appendChild(label1);
+        var input1 = document.createElement("input");
+        input1.setAttribute("type","text");
+        input1.setAttribute("id","nombre");
+        input1.setAttribute("size","40");
+        document.getElementById('formulario').appendChild(input1);
+        var comentario2 = document.createComment("Introduzca el password");
+        document.getElementById('formulario').appendChild(comentario2);
+        var br = document.createElement("br");
+        document.getElementById('formulario').appendChild(br);
+        var label2 = document.createElement("label");
+        label2.setAttribute("for","clave");
+        var password = document.createTextNode("Password: ");
+        label2.appendChild(password);
+        document.getElementById('formulario').appendChild(label2);
+        var input2 = document.createElement("input");
+        input2.setAttribute("type","password");
+        input2.setAttribute("id","clave");
+        input2.setAttribute("size","12");
+        document.getElementById('formulario').appendChild(input2);
+    </script>
+</body>
+</html>
