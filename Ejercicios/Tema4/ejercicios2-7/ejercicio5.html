@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 4</title>
+    <link rel="shortcut icon" href="../../../../favicon.ico" type="image/x-icon">
+    <script type="text/javascript">
+        function validarNIF(dni) {
+            var numero;
+            var letr;
+            var letra;
+            var expresion_regular_dni;
+
+            expresion_regular_dni = /^\d{8}[A-Z^XMI]$/;
+
+            if(expresion_regular_dni.test (dni) == true){
+                numero = dni.substr(0,dni.length-1);
+                letr = dni.substr(dni.length-1,1);
+                numero = numero % 23;
+                letra='TRWAGMYFPDXBNJZSQVHLCKET';
+                letra=letra.substring(numero,numero+1);
+                if (letra!=letr.toUpperCase()) {
+                    alert('Dni erroneo, la letra del NIF no se corresponde');
+                }else{
+                    alert('Dni correcto');
+                }
+            }else{
+                alert('Dni erroneo, formato no válido');
+            }
+        }
+        function validarCorreo(email) {
+            var patron;
+            patron=/^[a-z]@[a-z].[a-z]$/;
+            if(patron.test(email)==true){
+                alert("Email Correcto");
+            }else{
+                alert("Email Erróneo");
+            }
+        }
+        function validarPais(pais) {
+
+        }
+    </script>
+</head>
+<body>
+    <form name="formularioPrensa" id="formulario">
+        <legend>
+            <h1>Formulario de Inscripción</h1>
+        </legend>
+        <label for="nombre">Nombre: </label>
+        <input type="text" name="nombre" id="nombre">
+        <br><br>
+        <label for="nif">NIF: </label>
+        <input type="text" name="nif" id="nif" value=" " onsubmit="validarNIF(this.value);">
+        <br><br>
+        <label for="email">Dirección de Correo: </label>
+        <input type="email" name="email" id="email" value=" " onsubmit="validarCorreo(this.value);">
+        <br><br>
+        <label for="pais">País de Residencia: </label>
+        <input type="text" name="pais" id="pais" value=" " onsubmit="validarPais(this.value);">
+        <br><br>
+        <input type="submit" name="enviar" id="enviar" value="Enviar">
+        <input type="submit" name="cancelar" id="cancelar" value="Cancelar">
+    </form>
+</body>
+</html>
