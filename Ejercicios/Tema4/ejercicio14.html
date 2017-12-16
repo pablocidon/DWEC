@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 14</title>
+    <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <h1>Formulario A</h1>
+    <script type="text/javascript">
+        var formulario1 = document.createElement("form");
+        formulario1.setAttribute("method","get");
+        document.body.appendChild(formulario1);
+        var label1 = document.createElement("label");
+        var usuario = document.createTextNode("Usuario: ");
+        label1.appendChild(usuario);
+        formulario1.appendChild(label1);
+        var input = document.createElement("input");
+        input.setAttribute("type","text");
+        input.setAttribute("name","usuario");
+        formulario1.appendChild(input);
+        var label2 = document.createElement("label");
+        var clave = document.createTextNode("Clave Encriptada: ");
+        label2.appendChild(clave);
+        formulario1.appendChild(label2);
+        var keygen = document.createElement("keygen");
+        keygen.setAttribute("name","clavepub");
+        keygen.setAttribute("chellenge","serie");
+        formulario1.appendChild(keygen);
+        var enviar = document.createElement("input");
+        enviar.setAttribute("type","submit");
+        enviar.setAttribute("name","security");
+        enviar.setAttribute("value","Enviar");
+        formulario1.appendChild(enviar);
+    </script>
+    <h1>Formulario B</h1>
+    <script type="text/javascript">
+        var formulario2 = document.createElement("form");
+        formulario2.setAttribute("onsubmit","return false");
+        formulario2.setAttribute("oninput","res.value =parseInt(op1.value) * parseInt(op2.value)* parseInt(op3.value)");
+        document.body.appendChild(formulario2);
+        var op1 = document.createElement("input");
+        op1.setAttribute("name","op1");
+        op1.setAttribute("type","number");
+        op1.setAttribute("step","any");
+        formulario2.appendChild(op1);
+        var x1 = document.createTextNode(" X ");
+        formulario2.appendChild(x1);
+        var op2 = document.createElement("input");
+        op2.setAttribute("name","op2");
+        op2.setAttribute("type","number");
+        op2.setAttribute("step","any");
+        formulario2.appendChild(op2);
+        var x2 = document.createTextNode(" X ");
+        formulario2.appendChild(x2);
+        var op3 = document.createElement("input");
+        op3.setAttribute("name","op3");
+        op3.setAttribute("type","number");
+        op3.setAttribute("step","any");
+        formulario2.appendChild(op3);
+        var igual = document.createTextNode(" = ");
+        formulario2.appendChild(igual);
+        var salida = document.createElement("output");
+        salida.setAttribute("name","res");
+        salida.setAttribute("for","op1 op2 op3");
+        formulario2.appendChild(salida);
+    </script>
+    <h1>Formulario C</h1>
+    <script type="text/javascript">
+        var formulario3 = document.createElement("form");
+        formulario3.setAttribute("onsubmit","return false");
+        document.body.appendChild(formulario3);
+        var label = document.createElement("label");
+        var  selecciona = document.createTextNode("Selecciona tu país: ");
+        label.appendChild(selecciona);
+        formulario3.appendChild(label);
+        var paises = document.createElement("input");
+        paises.setAttribute("type","text");
+        paises.setAttribute("name","pais");
+        paises.setAttribute("id","pais");
+        paises.setAttribute("list","paises");
+        formulario3.appendChild(paises);
+        var lista = document.createElement("datalist");
+        lista.setAttribute("id","paises");
+        formulario3.appendChild(lista);
+        var opcion1 = document.createElement("option");
+        opcion1.setAttribute("value","España");
+        lista.appendChild(opcion1);
+        var opcion2 = document.createElement("option");
+        opcion2.setAttribute("value","México");
+        lista.appendChild(opcion2);
+        var opcion3 = document.createElement("option");
+        opcion3.setAttribute("value","Argentina");
+        lista.appendChild(opcion3);
+        var opcion4 = document.createElement("option");
+        opcion4.setAttribute("value","Perú");
+        lista.appendChild(opcion4);
+        var opcion5 = document.createElement("option");
+        opcion5.setAttribute("value","Colombia");
+        lista.appendChild(opcion5);
+        var opcion6 = document.createElement("option");
+        opcion6.setAttribute("value","Otro País");
+        lista.appendChild(opcion6);
+    </script>
+    <h1>Formulario D</h1>
+    <script type="text/javascript">
+        var formulario4 = document.createElement("form");
+        formulario4.setAttribute("class","contact_form");
+        formulario4.setAttribute("action","#");
+        formulario4.setAttribute("id","contact_form");
+        formulario4.setAttribute("runat","server");
+        document.body.appendChild(formulario4);
+        var caja = document.createElement("div");
+        formulario4.appendChild(caja);
+        var lista = document.createElement("ul");
+        caja.appendChild(lista);
+        var elemento1 = document.createElement("li");
+        lista.appendChild(elemento1);
+        var h2 = document.createElement("h2");
+        var contactos = document.createTextNode("Contactos");
+        h2.appendChild(contactos);
+        elemento1.appendChild(h2);
+        var span = document.createElement("span");
+        span.setAttribute("class","required_nofitication");
+        var requerido = document.createTextNode("* Datos Requeridos");
+        span.appendChild(requerido);
+        elemento1.appendChild(span);
+        var elemento2 = document.createElement("li");
+        lista.appendChild(elemento2);
+        var label1 = document.createElement("label");
+        label1.setAttribute("for","name");
+        var nombre = document.createTextNode("Nombre: ");
+        label1.appendChild(nombre);
+        elemento2.appendChild(label1);
+        var inputNombre = document.createElement("input");
+        inputNombre.setAttribute("type","text");
+        inputNombre.setAttribute("placeholder","Jhon Doe");
+        elemento2.appendChild(inputNombre);
+        var elemento3 = document.createElement("li");
+        lista.appendChild(elemento3);
+        var label2 = document.createElement("label");
+        label2.setAttribute("for","email");
+        var email = document.createTextNode("Email: ");
+        label2.appendChild(email);
+        elemento3.appendChild(label2);
+        var inputMail = document.createElement("input");
+        inputMail.setAttribute("type","email");
+        inputMail.setAttribute("name","email");
+        inputMail.setAttribute("placeholder","info@developerji.com");
+        elemento3.appendChild(inputMail);
+        var span2 = document.createElement("span");
+        span2.setAttribute("class","form_hint");
+        var correo = document.createTextNode("Formato Correcto: \"name@something.com\"");
+        span2.appendChild(correo);
+        elemento3.appendChild(span2);
+        var elemento4 = document.createElement("li");
+        lista.appendChild(elemento4);
+        var label3 = document.createElement("label");
+        label3.setAttribute("for","website");
+        var sitioWeb = document.createTextNode("Sitio Web: ");
+        label3.appendChild(sitioWeb);
+        elemento4.appendChild(label3);
+        var inputSite = document.createElement("input");
+        inputSite.setAttribute("type","url");
+        inputSite.setAttribute("name","website");
+        inputSite.setAttribute("placeholder","http://developerji.com");
+        inputSite.setAttribute("pattern","(http|https)://.+");
+        elemento4.appendChild(inputSite);
+        var span3 = document.createElement("span");
+        span3.setAttribute("class","form_hint");
+        var sitio = document.createTextNode("Formato correcto: \"http://developerji.com\"");
+        span3.appendChild(sitio);
+        elemento4.appendChild(span3);
+        var elemento5 = document.createElement("li");
+        lista.appendChild(elemento5);
+        var label4 = document.createElement("label");
+        label4.setAttribute("for","message");
+        var mensaje = document.createTextNode("Mensaje: ");
+        label4.appendChild(mensaje);
+        elemento5.appendChild(label4);
+        var texto = document.createElement("textarea");
+        texto.setAttribute("name","message");
+        texto.setAttribute("cols","40");
+        texto.setAttribute("rows","6");
+        elemento5.appendChild(texto);
+        var elemento6 = document.createElement("li");
+        lista.appendChild(elemento6);
+        var boton = document.createElement("button");
+        boton.setAttribute("class","submit");
+        boton.setAttribute("type","submit");
+        var enviar = document.createTextNode("Enviar Mensaje");
+        boton.appendChild(enviar);
+        elemento6.appendChild(boton);
+    </script>
+</body>
+</html>
