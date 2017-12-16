@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 6</title>
+    <link rel="shortcut icon" href="../../../../favicon.ico" type="image/x-icon">
+    <script type="text/javascript">
+        function validarFormulario() {
+            var txtNombre = document.getElementById('nombre').value;
+            var txtApellidos = document.getElementById('apellidos').value;
+            var txtCorreo = document.getElementById('email').value;
+
+            if(txtNombre.length == 0 || txtNombre.length > 15 || /^\s+$/.test(txtNombre)){
+                alert('ERROR: El campo nombre no se ajusta a la longitud');
+                return false;
+            }
+            if(txtApellidos.length == 0 || txtNombre.length > 30 || /^\s+$/.test(txtApellidos)){
+                alert('ERROR: El campo apellidos no se ajusta a la longitud');
+                return false;
+            }
+            if(/^\s+$/.test(txtCorreo)){
+                alert('ERROR: Error en el correo');
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+<form method="get" onsubmit="return validarFormulario();">
+    <label for="nombre">Nombre: </label>
+    <input type="text" name="nombre" id="nombre" placeholder="Nombre">
+    <br><br>
+    <label for="apellidos">Apellidos: </label>
+    <input type="text" name="apellidos" id="apellidos" placeholder="Apellidos">
+    <br><br>
+    <label for="email">Email: </label>
+    <input type="email" name="email" id="email" placeholder="Correo electrónico">
+    <br><br>
+    <input type="submit" name="enviar" value="Enviar">
+</form>
+</body>
+</html>
