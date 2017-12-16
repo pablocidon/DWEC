@@ -13,19 +13,18 @@
 include 'Validacion.php';
 $correcto=true;
 $errores = Array(
-  'dni'=>'',
-  'numero'=>'',
-  'pin'=>''
+    'dni'=>'',
+    'numero'=>'',
+    'pin'=>''
 );
-if(filter_has_var($_POST['aceptar'])){
-    if($errores['dni']=validacionDNI($_POST['dni'])){
-        $correcto=false;
-    }
-    if($errores['numero']=comprobarEntero($_POST['numero'],1)){
-        $correcto=false;
-    }
-    if($errores['pin']=comprobarEntero($_POST['numero'],1)){
-        $correcto=false;
+if(filter_has_var(INPUT_POST, 'enviar')){
+    $errores['dni']=validacionDNI($_POST['dni']);
+    $errores['numero']=comprobarEntero($_POST['numero'],1);
+    $errores['pin']=comprobarEntero($_POST['numero'],1);
+    foreach ($errores as $valor) {  //recorremos el array de errores
+        if ($valor != null) {
+            $correcto = false;
+        }
     }
 }
 if(!isset($_POST['aceptar'])|| $correcto=false) {
@@ -49,13 +48,13 @@ if(!isset($_POST['aceptar'])|| $correcto=false) {
         </select>
         <br><br>
         <label for="numero">Número de Targeta: </label>
-        <input type="text" id="numero" name="numeroTargeta" value="<?php echo $_POST['numero']?>">
+        <input type="text" id="numero" name="numeroTargeta" value="<?php echo $_POST['numero'];?>">
         <span class="error">
             <?php echo $errores['numero'];?>
         </span>
         <br><br>
         <label for="pin">Pin de Targeta: </label>
-        <input type="password" id="pin" name="pinTargeta" value="<?php echo $_POST['pin']?>">
+        <input type="password" id="pin" name="pinTargeta" value="<?php echo $_POST['pin'];?>">
         <span class="error">
             <?php echo $errores['pin'];?>
         </span>
@@ -63,9 +62,13 @@ if(!isset($_POST['aceptar'])|| $correcto=false) {
         <input type="submit" name="aceptar" value="Aceptar">
         <input type="submit" name="cancelar" value="Cancelar" onclick="window.location.href ='../../index.html';">
     </form>
-    <?php
+<?php
 }else{
-
+?>
+    <script type="text/javascript">
+        alert("Formulario Relleno correctamente.");
+    </script>
+    <?php
 }
 ?>
 </body>
