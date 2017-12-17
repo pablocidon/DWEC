@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 10</title>
+    <link rel="shortcut icon" href="../../../../favicon.ico" type="image/x-icon">
+    <script type="text/javascript">
+        function digitoPerdido() {
+            var cadena = document.getElementById('falta').value;
+            var numeros = cadena.split(" ");
+            var numero = numeros.indexOf(0);
+            var posicion = numeros.indexOf(1);
+            var resultado = numero*2;
+            if(resultado>=10){
+                var digitos = resultado.split("");
+                var operacion = parseInt(digitos.indexOf(0))+parseInt(digitos.indexOf(1));
+                if(operacion%10==0){
+                    return true;
+                }else{
+                    return false;
+                }
+            }else if(resultado+83%10==0){
+                return true;
+            }else{
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+<form method="post" onsubmit="return digitoPerdido();">
+    <label for="numero">Número de targeta:</label>
+    <input type="text" name="numero" id="numero" required>
+    <br><br>
+    <label for="falta">Dígito que falta y posición del mismo:</label>
+    <input type="text" name="falta" id="falta" pattern="[0-9]{1}+\s+[0-9]" required>
+    <br><br>
+    <input type="submit" name="comprobar" value="Comprobar">
+</form>
+</body>
+</html>

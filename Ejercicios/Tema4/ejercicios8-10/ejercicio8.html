@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 8</title>
+    <link rel="shortcut icon" href="../../../../favicon.ico" type="image/x-icon">
+    <style type="text/css">
+        div{
+            color: red;
+        }
+    </style>
+    <script type="text/javascript">
+        function validarCampos() {
+            var nombre = document.getElementById('nombre').value;
+            var apellidos = document.getElementById('apellidos').value;
+            var email = document.getElementById('email').value;
+            var errores = new Array('nombre','apellidos','email');
+            if(nombre.length==0){
+                errores['nombre']="El campo no puede estar vacío";
+                document.getElementById('errorNombre').innerHTML = errores['nombre'];
+                return false;
+            }else if(nombre.length>15){
+                errores['nombre']="La longitud máxima es de 15 caracteres";
+                document.getElementById('errorNombre').innerHTML = errores['nombre'];
+                return false;
+            }
+
+            if(apellidos.length==0){
+                errores['apellidos']="El campo no puede estar vacío";
+                document.getElementById('errorApellidos').innerHTML = errores['apellidos'];
+                return false;
+            }else if(apellidos.length>30){
+                errores['apellidos']="La longitud máxima es de 30 caracteres";
+                document.getElementById('errorApellidos').innerHTML = errores['apellidos'];
+                return false;
+            }
+
+            if(apellidos.length==0){
+                errores['email']="El campo no puede estar vacío";
+                document.getElementById('errorEmail').innerHTML = errores['email'];
+                return false;
+            }else if(apellidos.length>35){
+                errores['email']="La longitud máxima es de 30 caracteres";
+                document.getElementById('errorEmail').innerHTML = errores['email'];
+                return false;
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <form method="post" onsubmit="return validarCampos();">
+        <label for="nombre">Nombre: </label>
+        <input type="text" name="nombre" id="nombre" placeholder="Nombre">
+        <div id="errorNombre"></div>
+        <br><br>
+        <label for="apellidos">Apellidos: </label>
+        <input type="text" name="apellidos" id="apellidos" placeholder="Apellidos">
+        <div id="errorApellidos"></div>
+        <br><br>
+        <label for="email">Email: </label>
+        <input type="email" name="email" id="email" placeholder="Correo Electrónico">
+        <div id="errorEmail"></div>
+        <br><br>
+        <input type="submit" name="aceptar" value="Aceptar">
+    </form>
+</body>
+</html>
