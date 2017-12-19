@@ -13,25 +13,27 @@
             <input type="button" name="borraCaracter" value="Borrar" class="boton">
             <input type="button" name="clear" value="C" class="boton">
             <br>
+            <input type="button" name="modulo" value="MOD" class="boton" onclick="operacion(5);">
+            <br>
             <input type="button" name="siete" value="7" class="boton" onclick="mostrarVisor(siete.value)">
             <input type="button" name="ocho" value="8" class="boton" onclick="mostrarVisor(ocho.value)">
             <input type="button" name="nueve" value="9" class="boton" onclick="mostrarVisor(nueve.value)">
-            <input type="button" name="divide" value="/" class="boton">
+            <input type="button" name="divide" value="/" class="boton" onclick="operacion(4);">
             <br>
             <input type="button" name="cuatro" value="4" class="boton" onclick="mostrarVisor(cuatro.value)">
             <input type="button" name="cinco" value="5" class="boton" onclick="mostrarVisor(cinco.value)">
             <input type="button" name="seis" value="6" class="boton" onclick="mostrarVisor(seis.value)">
-            <input type="button" name="multiplica" value="*" class="boton">
+            <input type="button" name="multiplica" value="*" class="boton" onclick="operacion(3);">
             <br>
             <input type="button" name="uno" value="1" class="boton" onclick="mostrarVisor(uno.value)">
             <input type="button" name="dos" value="2" class="boton" onclick="mostrarVisor(dos.value)">
             <input type="button" name="tres" value="3" class="boton" onclick="mostrarVisor(tres.value)">
-            <input type="button" name="resta" value="-" class="boton">
+            <input type="button" name="resta" value="-" class="boton" onclick="operacion(2);">
             <br>
-            <input type="button" name="decimal" value="." class="boton">
+            <input type="button" name="decimal" value="." class="boton" onclick="mostrarVisor(decimal.value)">
             <input type="button" name="cero" value="0" class="boton" onclick="mostrarVisor(cero.value)">
-            <input type="button" name="igual" value="=" class="boton">
-            <input type="button" name="suma" value="+" class="boton">
+            <input type="button" name="igual" value="=" class="boton" onclick="resultadoOperacion();">
+            <input type="button" name="suma" value="+" class="boton"onclick="operacion(1);">
         </form>
     </body>
 </html>
