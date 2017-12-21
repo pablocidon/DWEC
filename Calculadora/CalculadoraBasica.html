@@ -11,8 +11,9 @@
         <form id="calcBasica">
             <input type="text" name="visor" placeholder="0" id="visor"/>
             <input type="button" name="borraCaracter" value="Borrar" class="boton">
-            <input type="button" name="clear" value="C" class="boton">
+            <input type="button" name="clear" value="C" class="boton" onclick="borrarVariables();">
             <br>
+            <input type="radio" name="programada" id="programada"><label for="programada">Programada</label>
             <input type="button" name="modulo" value="MOD" class="boton" onclick="operacion(5);">
             <br>
             <input type="button" name="siete" value="7" class="boton" onclick="mostrarVisor(siete.value)">
