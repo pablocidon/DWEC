@@ -8,12 +8,13 @@
     <script src="js/operaCalculadora00.js"></script>
 </head>
 <body>
-<form id="calcBasica">
+<form id="calcBasica" onload="desactivarTeclas();">
     <input type="text" name="visor" placeholder="0" id="visor"/>
     <input type="button" name="borraCaracter" value="Borrar" class="boton">
     <input type="button" name="clear" value="C" class="boton" onclick="borrarVariables();">
     <br>
     <input type="radio" name="basica" id="basica"><label for="basica">Basica</label>
+    <input type="radio" name="cientifica" id="cientifica"><label for="cientifica">Cientifica</label>
     <fieldset>
         <legend>Sistemas de numeración:</legend>
         <input type="radio" name="decimal" id="decimal" checked><label for="decimal">Decimal</label>
@@ -21,35 +22,35 @@
         <input type="radio" name="octal" id="octal"><label for="decimal">Octal</label>
         <input type="radio" name="hexadecimal" id="hexadecimal"><label for="decimal">Hexadecimal</label>
     </fieldset>
-    <input type="button" name="modulo" value="MOD" class="boton" onclick="operacion(5);">
+    <input type="button" name="modulo" value="MOD" id="porcentaje" class="boton" onclick="operacion(5);">
     <br>
-    <input type="button" name="siete" value="7" class="boton" onclick="mostrarVisor(siete.value)">
-    <input type="button" name="ocho" value="8" class="boton" onclick="mostrarVisor(ocho.value)">
-    <input type="button" name="nueve" value="9" class="boton" onclick="mostrarVisor(nueve.value)">
-    <input type="button" name="divide" value="/" class="boton" onclick="operacion(4);">
+    <input type="button" name="siete" id="siete" value="7" class="boton" onclick="mostrarVisor(siete.value)">
+    <input type="button" name="ocho" id="ocho" value="8" class="boton" onclick="mostrarVisor(ocho.value)">
+    <input type="button" name="nueve" id="nueve" value="9" class="boton" onclick="mostrarVisor(nueve.value)">
+    <input type="button" name="divide" value="/" id="divide" class="boton" onclick="operacion(4);">
     <br>
-    <input type="button" name="cuatro" value="4" class="boton" onclick="mostrarVisor(cuatro.value)">
-    <input type="button" name="cinco" value="5" class="boton" onclick="mostrarVisor(cinco.value)">
-    <input type="button" name="seis" value="6" class="boton" onclick="mostrarVisor(seis.value)">
-    <input type="button" name="multiplica" value="*" class="boton" onclick="operacion(3);">
+    <input type="button" name="cuatro" id="cuatro" value="4" class="boton" onclick="mostrarVisor(cuatro.value)">
+    <input type="button" name="cinco" id="cinco" value="5" class="boton" onclick="mostrarVisor(cinco.value)">
+    <input type="button" name="seis" id="seis" value="6" class="boton" onclick="mostrarVisor(seis.value)">
+    <input type="button" name="multiplica" value="*" id="multiplica" class="boton" onclick="operacion(3);">
     <br>
-    <input type="button" name="uno" value="1" class="boton" onclick="mostrarVisor(uno.value)">
-    <input type="button" name="dos" value="2" class="boton" onclick="mostrarVisor(dos.value)">
-    <input type="button" name="tres" value="3" class="boton" onclick="mostrarVisor(tres.value)">
-    <input type="button" name="resta" value="-" class="boton" onclick="operacion(2);">
+    <input type="button" name="uno" id="uno" value="1" class="boton" onclick="mostrarVisor(uno.value)">
+    <input type="button" name="dos" id="dos" value="2" class="boton" onclick="mostrarVisor(dos.value)">
+    <input type="button" name="tres" id="tres" value="3" class="boton" onclick="mostrarVisor(tres.value)">
+    <input type="button" name="resta" value="-" id="resta" class="boton" onclick="operacion(2);">
     <br>
-    <input type="button" name="decimal" value="." class="boton" onclick="mostrarVisor(decimal.value)">
-    <input type="button" name="cero" value="0" class="boton" onclick="mostrarVisor(cero.value)">
-    <input type="button" name="igual" value="=" class="boton" onclick="resultadoOperacion();">
-    <input type="button" name="suma" value="+" class="boton"onclick="operacion(1);">
+    <input type="button" name="punto" value="." id="punto" class="boton" onclick="mostrarVisor(punto.value)">
+    <input type="button" name="cero"  id="cero" value="0" class="boton" onclick="mostrarVisor(cero.value)">
+    <input type="button" name="igual" value="=" id="igual" class="boton" onclick="resultadoOperacion();">
+    <input type="button" name="suma" value="+" id="suma" class="boton"onclick="operacion(1);">
     <br>
-    <input type="button" name="a" value="A" class="boton" onclick="mostrarVisor(a.value)">
-    <input type="button" name="b" value="B" class="boton" onclick="mostrarVisor(b.value)">
-    <input type="button" name="c" value="C" class="boton" onclick="mostrarVisor(c.value)">
+    <input type="button" name="a" id="a" value="A" class="boton" onclick="mostrarVisor(a.value)">
+    <input type="button" name="b" id="b" value="B" class="boton" onclick="mostrarVisor(b.value)">
+    <input type="button" name="c" id="c" value="C" class="boton" onclick="mostrarVisor(c.value)">
     <br>
-    <input type="button" name="d" value="D" class="boton" onclick="mostrarVisor(d.value)">
-    <input type="button" name="e" value="E" class="boton" onclick="mostrarVisor(e.value)">
-    <input type="button" name="f" value="F" class="boton" onclick="mostrarVisor(f.value)">
+    <input type="button" name="d" id="d" value="D" class="boton" onclick="mostrarVisor(d.value)">
+    <input type="button" name="e" id="e" value="E" class="boton" onclick="mostrarVisor(e.value)">
+    <input type="button" name="f" id="f" value="F" class="boton" onclick="mostrarVisor(f.value)">
 </form>
 </body>
 </html>

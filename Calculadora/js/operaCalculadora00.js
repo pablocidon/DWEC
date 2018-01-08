@@ -50,7 +50,6 @@ function mostrarVisor(valor){//Función para mostrar los datos
     5- En caso de que se quiera saber el porcentaje.
  */
 
-
 function operacion(tipoOperacion) {
     teclaPunto=false;
     if(!operacionMultiple) {
@@ -134,4 +133,56 @@ function borrarVariables() {
     resultado = 0;
     operacionMultiple = false;
     visor.value="";
+}
+
+function desactivarTeclas() {
+    document.getElementById("divide").disabled=true;
+    document.getElementById("multiplica").disabled=true;
+    document.getElementById("suma").disabled=true;
+    document.getElementById("resta").disabled=true;
+    document.getElementById("punto").disabled=true;
+    document.getElementById("a").disabled=true;
+    document.getElementById("b").disabled=true;
+    document.getElementById("c").disabled=true;
+    document.getElementById("d").disabled=true;
+    document.getElementById("e").disabled=true;
+    document.getElementById("f").disabled=true;
+
+}
+
+function sistemaNumercacion(sistemaNumAct) {
+    switch (sistemaNumAct){
+        case 10:
+            document.getElementById("dos").disabled=false;
+            document.getElementById("tres").disabled=false;
+            document.getElementById("cuatro").disabled=false;
+            document.getElementById("cinco").disabled=false;
+            document.getElementById("seis").disabled=false;
+            document.getElementById("siete").disabled=false;
+            document.getElementById("ocho").disabled=false;
+            document.getElementById("nueve").disabled=false;
+            break;
+        case 8:
+            document.getElementById("ocho").disabled=true;
+            document.getElementById("nueve").disabled=true;
+            break;
+        case 2:
+            document.getElementById("dos").disabled=true;
+            document.getElementById("tres").disabled=true;
+            document.getElementById("cuatro").disabled=true;
+            document.getElementById("cinco").disabled=true;
+            document.getElementById("seis").disabled=true;
+            document.getElementById("siete").disabled=true;
+            document.getElementById("ocho").disabled=true;
+            document.getElementById("nueve").disabled=true;
+            break;
+        case 16:
+            document.getElementById("a").disabled=false;
+            document.getElementById("b").disabled=false;
+            document.getElementById("c").disabled=false;
+            document.getElementById("d").disabled=false;
+            document.getElementById("e").disabled=false;
+            document.getElementById("f").disabled=false;
+            break;
+    }
 }
