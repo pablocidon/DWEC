@@ -17,13 +17,28 @@ function insertarWebSQL() {
        tx.executeSql("insert into Calculadora(operador1,operandoDB,operador2) values (?,?,?)",[op1,opDB,op2]);
     });
 }
-function borrarTablaWebSQL() {
+function vaciarTablaWebSQL() {
     dbWeb.transaction(function (tx){
         tx.executeSql("delete from Calculadora where 1");
     });
 }
-function borrarrRegistroWebSQL() {
+function borrarTablaWebSQL() {
+    dbWeb.transaction(function (tx){
+        tx.executeSql("drop table Calculadora");
+    });
+}
+function borrarRegistroWebSQL() {
     dbWeb.transaction(function (tx){
         tx.executeSql("delete from Calculadora where idOp=(?)",[numeroCampo]);
+    });
+}
+function borrarWebSQL(DB){
+    dbWeb.transaction(function (tx) {
+        tx.executeSql("drop database"+DB);
+    });
+}
+function buscarWebSQL(codBuscar) {
+    dbWeb.transaction(function (tx){
+       tx.executeSql("select * from Calculadora where idOP=?",[codBuscar]);
     });
 }

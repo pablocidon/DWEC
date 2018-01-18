@@ -8,12 +8,16 @@
 </head>
 <body>
 <script type="text/javascript">
-    abrirWebSQL();
-    /*var op1 = "5";
+    var op1 = "5";
     var opDB = "+";
     var op2 = "6";
-    insertarWebSQL();*/
-    borrarTablaWebSQL();
 </script>
+<input type="button" value="Abrir WebSQL" onclick="abrirWebSQL();"><br>
+<input type="button" value="Insertar WebSQL" onclick="insertarWebSQL(op1,opDB,op2);"><br>
+<input type="button" value="Borrar Registro WebSQL" onclick="borrarRegistroWebSQL();"><br>
+<input type="button" value="Vaciar Tabla WebSQL" onclick="vaciarTablaWebSQL();"><br>
+<input type="button" value="Borrar Tabla WebSQL" onclick="borrarTablaWebSQL();"><br>
+<input type="button" value="Borrar WebSQL" onclick="borrarWebSQL('Calculadora');"><br>
+<input type="text" value="" name="buscar" id="buscar"><input type="button" value="Buscar WebSQL" onclick="buscarWebSQL(buscar.getValue());">
 </body>
 </html>
