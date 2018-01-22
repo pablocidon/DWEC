@@ -39,6 +39,8 @@ function borrarWebSQL(DB){
 }
 function buscarWebSQL(codBuscar) {
     dbWeb.transaction(function (tx){
-       tx.executeSql("select * from Calculadora where idOP=?",[codBuscar]);
+       tx.executeSql("select * from Calculadora where idOP=?",[?],function (tx,rx,erx) {
+           console.log(rx);
+       });
     });
 }
