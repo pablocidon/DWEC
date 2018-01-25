@@ -1,0 +1,132 @@
+tamano= 4*1024*1024;
+var dbWeb = openDatabase('PrimeraBaseDatos','1.0','Mi primera Base de Datos',tamano);
+baseDatos = "PrimeraBaseDatos";
+codigoBuscar = 1;
+var db=null;
+var object=null;
+var leeNombre="Pablo";
+var leeApellido="Cidon";
+var leeDni="71046317F";
+var leeMovil="638317533";
+var crearTb=null;
+var creardb=null;
+function AbrirWebSQL() {
+    if (dbWeb){
+        dbWeb.transaction(function(tx){
+            tx.executeSql("Create table if not exists Calculadora(idOp integer Primary key autoincrement,operador1 text,operando text,operador2 text)");
+        });
+    }
+}
+function insertarWebSQL(){
+    dbWeb.transaction(function (tx){
+        tx.executeSql("insert into Calculadora(operador1,operando,operador2) values (?,?,?)",[op1,opdb,op2]);
+    });
+}
+op1="5";
+op2="6";
+opdb="+";
+function borrarWebSQL(){
+    dbWeb.transaction(function (tx){
+        tx.executeSql("delete from calculadora where 1");
+        tx.executeSql("update sqlite_sequence set seq= 0");
+    });
+}
+function borrarTwebSQL(){
+    dbWeb.transaction(function(tx){
+        tx.executeSql("drop table Calculadora");
+    });
+}
+function borrarDataBaseWebSQL(baseDatos){
+    dbWeb.transaction(function(tx){
+        tx.executeSql("drop database "+baseDatos);
+    });
+}
+function buscarWebSQL(codigoBuscar){
+    dbWeb.transaction(function(tx){
+        tx.executeSql("select * from calculadora where idOp=?",[codigoBuscar],function(tx,vx){
+            console.log(vx);
+        })
+    });
+}
+function usoBBDDNavegador(){
+    navegador()
+    if (esSQLWeb && esIndexeDBD){
+        AbrirWebSQLSQL();
+        abrirIndexedDB();
+    }else if (esSQLWeb){
+        AbrirWebSQL();
+    }else if (esIndexeDBD){
+        abrirIndexedDB();
+    }else{
+        alert("Error");
+    }
+}
+function abrirIndexedDB(){
+    indexedDB=window.indexedDB || window.mozIndexedDB || window.webKitIndexedDB || window.msIndexedDB;
+    window.IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || window.msIDBTransaction;
+    window.IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange || window.msIDBKeyRange;
+    if (indexedDB){
+        console.log ("Se abre la BBDD");
+    }else{
+        console.log("Error de apertura BBDD");
+        return;
+    }
+    db=indexedDB.open("DAW",2);
+    db.onupgradeneeded = function (e){
+        console.log("Abriendo para Actualizar BDD : onupgradeneeded"+db.result+ "  "+e.target.result);
+        crearTb = db.result;
+        object = crearTb.createObjectStore('TablaDAW', { KeyPath : 'id', autoIncrement : true });
+        object.createIndex('miclave','id',{unique:true});
+        //  agregarObjeto();
+    }
+    db.onsucces = function (e){
+        db=e.target.result;
+        console.log("Se ha creado la base de datos");
+    }
+    db.onerror = function (e){
+        console.log("Se ha producido un error en la apertura/Creacion "+e);
+    }
+}
+function agregarObjeto(){
+    console.log(object);
+    creardb= db.result;
+    var data = creardb.transaction(['TablaDAW'], "readwrite");
+    var object = data.objectStore("TablaDAW");
+    object.oncomplete = function(event) {
+        console.log('se completo la transaccion');
+    }
+    // definimos los campos para operar
+    var request = object.add({
+        nombre: leeNombre,
+        apellidos: leeApellido,
+        DNI: leeDni,
+        movil: leeMovil});
+    request.onerror = function (e){
+        console.log ("Se ha producido un error al agregar");
+    }
+    request.onsuccess = function (e){
+        console.log ("Agrego con exito");
+    }
+}
+function visualizarIndexedDB() {
+    mostrar = document.getElementById('mostrarIDB');
+    mostrar.innerHTML = "";
+    var active = db.result;
+    var transaccion = active.transaction(["TablaDAW"],"readonly");
+    var objectStore = transaccion.objectStore("TablaDAW");
+    request = objectStore.openCursor();
+    request.onsuccess = function (e){
+        var cursor = e.target.result;
+        if(cursor){
+            var tableRow = document.createElement('tr');
+            tableRow.innerHTML="<td>"+cursor.value.nombre+"</td>"+
+                "<td>"+cursor.value.apellidos+"</td>"+
+                "<td>"+cursor.value.dni+"</td>"+
+                "<td>"+cursor.value.movil+"</td>";
+            mostrar.appendChild(tableRow);
+            cursor.continue();
+        }else{
+            console.log("Paso sin valor");
+        };
+    };
+}
