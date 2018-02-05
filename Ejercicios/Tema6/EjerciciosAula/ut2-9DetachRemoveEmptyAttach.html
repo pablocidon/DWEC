@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="jquery" content="width=device-width">
+  <title>jQuery Ejemplos</title>
+  <script type="text/javascript"  src="jQuery.js"> </script>
+  <script> 
+       	       
+	// comprobación que el documento esta cargado
+       $(document).ready(function(){
+	     var  uno=$('#uno');
+		    uno.data("dato1","mi valor");
+			mostrarDatos("Valor de inicio");
+			$("#b_bdetach").click(function(){
+			    $("p").detach("#uno");
+				mostrarDatos("Mostrar ejecutando detach");
+		    });
+		    $("#b_remove").click(function(){
+		        $("p").remove("#uno");
+			    mostrarDatos("Mostrar ejecutando remove");
+		    });
+		    $("#b_empty").click(function(){
+			    $("p").empty("#uno");
+			    mostrarDatos("Mostrar ejecutando empty");
+			});
+			$("#b_attach").click(function(){
+			    $("#bloque  p:first").before(uno);
+			    mostrarDatos("Mostrar ejecutando empty");
+			});
+			
+		 function mostrarDatos(ver){
+		     alert(ver+": Parrafo uno  - Datos igual a valor :("+$("#uno").data("dato1")+" )");
+		 }
+		});
+		
+	   </script>
+	   <style>
+	        p{color:blue;}
+			.c1 {color: green;}
+			.c2 {color: red;}
+			.c3 {color:cyan;}
+			.c4 {color:tomato;}
+	   </style>
+	      
+</head>
+<body>
+	<div  id="bloque">
+       <p id="uno"> Primer parrafo </p> </br>
+     	<p id="dos"> Segundo parrafo </p>  </br>
+	</div>
+	<input type="button" value="Detach"  id="b_detach" />
+	<input type="button" value="Remove"  id="b_remove"/>
+	<input type="button" value="Empty"   id="b_empty" />
+	<input type="button" value="Attach"  id="b_attach"/>
+	
+	
+</body>
+</html>

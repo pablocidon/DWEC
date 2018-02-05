@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Prueba - ocultar/mostrar elementos.</title>
+    <script type = "text/javascript" src = "jquery.js"> </script>
+    <script type = "text/javascript">
+      $(document).ready(function(){
+
+        $("#ic1").click(function(){
+          $("#i_4").show();
+        });
+        $('.tema').hover(
+        function() {
+          $(".exp").hide();
+          var bloque=$(this).attr("res");
+          $("#"+bloque).show();
+        },
+        function() {
+          $(".exp").hide();
+          var bloque=$(this).attr("res");
+          $("#"+bloque).hide();
+        }
+        );
+        $("#check1").change(function(){
+          if($(this).is(":checked")) {
+            $("#v_ta,#b_clear").show();
+          }else{
+            $("#v_ta, #b_clear").hide();
+          }
+        });
+        $("#b_clear").click(function(){
+          $("#v_ta").val("");
+        });
+        $("#b_reset").click(function(){location.reload();});
+      });
+    </script>
+    <style>
+      div.exp      {width:203px;height:230px;background-color:#00BFFF;margin:5px; padding:5px;
+      border-style:groove; border-width:3px; font-size:18px;overflow:auto;}
+      div.tema {background-color:#81DAF5;margin:1px; padding:1px;border-style:solid; border-width:1px; font-size:20px;}
+      div.tema:hover {background-color:#9AFE2E}
+      .cb            {width: 131px; height:30px;}
+      .cbr           {width: 420px; height:30px;}
+    </style>
+  </head>
+  <body>
+    <center>
+      <form name="form1" id="form1">
+        <table bgcolor="#A9F5F2" border="1">
+          <tr>
+            <td>
+              <table bgcolor="#A9F5F2" border="1">
+                <tr><td><div class="tema" res="i_1">uno</div></td></tr>
+                <tr><td><div class="tema" res="i_2">dos</div></td></tr>
+                <tr><td><div class="tema" res="i_3">tres</div></td></tr>
+                <tr><td style="height:110px">
+                  <center>
+                    <img id="ic1" src="smile1.jpg" width="100px" height="100px"/>
+                  </center>
+                </td>
+              </tr>
+              <tr>
+                <td><input id="b_reset" class="cb" type="button" value="reset"/></td>
+              </tr>
+            </table>
+          </td>
+          <td style="width: 235px;height:260px;">
+            <div id="i_1" class="exp" style="display:none;">
+              <span><b>texto uno</b></span><br>
+              <img id="i1" src="smile1.jpg" width="50px" height="50px"/>
+            </div>
+            <div id="i_2" class="exp" style="display:none;">
+              <span>texto dos</span><br>
+              <img id="i2" src="rana1.jpg" width="50px" height="50px"/>
+            </div>
+            <div id="i_3" class="exp" style="display:none;">
+              <span>texto tres</span><br>
+              <img id="i3" src="chincheta1.jpg" width="50px" height="50px"/>
+            </div>
+            <div id="i_4" class="exp" style="display:none;">
+              <form>
+                <span><input type="checkbox" id="check1" value="v1">Introducir comentario</span><br>
+                <center>
+                  <textarea id="v_ta" rows="10" cols="22" style="resize:none;display:none;"></textarea>
+                  <input id="b_clear" class="cb" type="button" value="Limpiar" style="display:none;"/>
+                </center>
+              </form>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </center>
+</body>
+</html>

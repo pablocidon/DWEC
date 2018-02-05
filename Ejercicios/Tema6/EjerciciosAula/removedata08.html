@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="jquery" content="width=device-width">
+  <title>jQuery Ejemplos</title>
+  <script type="text/javascript"  src="jQuery.js"> </script>
+  <script> 
+       	       
+	// comprobación que el documento esta cargado
+       $(document).ready(function(){
+		// var  enla01=$("#enlace1");
+	       $("#enlace1").data("dato1","Valor 1 para el enlace 1");
+		   $("#enlace2").data("dato21","Valor 1 para el enlace 2");
+		   $("#enlace2").data("dato22","Valor 2 para el enlace 2");
+		   		   
+		   console.log("El enlace1: dato1  cuyo valor es: ("+$("#enlace1").data("dato1")+")");
+		   console.log("El enlace2: dato21  cuyo valor es: ("+$("#enlace2").data("dato21")+")");
+		   console.log("El enlace2: dato22 cuyo valor es: ("+$("#enlace2").data("dato22")+")");
+		   $("#enlace2").removeData("dato22");
+		  
+   		  console.log("El enlace2: dato22 cuyo valor es: ("+$("#enlace2").data("dato22")+")");
+		  if  ($("#enlace2").data("dato22"))  alert ("salida");
+		  
+		});
+	   </script>
+</head>
+<body>
+  <a href="https://www.google.es" id="enlace1" title="Google"> Google </a> <br>
+  <a href="https://www.youtube.com" id="enlace2" title="Youtube">Youtube </a><br>
+  <a href="https://www.amazon.com">Amazon </a><br>
+  <a href="https//jquery.com"> Jquery </a>
+</body>
+</html>

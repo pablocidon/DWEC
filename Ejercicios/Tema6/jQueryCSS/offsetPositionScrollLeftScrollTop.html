@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Prueba - offset(), position(), scrollLeft() y  scrollTop()</title>
+      <script type = "text/javascript" src = "jquery.js"> </script> 
+      <script type = "text/javascript">
+         $(document).ready(function(){
+            var w=100; var h=100; var l=20;
+            var t=200; var vv=250; var vh=255;
+            ponValores(w,h,l,t,vv,vh);           
+            $("#b_generar").click(function(){
+               w=Math.floor((Math.random()*200)+1);
+               h=Math.floor((Math.random()*200)+1);
+               l=Math.floor((Math.random()*100)+1);
+               t=Math.floor((Math.random()*100)+1)+200;
+               vv=Math.floor((Math.random()*h)+1);
+               vh=Math.floor((Math.random()*w)+1);
+               ponValores(w,h,l,t,vv,vh);
+            });
+            $("#b_reset").click(function(){
+               location.reload();
+            });
+            $("#bloque").scroll(function(){
+               vv=$("#bloque").scrollTop();
+               vh=$("#bloque").scrollLeft();               
+               $("#v_scrollLeft").val(vh);
+               $("#v_scrollTop").val(vv);
+            });
+         });
+            function ponValores(w,h,l,t,vv,vh) {
+			   // permite obtener las coordenadas del primer elemento seleccionado 
+			   // o establecer las de los elementos seleccionados
+               var o = $("#bloque").offset();
+               o.left=l;
+               o.top=t;
+			   // Obtiene el valor del primer elemento en alto
+               $("#bloque").width(w);
+			   // obtiene el primer valor del ancho del elemento
+               $("#bloque").height(h); 
+			   // obtiene las cordenadas del primer elemento seleccionado. (top, left)
+               $("#bloque").offset(o);
+			   // Cambia el nombre de la propiedad y el valor, el color de fondo
+               $("#bloque").css("background","rgb(0,255,255)");
+			   // obtener la posición de la bara de desplazamiento en horizontal.
+               $("#bloque").scrollLeft(vh);
+			   // obtener la posición de la barra de desplazamiento en vertical
+               $("#bloque").scrollTop(vv);
+			   // devuelve la posición de las coordenadas de .top  .left
+			   // en función del objeto offset
+               $("#v_offset").val('Left ' + o.left + ', Top ' + o.top);
+			   // obtener las coordenadas del primer elemento seleccionado en relación al objeto
+			   // en el que se halla (parent)
+               var p=$("#bloque").position();
+			   // obtiene la posicion coordenadas top left
+               $("#v_position").val('Left ' + p.left + ', Top ' + p.top);
+			   // posicion de la barra de desplazamiento  horizontal
+               $("#v_scrollLeft").val($("#bloque").scrollLeft());
+               // posicion de la barra de desplazamiento  vertical
+			   $("#v_scrollTop").val($("#bloque").scrollTop());
+            }         
+      </script>
+      <style>
+         div#padre  { border-style:dashed; border-width:3px; padding:2px; 
+         border-color:red; position:relative;}
+         div#bloque { border-style:solid; border-width:8px; padding:20px; overflow:auto;}
+         .c1 { width: 120px; text-align: center; }
+         .c2 { width: 125px; height:30px;} 
+         p   { background-color:yellow;width:200px; height:200px;overflow:auto;}                
+      </style>
+   </head>
+   <body>
+    <!--  tabla de posicionamiento  -->
+      <table border=1>
+         <tr><td width="110">offset</td><td><input type="text" id="v_offset" class="c1" readonly/></td></tr>  
+         <tr><td>position</td><td><input type="text" id="v_position" class="c1" readonly/></td></tr>
+         <tr><td>scrollLeft</td><td><input type="text" id="v_scrollLeft" class="c1" readonly/></td></tr>
+         <tr><td>scrollTop</td><td><input type="text" id="v_scrollTop" class="c1" readonly/></td></tr>
+      <table>            
+      <input type="button" value="Generar" id="b_generar" class="c2"/>      
+      <input type="button" value="Reset" id="b_reset" class="c2"/>
+      <hr>
+      <div id="padre">
+         <div id="bloque"><p>Muestra</p></div>
+      </div>
+   </body>
+</html>

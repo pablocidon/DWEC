@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="jquery" content="width=device-width">
+  <title>jQuery Ejemplos</title>
+  <script type="text/javascript"  src="jQuery.js"> </script>
+  <script> 
+       	       
+	// comprobación que el documento esta cargado
+       $(document).ready(function(){
+		$("#b_wrap").click(function(){
+		   $("p").wrap("<div> </div>");
+		   $(this).attr('disabled','true');
+		   $("#b_unwrap").attr('disabled','true');
+		   $("#b_wrapAll").attr('disabled','true');
+		   $("#b_wrapInner").removeAttr("disable");
+		   });  
+		$("#b_unwrap").click(function(){
+		   
+		   $("p").unwrap(); // eleminar
+		   $("p").each(function(){
+		       $(this).html($(this).text());
+		   });
+		   $(this).attr('disabled','true');
+		   $("#b_wrap").removeAttr('disabled');
+		   $("#b_wrapAll").removeAttr('disabled');
+		   $("#b_wrapInner").removeAttr("disable");
+		   }); 
+		$("#b_wrapALL").click(function(){
+		   $("p").wrapAll("<h1> </h1>");
+		   $(this).attr('disabled','true');
+		   $("#b_wrap").attr('disabled','true');
+		   $("#b_wrapInner").attr("disable","true");
+		   });  
+		$("#b_wrapInner").click(function(){
+		   $("p").wrapInner("<b> </b>");
+		   $(this).attr('disabled','true');
+		   $("#b_wrap").removeAttr('disabled');
+		   $("#b_wrapAll").removeAttr('disabled');
+		   $("#b_unwrap").removeAttr("disable");
+		   });  
+	   });
+		
+	   </script>
+	   <style>
+	        div{background:#58Faf4;}
+	   </style>
+	      
+</head>
+<body>
+    <p id="uno"> Primer parrafo </p> </br>
+	<p id="dos"> Segundo parrafo </p>  </br>
+	<input type="button" value="Wrap"      id="b_wrap" />
+	<input type="button" value="unwrap"    id="b_unwrap" disabled="true"/>
+	<input type="button" value="wrapAll"   id="b_wrapAll" />
+	<input type="button" value="wrapInner" id="b_wrapInner" />
+</body>
+</html>
