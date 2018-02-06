@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Prueba - Eventos de ratón II (hover, mousein, mouseout ...)</title>
+      <script type = "text/javascript" src = "jquery.js"> </script> 
+      <script type = "text/javascript">
+         $(document).ready(function(){
+            var contador=0;         
+            var vel=500;
+            $("div#d1").hover(function(){resaltar($(this),"hover1","r11");},
+                              function(){resaltar($(this),"hover2","r12");});
+            $("div#d2").mousedown(function(){resaltar($(this),"mousedown","r2");});           
+            $("div#d2").mouseup(function(){resaltar($(this),"mouseup","r3");});               
+            $("div#d3").mouseenter(function(){resaltar($(this),"mouseenter","r4");});  
+            $("div#d3").mouseleave(function(){resaltar($(this),"mouseleave","r5");});            
+            $("div#d4").mouseover(function(){resaltar($(this),"mouseover","r6");});                       
+            $("div#d4").mouseout(function(){resaltar($(this),"mouseout","r7");});           
+            $("div#d5").mousemove(function(){resaltar($(this),"mousemove","r8");});             
+            $("#b_reset").click(function(){location.reload();});
+            function resaltar(o,metodo,clase){
+               o.addClass(clase);
+               o.html(metodo + " " + o.attr('id'));
+               if (clase=="r12"||clase=="r7"||clase=="r8"){
+                  o.fadeOut(vel, function(){
+                     $(this).fadeIn(vel,function(){ 
+                        o.removeClass("r11 r12 r2 r3 r4 r5 r6 r7 r8");
+                     });
+                  });
+               }else{
+                  o.slideUp(vel, function(){
+                     $(this).slideDown(vel,function(){ 
+                        o.removeClass("r11 r12 r2 r3 r4 r5 r6 r7 r8");
+                     });
+                  });
+               }
+               contador+=1; 
+               $("#res").html(contador + " " + metodo + " " + o.attr('id')+"<br>" + $("#res").html());
+            }            
+         });
+      </script>
+      <style>
+         div  {width: 120px;height:90px;background-color:#00BFFF;margin:1px;padding:1px;border-style:groove;
+                   border-width:5px; font-size:18px;}
+         div.w5  {width: 260px;height:90px;background-color:#00BFFF;margin:1px;padding:1px;border-style:groove;
+                   border-width:5px; font-size:18px;}                   
+         .cb      {width: 178px; height:30px;}
+         .cbr {width: 272px; height:30px;}  
+         div#res   {background-color:#FFFF00;overflow:auto;width:140px; height:363px;font-size:14px;}  
+         td.d {width: 135px;height:105px;} 
+         .r11 {background-color:#FFFF00}    
+         .r12 {background-color:#00FF00}         
+         .r2 {background-color:#FFBF00}  
+         .r3 {background-color:#A5DF00}                                                                
+         .r4 {background-color:#74DF00}  
+         .r5 {background-color:#01DFD7}  
+         .r6 {background-color:#0489B1}  
+         .r7 {background-color:#81F7F3}                                                                
+         .r8 {background-color:#BDBDBD}  
+      </style>
+   </head>
+   <body>
+      <center>
+         <table>
+            <tr>
+            <td>
+               <table border=1>
+                  <tr>
+                     <td class="d"><div id="d1"><center><h1>1</h1></center></div></td>
+                     <td class="d"><div id="d2"><center><h1>2</h1></center></div></td>               
+                  </tr>
+                  <tr>
+                     <td class="d"><div id="d3"><center><h1>3</h1></center></div></td>
+                     <td class="d"><div id="d4"><center><h1>4</h1></center></div></td>               
+                  </tr>
+                  <tr>
+                     <td colspan=2><div class="w5" id="d5"><center><h1>5</h1></center></div></td>
+                  </tr>                   
+                  <tr>
+                     <td colspan=2><input type="button" value="reset" id="b_reset" class="cbr"/></td>
+                  </tr>          
+               </table>
+            </td>
+               <td><div id="res"></div></td>
+            </tr>
+         </table>
+       </center>
+   </body>
+</html>

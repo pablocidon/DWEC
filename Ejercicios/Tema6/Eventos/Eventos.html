@@ -1,0 +1,51 @@
+<!DOCTYPE hmtl>
+<html>
+     <head>
+         <title>Prueba Eventos</title>
+         <script type = "text/javascript" src = "jquery.js"> </script> 
+         <script type = "text/javascript">
+            $(document).ready(function(){
+               $("div").click (function(e){
+                  datos("res1","click",this,e);                   
+               });
+               $("div").dblclick (function(e){
+                  datos("res2","dobleclick",this,e);                    
+               });       
+               $("div").mouseover(function(e){
+                  datos("res3","raton",this,e);                   
+               });                 
+               function datos(eti,accion,obj,e){
+                  $("#"+eti).html(accion + " sobre <font color='red'>" + $(obj).attr("id") + "</font>");
+                  $("#res4").html("target: <font color='red'>" + e.target.nodeName + "</font>");                  
+                  $("#res5").html("type: <font color='red'>" + e.type + "</font>"); 
+                  $("#res6").html("pageX: <font color='red'>" + e.pageX + "</font> pageY: <font color='red'>"+ e.pageY + "</font>");  
+                  $("#res7").html("timeStamp: <font color='red'>" + e.timeStamp + "</font>");                                
+               }                     
+            });
+         </script>
+      <style>
+         div   {overflow:auto;width:200px; height:40px;font-size:30px;text-align:center;
+                background-color:#58D3F7;border-color:cyan;padding:3px;margin:2px;}
+         td    {background-color:#ACFA58;border-style:groove;width: 200px;height:30px;
+                font-size:16px;text-align:center;} 
+         span  {background-color:#81F7F3;}
+         label {background-color:#00FFFF;}                                                                      
+      </style>         
+     </head>
+    <body>
+       <center>
+          <div id="d1">div1</div>
+         <div id="d2"><span>div2</span></div>
+          <div id="d3"><label>div3</label></div>    
+          <table>
+             <tr><td id="res1"></td></tr>
+             <tr><td id="res2"></td></tr>
+             <tr><td id="res3"></td></tr>                 
+             <tr><td id="res4"></td></tr>
+             <tr><td id="res5"></td></tr>          
+             <tr><td id="res6"></td></tr>   
+             <tr><td id="res7"></td></tr>                  
+          </table>                   
+       </center>   
+    </body>
+ </html>

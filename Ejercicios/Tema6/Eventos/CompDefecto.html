@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Prueba - Comportamiento por defecto</title>
+      <script type = "text/javascript" src = "jquery.js"> </script> 
+      <script type = "text/javascript">
+         $(document).ready(function(){
+            $("form").submit(function(e){
+               $(this).find("div").addClass("resaltar");
+               var nombre=$(this).attr("name");
+               if (nombre=="form2"){
+               $(this).addClass("resaltar");
+                  resaltar("Cancelamos con preventDefault()");
+                  e.preventDefault();               
+               }else if (nombre=="form3"){
+                  resaltar("Cancelamos con return false");
+                  return false;               
+               }
+            });               
+            $("a").click(function(e){
+               $(this).closest("div").addClass("resaltar");                           
+               var link=$(this).attr("href");
+               if (link.indexOf('noir')!=-1) {
+                  resaltar("Cancelamos con preventDefault()");
+                  e.preventDefault();
+               }else if (link.indexOf('nodeseada')!=-1) {
+                  resaltar("Cancelamos con return false");
+                  return false;
+               }else{
+                  $("*").removeClass("resaltar");
+               }
+            });                                         
+            $("#b_reset").click(function(){location.reload();});
+            function resaltar(texto){
+               $("#res").html(texto).fadeOut(1000,'linear',function(){
+                  $(this).html("").fadeIn();
+                  $("*").removeClass("resaltar");
+               }); 
+            }
+         });
+      </script>
+      <style>
+         div     {width: 160px;background-color:#00BFFF;margin:1px;padding:1px;border-style:groove;
+                  border-width:5px; font-size:18px;}
+         div#msg {width: 520px;height:30px;background-color:#80FF00;margin:1px;padding:1px;border-style:solid;
+                  border-width:5px; font-size:25px;border-color:#0000FF;text-align:center;} 
+
+         .resaltar {background-color:#00FF80;border-color:#0000FF;}
+                                    
+         .cb     {width: 100px; height:30px;}
+         .cbr    {width: 532px; height:30px;}  
+
+      </style>
+   </head>
+   <body>
+      <center>
+         <table border=1>
+            <tr>
+               <td>
+                  <form name="form1">                     
+                     <div><center><h1>1</h1><input type="submit" class="cb"/></center></div>
+                  </form>                       
+               </td>
+               <td>
+                  <form name="form2">    
+                     <div><center><h1>2</h1><input type="submit" class="cb"/></center></div>
+                  </form>    
+               </td> 
+               <td>
+                  <form name="form3">    
+                     <div><center><h1>3</h1><input type="submit" class="cb"/></center></div>
+                  </form>    
+               </td>                                   
+            </tr>
+            <tr>
+               <td>
+                  <div><center>
+                     <h1>4</h1><a href="http://www.google.com" id="link1" target="_blank">www.google.com</a>
+                  </center></div>
+               </td>
+               <td>
+                  <div><center>
+                     <h1>5</h1><a href="http://www.nada.es" id="link2" target="_blank">www.nada.es</a>
+                  </center></div>
+               </td>            
+               <td>
+                  <div><center>
+                     <h1>6</h1><a href="http://www.webnodeseada.com" id="link3" target="_blank">www.nodeseada.com</a>
+                  </center></div>
+               </td>                      
+            </tr>
+            <tr>
+               <td colspan=3><div id="msg"><font color="red"><span id="res"/></font></div></td>
+            </tr>              
+            <tr>
+               <td colspan=3><input type="button" value="reset" id="b_reset" class="cbr"/></td>
+            </tr>          
+         </table>
+      </center>
+   </body>
+</html>

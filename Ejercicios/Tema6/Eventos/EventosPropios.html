@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Prueba - Eventos propios</title>
+      <script type = "text/javascript" src = "jquery.js"> </script> 
+      <script type = "text/javascript">
+         $(document).ready(function(){
+            $("#b_reset").click(function(){location.reload();});
+            $("div,input:not('#b_reset'),a").click(function(e){
+               $("table").trigger("mievento",$(this).attr("id"));
+            });
+            $("table").on("mievento", function(e,par){
+               $("#res").html(par).fadeOut(1000,'linear',function(){
+                  $(this).html("").fadeIn();
+               }); 
+               $(this).fadeOut(1000).fadeIn();
+            });
+         });
+      </script>
+      <style>
+         div     {width: 90px;height:90px;background-color:#00BFFF;margin:1px;padding:1px;border-style:groove;
+                  border-width:5px; font-size:18px;}
+         div#msg {width: 200px;height:30px;background-color:#80FF00;margin:1px;padding:1px;border-style:solid;
+                  border-width:5px; font-size:25px;border-color:#0000FF;text-align:center;}                   
+         .cb     {width: 103px; height:30px;}
+         .cbr    {width: 213px; height:30px;}  
+      </style>
+   </head>
+   <body>
+      <center>
+         <table border=1 bgcolor="#A9F5F2">
+            <tr>
+               <td><div id="d1">1</div></td>
+               <td><div id="d2">2</div></td>   
+            </tr>
+            <tr>            
+               <td><input type="button" value="1" class="cb"  id="i1"/></td>    
+               <td><input type="button" value="2" class="cb"  id="i2"/></td>
+            </tr>
+            <tr>            
+               <td><center><a href="#1"  id="a1">Uno</a></center></td>    
+               <td><center><a href="#2"  id="a2">Dos</a></center></td>
+            </tr>         
+            <tr>
+               <td colspan=2><div id="msg"><font color="red"><span id="res"/></font></div></td>
+            </tr>                
+            <tr>
+               <td colspan=2><input type="button" value="reset" id="b_reset" class="cbr"/></td>
+            </tr>          
+         </table>
+      </center>
+   </body>
+</html>

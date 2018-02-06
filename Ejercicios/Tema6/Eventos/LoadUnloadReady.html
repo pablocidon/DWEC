@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+     <head>
+         <title>Prueba eventos load, unload y ready</title>
+         <script type = "text/javascript" src = "jquery.js"> </script> 
+         <script type = "text/javascript">
+            $(document).ready(function(){
+               alert("cargado el documento");       
+               $("img").load(function(){
+                  $("#res1").html("imagen cargada");        
+               });         
+               window.onbeforeunload = function () {
+                  return 'Abandona la página';
+               };         
+               $("#b_reset").click(function(){location.reload();});
+            });
+         </script>
+      <style>
+         span {background-color:#2ECCFA;font-size:16px;}
+         .cbr {width: 147px; height:30px;}
+      </style>         
+     </head>
+    <body>
+       <table border=1>
+          <tr>
+             <td width=70>
+                <img src="smile1.jpg" height="60" width="60">
+             </td>
+             <td width=70>
+                <center><span id="res1"></span></center>
+             </td>
+          </tr>
+          <tr>
+             <td colspan=2>
+                <input type="button" value="reset" id="b_reset" class="cbr"/>
+             </td>
+          </tr>
+       </table>
+    </body>
+ </html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+     <head>
+         <title>Prueba Delegacion y propagacion</title>
+         <script type = "text/javascript" src = "jquery.js"> </script> 
+         <script type = "text/javascript">
+            $(document).ready(function(){
+               $("#Abuelo-1").data("np","1");
+               $("#Padre-1-A1").data("nh","2");
+               $("#Abuelo-2").data("np","1");
+               $("#Padre-1-A2").data("nh","2");               
+               $("#b_aps").click(function(){incluye_padre("1","sd");});
+               $("#b_ahs").click(function(){incluye_hijo("1","sd");});  
+               $("#b_lms").click(function(){$("#Abuelo-1 span").empty();});                              
+               $('.sd').click(function() {
+                  $(this).find('span:first').html('<font color="red">Evento ' + $(this).prop('id') + '</font>');
+               });            
+               $(document).on('click','.cd',function(evt) {
+                  $(this).find('span:first').html('<font color="red">Evento ' + $(this).prop('id') + '</font>');
+               });
+               $("#b_apc").click(function(){incluye_padre("2","cd");});
+               $("#b_ahc").click(function(){incluye_hijo("2","cd");});
+               $("#b_lmc").click(function(){$("#Abuelo-2 span").empty();});               
+               function incluye_padre(numAbuelo,tipoc){
+                  var np=$("#Abuelo-"+numAbuelo).data("np");
+                  np=parseInt(np)+1;
+                  var idp="Padre-"+np+"-A"+numAbuelo;
+                  $("#Abuelo-"+numAbuelo).data("np",np);
+                  if (numAbuelo==2){tipoc="cd"};
+                  $("#Abuelo-"+numAbuelo).append("<div class='padre "+tipoc+"' id='"+idp+"'><label>"+idp+" </label><span></span></div>");
+                  $("#"+idp).data("nh","0");
+               }       
+               function incluye_hijo(numAbuelo,tipoc){
+                  $("#Abuelo-"+numAbuelo+" .padre").each(function(idx,v) {
+                     var nomPadre=$(this).prop('id');
+                     result = nomPadre.split('-')
+                     var numPadre=result[1];
+                     var nh=$(this).data("nh");
+                     nh=parseInt(nh)+1;
+                     var idh="Hijo-"+nh+"-P"+numPadre+"-A"+numAbuelo;
+                     $(this).data("nh",nh);                   
+                     $(this).append("<div class='hijo "+tipoc+"' id='"+idh+"'><label>"+idh+" </label><span></span></div>");
+                  });
+               }         
+            $("#b_reset").click(function(){location.reload();});
+            });
+         </script>
+      <style>
+         div.abuelo {background-color:#2ECCFA;width:270px;
+                     font-size:15px;padding:1px;margin:1px;overflow:auto;height:280px;}
+         div.padre {background-color:#81DAF5;padding:3px;margin:2px;}
+         div.hijo {background-color:#A9F5F2;padding:3px;margin:2px;}                  
+         .cb {width: 134px; height:30px;}
+         .cbl {width: 274px; height:30px;}         
+         .cbr {width: 575px; height:30px;}
+         span  {text-align:center;width:150px;}
+      </style>         
+     </head>
+    <body>
+    <table border=1>
+       <tr>
+          <td>
+             <table border=1>
+                <tr><td colspan=2>    
+                      <div class="abuelo sd" id="Abuelo-1">
+                         <label>Abuelo-1 </label><span></span>
+                         <div class="padre sd" id="Padre-1-A1">
+                            <label>Padre-1-A1 </label><span></span>
+                            <div class="hijo sd" id="Hijo-1-P1-A1"><label>Hijo-1-P1-A1 </label><span></span></div>
+                             <div class="hijo sd" id="Hijo-2-P1-A1"><label>Hijo-2-P1-A1 </label><span></span></div>    
+                         </div>
+                      </div>        
+                   </td></tr>
+                <tr><td><input type="button" value="Añadir padre1" id="b_aps" class="cb"/></td>
+                    <td><input type="button" value="Añadir hijo1" id="b_ahs" class="cb"/></td></tr>
+                <tr><td colspan=2>
+                      <input type="button" value="Limpia mensajes1" id="b_lms" class="cbl"/></td>
+                    </td></tr>
+             </table>
+          </td>
+          <td><table border=1>
+                <tr><td colspan=2>
+                      <div class="abuelo cd" id="Abuelo-2">
+                         <label>Abuelo-2 </label><span></span>
+                         <div class="padre cd" id="Padre-1-A2">
+                            <label>Padre-1-A2 </label><span></span>
+                            <div class="hijo cd" id="Hijo-1-P1-A2"><label>Hijo-1-P1-A2 </label><span></span></div>
+                            <div class="hijo cd" id="Hijo-2-P1-A2"><label>Hijo-2-P1-A2 </label><span></span></div>    
+                         </div>
+                      </div>        
+                </td></tr>          
+                <tr><td><input type="button" value="Añadir padre2" id="b_apc" class="cb"/></td>
+                    <td><input type="button" value="Añadir hijo2" id="b_ahc" class="cb"/></td></tr>
+                <tr><td colspan=2>
+                      <input type="button" value="Limpia mensajes2" id="b_lmc" class="cbl"/></td></td>
+                </tr>
+          </table></td>
+       </tr>
+       <tr><td colspan=4>
+          <input type="button" value="Reset" id="b_reset" class="cbr"/></td></tr>       
+    </table>
+    </body>
+ </html>

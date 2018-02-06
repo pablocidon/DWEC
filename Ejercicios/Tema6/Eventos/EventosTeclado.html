@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Prueba - Eventos de teclado</title>
+      <script type = "text/javascript" src = "jquery.js"> </script> 
+      <script type = "text/javascript">
+         $(document).ready(function(){
+            var contador=0;
+            var o_span=$("span").not("#res");
+            var vel=1000;
+            var limpiar=true;
+            $(":input[type='text']").addClass("it");  
+            $("div").focusin(function(){
+               limpiar_span();
+               resaltar($(this),"focusin");
+            });     
+            $("div").focusout(function(){
+               limpiar_span();
+               resaltar($(this),"focusout");                   
+            });   
+            $("div").keydown(function(){
+               limpiar_span();
+               resaltar($(this),"keydown");  
+            });            
+            $("div").keypress(function(){
+               limpiar_span();
+               resaltar($(this),"keypress");
+            });             
+            $("div").keyup(function(){
+               limpiar_span();
+               resaltar($(this),"keyup");
+            });      
+            function limpiar_span(){
+               if (limpiar){
+                  o_span.empty();
+                  limpiar=false;
+               }
+            }
+            function resaltar(o,metodo){
+               o.find('span:first').html(metodo + " " + o.attr('id')).slideDown(vel).slideUp(vel).slideDown(vel); 
+               contador+=1; 
+               $("#res").html(contador + " " + metodo + " " + o.attr('id')+"<br>" + $("#res").html());
+               if (o.prop('id')=="d1"){limpiar=true;}  
+            }
+            $("#b_reset").click(function(){location.reload();});
+         });
+      </script>
+      <style>
+         div.uno  {width: 240px;background-color:#00BFFF;margin:4px;padding:4px;border-style:groove;
+                   border-width:5px; font-size:18px;}
+         div.dos  {width: 220px;background-color:#00FF80;border-width:10px;margin:4px;padding:3px;border-style:groove;
+                   border-width:5px; font-size:18px;}                 
+         div.tres {width: 200px;background-color:#2EFEF7;border-width:10px;margin:4px;padding:2px;border-style:groove;
+                   border-width:5px; font-size:18px;}                 
+         .cb      {width: 178px; height:30px;}
+         .cbr     {width: 267px; height:30px;}  
+         span.in  {background-color:#FFFF00; margin:2px;} 
+         span.out {background-color:#DF7401; margin:2px;} 
+         .kd      {background-color:red; margin:2px;}         
+         .it      {width: 50px;border-width:3px;}  
+         div#dr   {background-color:#FFFF00;overflow:auto;width:140px; height:390px;font-size:14px;}                          
+      </style>
+   </head>
+   <body>
+      <center>
+         <table border=1>
+             <tr>
+                 <td>
+                     <table border=1>
+                        <tr style="height:100px;"><td>
+                           <div class="uno" id="d1">
+                              <input type="text" value="d1"><span></span>
+                              <div class="dos" id="d11">
+                                 <input type="text" value="d11"><span></span>
+                                 <div class="tres" id="d111"><input type="text" value="d111"><span></span></div>
+                                 <div class="tres" id="d112"><input type="text" value="d112"><span></span></div>
+                              </div>
+                              <div class="dos" id="d12">
+                                 <input type="text" value="d12"><span id="res5"></span>
+                                 <div class="tres" id="d121"><input type="text" value="d121"><span></span></div>
+                                 <div class="tres" id="d122"><input type="text" value="d122"><span></span></div>
+                              </div>         
+                           </div>
+                        </td></tr>
+                        <tr>
+                           <td colspan=2><input type="button" value="reset" id="b_reset" class="cbr"/></td>
+                        </tr>          
+                     </table>
+                 </td>
+                 <td>
+                 <div id="dr"><span id="res"></span></div>
+                 </td>
+             </tr>
+         </table>
+    </center>
+   </body>
+</html>

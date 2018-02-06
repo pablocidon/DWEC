@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+     <head>
+         <title>Prueba eventos de navegador error, resize y scroll</title>
+         <script type = "text/javascript" src = "jquery.js"> </script> 
+         <script type = "text/javascript">
+            $(document).ready(function(){
+               $("#mi_img").error(function(){
+                  $("#res1").html("<b>error</b>").fadeOut(500,'linear').fadeIn(500,'linear');
+               });
+               $(window).resize(function() {
+                  $("#res2").html("<b>Cambio de tamaño</b>").fadeOut(5000,'linear',function(){
+                     $(this).fadeIn(500,'linear',function(){
+                        $("#res2").html("");
+                     });
+                  });
+               });
+               $("#res3").scroll(function () {
+                  $("#res4").html("<b>Scroll</b>").fadeOut(5000,'linear',function(){
+                     $(this).fadeIn(500,'linear',function(){
+                        $("#res4").html("");
+                     });
+                  });                                   
+               });      
+               $(window).scroll(function () {
+                  $("#res4").html("<b>Scroll</b>").fadeOut(5000,'linear',function(){
+                     $(this).fadeIn(500,'linear',function(){
+                        $("#res4").html("");
+                     });
+                  });                                   
+               });                         
+               $("#b_reset").click(function(){location.reload();});
+            });
+         </script>
+      <style>
+         div#res1 {background-color:#2ECCFA;width:220px;height:40px;font-size:25px;}
+         div#res2 {background-color:#81F781;width:220px;height:40px;font-size:25px;} 
+         div#res3 {background-color:#F3F781;width:220px;height:60px;font-size:18px;
+                   overflow:scroll;position:relative;}
+         div#res4 {background-color:#FAAC58;width:220px;height:40px;font-size:25px;}                                   
+         .cb {width: 134px; height:20px;}
+         .cbl {width: 274px; height:30px;}         
+         .cbr {width: 100px; height:30px;}
+      </style>         
+     </head>
+    <body>
+    <center>
+       <input type="button" value="Reset" id="b_reset" class="cbr"/><br>
+       <img src="img_inexistente.abc" id="mi_img"><br>
+       <div id="res1"></div>
+       <div id="res2"></div>
+       <div id="res3">
+          <div style="width:250px;">
+             <span>Uno 123457890-1234567890</span><br>
+             <span>Dos 123457890-1234567890</span><br>
+             <span>Tres 123457890-1234567890</span><br>
+             <span>Cuatro 123457890-1234567890</span><br>             
+          </div>
+       </div>
+       <div id="res4"></div>
+    </center>
+    </body>
+ </html>
