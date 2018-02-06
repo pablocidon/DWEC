@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Prueba - formato en mensajes de error</title>
+    <script type = "text/javascript" src = "jquery.js"> </script>
+    <script type = "text/javascript" src = "jquery.validate.js"> </script>
+    <script type = "text/javascript">
+      $(document).ready(function(){
+        $('#v_codigo').focus();
+        $("#form1").validate({
+          rules: {
+            v_codigo: {
+              required: true,
+              digits: true,
+              maxlength: 4
+            },
+            v_numeros: {
+              required: true,
+              number: true,
+              minlength: 3
+            },
+            v_fecha: {
+              required: true,
+              date: true
+            },
+            v_url: {
+              url: true
+            },
+            v_email: {
+              required: true,
+              email: true
+            },
+            v_tarjeta: {
+              creditcard: true
+            }
+          },
+          messages: {
+            v_codigo: {
+              required: "Introduzca codigo (4 digitos).",
+              maxlength: "Debe introducir 4 digitos como máximo."
+            },
+            v_numeros: {
+              required: "Introduzca números (al menos 3 dígitos).",
+              minlength: "Debe introducir 3 digitos como minimo."
+            },
+            v_fecha: {
+              required: "Introduzca fecha en formato (MM/DD/AAAA).",
+              date: "Fecha incorrecta. Debe ser (MM/DD/AAAA)."
+            },
+            v_url: {
+              url: "Introduzca URL (http://aaa.bbb.ccc)."
+            },
+            v_email: "Introduzca email (aa@bb.cc).",
+            v_tarjeta: "Introduzca tarjeta de crédito."
+          },
+          errorPlacement: function(error, element) {
+            if (element.attr("name")=="v_codigo"){
+              $("#v_codigo").fadeOut(5000,function(){
+                $(this).fadeIn(5000);
+                error.insertAfter( element );
+              });
+            }else if (element.attr("name")=="v_numeros"){
+              var msg = error.get(0).textContent;
+              $("#l_numeros").animate({
+                height:"toggle",
+                width:"toggle"
+              },5000);
+              $("#l_numeros").animate({
+                height:"toggle",
+                width:"toggle"
+              },5000);
+              error.insertAfter( element );
+            }else{
+              error.insertAfter( element );
+              var msg = error.get(0).textContent;
+              $("#res").append(element.attr("name"));
+              $("#res").html($("#res").html() + ": " + msg +"<br>")
+              .fadeIn('slow').fadeOut('slow').fadeIn('slow');
+            }
+          }
+        });
+        $("#b_reset").click(function(){location.reload();});
+    });
+    </script>
+    <style>
+      div      {width:500px;height:100px;background-color:#00BFFF;margin:5px; padding:5px;
+      border-style:groove; border-width:3px; font-size:18px;overflow:auto;}
+      .cRotulos      {border-style:none;border-color:green;width:170px;font-size:19px}
+      .cRotulos:hover {background-color:#A9D0F5;}
+      .ct            {border-style:inset;border-color:green;border-width:1px;}
+      .ct:hover      {border-color:red;border-width:2px;}
+      .cb            {width: 100px; height:30px;}
+      .cbr           {width: 598px; height:30px;}
+      span           {margin:2px;color:blue; font-weight:bold;}
+      .red           {border-style:solid;border-color:red;width:170px;font-size:25px}
+      td   {height:30px;}
+    </style>
+  </head>
+  <body>
+    <center>
+      <form action="" method="get" id="form1">
+        <table bgcolor="#A9F5F2" border="1">
+          <tr>
+            <td class="cRotulos"><span>Codigo</span></td>
+            <td style="width: 530px;">
+              <input class="ct" size="4" style="text-align:right" type="text" name="v_codigo" id="v_codigo"/>
+            </td>
+          </tr>
+          <tr>
+            <td class="cRotulos"><span id="l_numeros">Numeros</span></td>
+            <td><input class="ct" size="10" type="text" name="v_numeros"/></td>
+          </tr>
+          <tr>
+            <td class="cRotulos"><span>Fecha</span></td>
+            <td><input class="ct" size="10" type="text" name="v_fecha"/></td>
+          </tr>
+          <tr>
+            <td class="cRotulos"><span>URL</span></td>
+            <td><input class="ct" size="40" type="text" name="v_url"/></td>
+          </tr>
+          <tr>
+            <td class="cRotulos"><span>Email</span></td>
+            <td><input class="ct" size="40" type="text" name="v_email"/></td>
+          </tr>
+          <tr>
+            <td class="cRotulos"><span>Tarjeta de credito</span></td>
+            <td><input class="ct" size="40" type="text" name="v_tarjeta"/></td>
+          </tr>
+          <tr>
+            <td colspan=2><div id="res"></div></td>
+          </tr>          
+          <tr>
+            <td colspan=2>
+              <input id="b_submit" class="cb" type="submit" value="submit"/>
+              <input id="b_reset" class="cbr" type="button" value="reset"/>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </center>
+  </body>
+</html>

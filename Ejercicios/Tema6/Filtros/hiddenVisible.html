@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Prueba - filtros para hidden - visible</title>
+      <script type = "text/javascript" src = "jquery.js"> </script> 
+      <script type = "text/javascript">
+         $(document).ready(function(){
+            var mostrar=false;var cn=0;
+            ver_estado();
+            $(":input[type='button']").addClass("cb");
+            $("#b_mostrar").click(function(){
+               $(".ocultar").removeClass("ocultar").addClass("mostrar");
+               mostrar=true;               
+               ver_estado();
+            });
+            $("#b_ocultar").click(function(){
+               $(".mostrar").removeClass("mostrar").addClass("ocultar");
+               mostrar=false;
+               ver_estado();            
+            });                          
+            $("#b_nuevo_hidden").click(function(){
+               cn+=1;var nuevo="Nuevo"+cn;            
+               $("div#padre").append("<div class='ocultar' style='float:left;' id='"+nuevo+"'>"+nuevo+"</div>");
+               $("#"+nuevo).animate({ opacity: '.1' }).delay(70).animate({ opacity: '1' });
+               if (mostrar){$("#b_mostrar").click();}else{ver_estado();}
+             });
+            $("#b_nuevo_visible").click(function(){
+               cn+=1;var nuevo="Nuevo"+cn;  
+               $("div#padre").append("<div class='normal' style='float:left;' id='"+nuevo+"'>"+nuevo+"</div>");
+               $("#"+nuevo).animate({ opacity: '.1' }).delay(70).animate({ opacity: '1' });
+               if (mostrar){$("#b_mostrar").click();}else{ver_estado();}
+            });
+            $("#b_reset").click(function(){location.reload();});
+            function ver_estado(){
+                var res="";             
+                $("div#padre div:hidden").each(function(idx,v) {
+                   res+=$(this).text()+"<br>";
+                });
+
+                $("#res_o").html("<b>:hidden</b> <br>" + res);
+                res="";                         
+                $("div#padre div:visible").each(function(idx,v) {
+                  res+=$(this).text()+"<br>";
+               });
+               $("#res_v").html("<b>:visible</b><br>" + res);           
+            }
+         });
+      </script>
+      <style>
+         #padre {overflow:auto;width:370px; height:180px;
+                  background-color:#58D3F7;border-color:cyan;padding:3px;margin:2px;}
+         .normal {border-style:groove;border-width:5px;overflow:auto;width: 50px; height:50px;
+                  background-color:#58D3F7;border-color:cyan;padding:3px;margin:2px;}
+         .mostrar {border-style:groove;border-width:5px;overflow:auto;width: 50px; height:50px;
+                  background-color:#9AFE2E;border-color:#9AFE2E;padding:3px;margin:2px;} 
+         .ocultar {display:none;}                  
+         .cb {width: 143px; height:30px;}
+         .cbr {width: 290px; height:30px;}
+         .res {border-style:none;background-color:#F3F781;width: 80px; height:120px;
+               vertical-align:top;overflow-y:scroll;padding:3px;margin:2px;}                           
+      </style>
+   </head>
+   <body>
+      <table border="10" style="border-color:#00BFFF"> 
+         <tr>
+            <td><input type="button" value="mostrar" id="b_mostrar"/></td>
+            <td><input type="button" value="ocultar" id="b_ocultar"/></td>
+         </tr>
+         <tr>
+            <td><input type="button" value="nuevo hidden" id="b_nuevo_hidden"/></td>
+            <td><input type="button" value="nuevo visible" id="b_nuevo_visible"/></td>
+         </tr>         
+         <tr>
+            <td colspan=2><input type="button" value="reset" id="b_reset" class="cbr"/></td>
+         </tr>
+      </table>
+      <hr>
+      <table>
+         <tr>
+            <td>
+            <div id="padre">
+               <div class="normal" style="float:left;">Uno</div>
+               <div class="ocultar" style="float:left;">Dos</div>  
+               <div class="normal" style="float:left;">Tres</div>
+               <div class="ocultar" style="float:left;">Cuatro</div>
+               <div class="normal" style="float:left;">Cinco</div>
+            </div>
+            </td>
+         </tr>         
+      </table>
+      <table>
+         <tr>
+            <td><div class="res" ><span id="res_o"></span></div></td>
+            <td><div class="res"><span id="res_v"></span></div></td>      
+         </tr>     
+      </table>      
+   </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="jquery" content="width=device-width">
+  <title>jQuery Ejemplos</title>
+  <script type="text/javascript"  src="jQuery.js"> </script>
+  <script> 
+       	       
+	// comprobación que el documento esta cargado
+       $(document).ready(function(){
+		 $("#b_after").click(function(){
+			$("#p1").after("<p class=\"c1\"> <b> Texto añadido con after</b></p>");
+		 });
+		 $("#b_before").click(function(){
+			$("#p1").before("<p class=\"c2\"> <b> Texto añadido con before</b></p>");
+		 });
+		  $("#b_inserAfter").click(function(){
+		    $("<p class=\"c3\"> <b>Texto añadido con insertAfter</b></p>").insertAfter("#p1");
+		 });
+		  $("#b_inserBefore").click(function(){
+			$("<p class=\"c4\"> <b>Texto añadido con insertBefore</b></p>").insertBefore("#p1");
+			});
+		 $("#b_reset").click(function(){
+			$("p").remove(":contains('Texto')");
+			// :contains seleccionar los elementos que contiene un 
+			// determinado elemento de texto
+		 });
+		});
+		
+	   </script>
+	   <style>
+	        p{color:blue;}
+			.c1 {color: green;}
+			.c2 {color: red;}
+			.c3 {color:cyan;}
+			.c4 {color:tomato;}
+	   </style>
+	      
+</head>
+<body>
+    <p id="p1"> Primer parrafo </p> </br>
+	<p id="p1"> Segundo parrafo </p>  </br>
+	<input type="button" value="After"        id="b_after" />
+	<input type="button" value="Before"       id="b_before"/>
+	<input type="button" value="InserAfter"   id="b_inserAfter" />
+	<input type="button" value="InserBefore"  id="b_inserBefore"/>
+	<input type="button" value="Resetear"     id="b_reset" />
+	
+</body>
+</html>

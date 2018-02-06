@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="jquery" content="width=device-width">
+  <title>jQuery Ejemplos</title>
+  <script type="text/javascript"  src="jQuery.js"> </script>
+  <script> 
+       	       
+	// comprobación que el documento esta cargado
+       $(document).ready(function(){ 
+		    $("*").each(function(indice){
+			    console.log($(this));
+			});
+		});
+	   </script>
+</head>
+<body>
+    <p> Primer parrafo </p>
+	<div> primer div </div>
+	<div> segundo div <span> primer span  </span> fin </div>
+	<ul>
+		<li> Uno </li>
+		<li> dos </li>
+		<li> tres </li>
+	</ul>
+</body>
+</html>

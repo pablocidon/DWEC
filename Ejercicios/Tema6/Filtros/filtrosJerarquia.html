@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Prueba - filtros para jerarquia</title>
+      <script type = "text/javascript" src = "jquery.js"> </script> 
+      <script type = "text/javascript">
+         $(document).ready(function(){
+            $(":input[type='button']").addClass("cb");
+            $("#b_parent").click(function(){
+               $("div.padre > img").toggleClass("cParent");
+            });
+            $("#b_ancestor").click(function(){
+               $("div.padre img").toggleClass("cAncestor");
+            });
+            $("#b_next").click(function(){
+               $("img + span").toggleClass("cNext");
+            });
+            $("#b_siblings").click(function(){
+               $("button ~ span").toggleClass("cSiblings");
+            });                          
+            $("#b_reset").click(function(){location.reload();});
+         });
+      </script>
+      <style>
+         .padre {border-style:groove;border-width:5px;overflow:auto;
+                 background-color:#58D3F7;border-color:cyan;padding:3px;margin:2px;}
+         .hijo {border-style:outset;background-color:#80FF00;padding:3px;
+                margin:2px;border-width:2px;}
+         .nieto {border-style:dashed;background-color:#80FF00;
+                 padding:1px;margin:2px;border-width:2px;}         
+         span {background-color:yellow;margin:1px;padding:1px;}
+         .cb  {width: 140px; height:30px;}
+         .cbr {width: 286px; height:30px;}
+         .cParent {border-color:red;border-style:inset;border-width:2px;}         
+         .cAncestor {border-color:blue;border-style:inset;border-width:2px;}
+         .cNext {border-color:green;border-style:inset;border-width:2px;}
+         .cSiblings {border-color:#013ADF;border-style:solid;border-width:2px;}
+      </style>
+   </head>
+   <body>
+      <table border="10" style="border-color:#00BFFF"> 
+         <tr>
+            <td><input type="button" value="div.padre > img" id="b_parent"/></td>
+            <td><input type="button" value="div.padre img" id="b_ancestor"/></td>
+         </tr>
+         <tr>                   
+            <td><input type="button" value="img + span" id="b_next"/></td>
+            <td><input type="button" value="button ~ span" id="b_siblings"/></td>
+         </tr>           
+         <tr>
+            <td colspan=2><input type="button" value="Reset" id="b_reset" class="cbr"/></td>
+         </tr>
+      </table>
+      <br>
+      <div class="padre">     
+         <div class="hijo"><span>Texto</span></div>
+         <img src="smile1.jpg" title="Mi imagen" width="40" height="40"/>
+         <span>Texto</span>                
+         <div class="hijo">
+            <span>Texto</span>
+            <img src="smile1.jpg" title="Mi imagen" width="40" height="40"/>
+            <span>Texto</span><span>Texto</span>            
+            <div class="nieto">
+               <button style="width:40px;height:40px">
+                  <center><img src="smile1.jpg" title="Mi imagen" width="25" height="25"/></center>
+               </button>
+               <span>Texto</span>
+               <img src="smile1.jpg" title="Mi imagen" width="40" height="40"/>
+               <span>Texto</span><span>Texto</span><span>Texto</span>                              
+               <img src="smile1.jpg" title="Mi imagen" width="40" height="40"/>
+               <span>Texto</span><span>Texto</span>               
+            </div>
+         </div>
+         <img src="smile1.jpg" title="Mi imagen" width="40" height="40"/>
+         <button style="width:100px;height:20px"><center>Mi boton</center></button>
+         <span>Texto</span><span>Texto</span><span>Texto</span>  
+         <img src="smile1.jpg" title="Mi imagen" width="40" height="40"/>
+         <span>Texto</span>                                                                      
+         <div class="hijo"></div>
+      </div> 
+      <div class="padre">     
+         <div class="hijo"><span>Texto</span></div>
+         <div class="hijo">
+            <div class="nieto">        
+               <span>Texto</span> 
+               <img src="smile1.jpg" title="Mi imagen" width="40" height="40"/>
+               <span>Texto</span>
+            </div>   
+         </div>     
+         <div class="hijo"></div>
+      </div> 
+   </body>
+</html>

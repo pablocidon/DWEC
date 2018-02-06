@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Prueba - filtros para hijos</title>
+      <script type = "text/javascript" src = "jquery.js"> </script> 
+      <script type = "text/javascript">
+         $(document).ready(function(){
+            $(":input[type='button']").addClass("cb");
+            var o = $("#1").offset();
+            o.left=70;o.top=260;
+            $("#1").offset(o);
+            o.left=190;o.top=280;
+            $("#2").offset(o);
+            o.left=310;o.top=300;
+            $("#3").offset(o);                        
+            $("#b_fc").click(function(){$("div:first-child").toggleClass("cfc");});
+            $("#b_lc").click(function(){$("div:last-child").toggleClass("clc");});
+            $("#b_fot").click(function(){$("span:first-of-type").toggleClass("cfot");});
+            $("#b_lot").click(function(){$("span:last-of-type").toggleClass("clot");});
+            $("#b_nc").click(function(){$("div:nth-child(2)").toggleClass("cnc");});
+            $("#b_nlc").click(function(){$("div:nth-last-child(2)").toggleClass("clc");});            
+            $("#b_nlot").click(function(){$("div:nth-last-of-type(2)").toggleClass("cnlot");});
+            $("#b_not").click(function(){$("div:nth-of-type(3)").toggleClass("cnot");});
+            $("#b_oc").click(function(){$("td:only-child").toggleClass("coc");});
+            $("#b_oot").click(function(){$("span:only-of-type").toggleClass("coot");});            
+            $("#b_reset").click(function(){location.reload();});
+        });
+      </script>
+      <style>
+        div.conte {border-style:solid;border-width:1px;overflow:auto;width:110px;height:110px;background-color:#58D3F7}
+        div {border-style:solid;border-width:1px;overflow:auto;width:20px;height:20px;background-color:#58D3F7}
+        .cb {width: 155px; height:30px;}
+        .cbr {width: 318px; height:30px;}
+        .cfc {background-color:red;}
+        .clc {background-color:yellow;}
+        .cfot {background-color:#2EFE64;}
+        .clot {background-color:#FF8000;}
+        .cnc {background-color:#FFFF00;}
+        .clc {background-color:#01DF01;}
+        .cnlot {background-color:#01DF01;}
+        .cnot {background-color:#F6E3CE;}
+        .coc {background-color:#FAAC58;}
+        .coot {border-style:solid;border-color:red;background-color:#F7F8E0;}        
+      </style>
+   </head>
+   <body>
+      <table border="10" style="border-width:10px;border-color:#00BFFF"> 
+         <tr><td><input type="button" value="div:first-child" id="b_fc"/></td>
+             <td><input type="button" value="div:last-child" id="b_lc"/></td></tr>
+         <tr><td><input type="button" value="span:first-of-type" id="b_fot"/></td>
+             <td><input type="button" value="span:last-of-type" id="b_lot"/></td></tr>
+         <tr><td><input type="button" value="div:nth-child(2)" id="b_nc"/></td>
+             <td><input type="button" value="div:nth-last-child(2)" id="b_nlc"/></td></tr>                        
+         <tr><td><input type="button" value="div:nth-of-type(3)" id="b_not"/></td>
+             <td><input type="button" value="div:nth-last-of-type(2)" id="b_nlot"/></td></tr>
+         <tr><td><input type="button" value="td:only-child" id="b_oc"/></td>
+             <td><input type="button" value="span:only-of-type" id="b_oot"/></td></tr>
+         <tr><td colspan="2"><input type="button" value="Reset" id="b_reset" class="cbr"/></td></tr>
+      </table>
+      <hr>
+      <table border=3>
+         <tr><td>
+            <span>Uno</span><br>
+            <span>Dos</span><br>
+            <span>Tres</span>
+         </td></tr>
+         <tr><td>
+            <span>Uno</span><br>         
+            <span>Dos</span>
+         </td></tr>       
+         <tr><td><span>Uno</span></td></tr>
+      </table>
+      <hr>        
+      <div id="1" class="conte" style="border-width:2px;border-color:red">
+         <span>Texto1</span>
+         <div>1</div><div></div><div></div>
+      </div>
+      <div id="2" class="conte" style="border-width:2px;border-color:blue">
+         <div>2</div><div></div><div></div><div></div>
+         <span>Texto2</span>
+      </div>
+      <div id="3" class="conte" style="border-width:2px;border-color:yellow">
+         <div>3</div><div></div><div></div><div></div><div></div>                  
+      </div>
+   </body>
+</html>

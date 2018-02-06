@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="jquery" content="width=device-width">
+  <title>jQuery Ejemplos</title>
+  <script type="text/javascript"  src="jQuery.js"> </script>
+  <script> 
+       $(document).ready(function(){
+	       $("p").each(function(idx,valor){
+		       console.log('<'+idx+'> Etiqueta con valor ('+valor+')');
+		   });
+		});
+	   </script>
+</head>
+<body>
+  <p> Primer parrafo </p>
+  <p> Segundo parrafo </p>
+  <p> Tercer parrafo </p>
+  <p> Cuarto parrafo </p>
+  <p> Quinto parrafo </p>
+    
+</body>
+</html>

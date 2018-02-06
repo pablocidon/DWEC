@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title>Prueba - Recorrido del arbol</title>
+    <script type = "text/javascript" src = "jquery.js"> </script> 
+    <script type = "text/javascript">
+       $(document).ready(function(){
+          $(":input[type='button']").addClass("cb");
+          $("#b_children").click(function(){
+             $("div#padre div").children("span").toggleClass("cResaltar");
+          });
+          $("#b_closest").click(function(){
+             $("div#padre div span").closest("div").toggleClass("cResaltar");               
+          });
+          $("#b_find").click(function(){
+             $("div#padre").find("div").toggleClass("cResaltar");
+          });   
+          $("#b_next").click(function(){
+             $("div#padre div label").next().toggleClass("cResaltar");              
+          });   
+          $("#b_nextAll").click(function(){
+             $("div#padre div label").nextAll().toggleClass("cResaltar"); 
+          }); 
+          $("#b_nextUntil").click(function(){
+             $("div#padre #d2").nextUntil("#d5").toggleClass("cResaltar"); 
+          }); 
+          $("#b_parent").click(function(){
+             $("div#padre div label").parent().toggleClass("cResaltar");
+          }); 
+          $("#b_parents").click(function(){
+             $("div#padre div span").parents("div").toggleClass("cResaltar");
+          }); 
+          $("#b_parentsUntil").click(function(){
+             $("div#padre div span").parentsUntil("div.normal").toggleClass("cResaltar");
+          }); 
+          $("#b_prev").click(function(){
+             $("div#padre div label").prev().toggleClass("cResaltar"); 
+          }); 
+          $("#b_prevAll").click(function(){
+             $("div#padre div label").prevAll().toggleClass("cResaltar");
+          }); 
+          $("#b_prevUntil").click(function(){
+             $("div#padre div label").prevUntil("div label").toggleClass("cResaltar");
+          }); 
+          $("#b_offsetParent").click(function(){
+               $("div#padre div span").offsetParent().toggleClass("cResaltar");
+          });             
+          $("#b_siblings").click(function(){
+             $("div#padre div label").siblings().toggleClass("cResaltar");
+          });                                                                                                             
+          $("#b_reset").click(function(){location.reload();});
+       });
+    </script>
+    <style>
+       #padre  {padding:3px;margin:2px;overflow:auto;}
+       .normal {border-style:groove;border-width:5px;width: 153px; height:110px; 
+                float:left; background-color:#58D3F7;border-color:cyan;padding:3px; 
+                margin:2px;position:relative;}
+       .cb     {width: 280px; height:30px;}
+       .cResaltar {background-color:#ACFA58;border-color:red;border-style:dashed;}
+       label   {background-color:#75FFA3;}
+       span    {background-color:#B8E68A;}
+    </style>
+ </head>
+ <body>
+   <table border="10" style="border-color:#00BFFF"> 
+     <tr>
+       <td><input type="button" value="$('div#padre div').children('span')" id="b_children"/></td>
+       <td><input type="button" value="$('div#padre div span').closest('div')" id="b_closest"/></td>
+       <td><input type="button" value="$('div#padre').find('div')" id="b_find"/></td>               
+     </tr>
+     <tr>
+       <td><input type="button" value="$('div#padre div label').next()" id="b_next"/></td>
+       <td><input type="button" value="$('div#padre div label').nextAll()" id="b_nextAll"/></td>
+       <td><input type="button" value="$('div#padre #d2').nextUntil('#d5')" id="b_nextUntil"/></td>            
+     </tr>
+     <tr>
+       <td><input type="button" value="$('div#padre div label').parent()" id="b_parent"/></td>
+       <td><input type="button" value="$('div#padre div span').parents('div')" id="b_parents"/></td>
+       <td><input type="button" value="$('div#padre div span').parentsUntil('div.normal')" id="b_parentsUntil"/></td>
+     </tr>
+     <tr>     
+       <td><input type="button" value="$('div#padre div label').prev()" id="b_prev"/></td>
+       <td><input type="button" value="$('div#padre div label').prevAll()" id="b_prevAll"/></td>
+       <td><input type="button" value="$('div#padre div label').prevUntil('div label')" id="b_prevUntil"/></td>
+     </tr>
+     <tr>             
+       <td><input type="button" value="$('div#padre div span').offsetParent()" id="b_offsetParent"/></td>         
+       <td><input type="button" value="$('div#padre div label').siblings()" id="b_siblings"/></td>
+       <td><input type="button" value="reset" id="b_reset"/></td>          
+     </tr>
+  </table>
+  <table>
+     <tr>
+       <td>
+          <div id="padre">
+             <div id="d1" class="normal"><b>Uno</b><br><b>Dos</b></div>
+             <div id="d2" class="normal"><span>sp Tres</span></div>
+             <div id="d3" class="normal">
+                <label>lb Cuatro</label>
+                <div><span>sp Cinco</span></div>
+                <label>lb Seis</label>
+             </div>
+             <div id="d4" class="normal"><span>sp Siete</span></div>   
+             <div id="d5" class="normal">
+                <label><i>lb Ocho</i></label>
+                <span><i>sp Nueve</i></span>                     
+                <div style="position:relative;">
+                   <div><span><i>sp Diez</i></span></div>
+                   <div><label><i>lb Once</i></label></div>                        
+                </div> 
+                <label><i>lb Doce</i></label>                                         
+             </div>                                             
+          </div>
+       </td>
+     </tr>
+  </table>
+ </body>
+</html>

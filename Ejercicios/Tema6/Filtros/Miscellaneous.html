@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Prueba - Miscellaneous</title>
+      <script type = "text/javascript" src = "jquery.js"> </script> 
+      <script type = "text/javascript">
+         $(document).ready(function(){
+            $(":input[type='button']").addClass("cb");
+            $("#b_add").click(function(){
+               $("span").add("#res").toggleClass("cResaltar");
+            });
+            $("#b_addBack").click(function(){
+              $("div#d2").nextAll().addBack().toggleClass("cResaltar");
+            });
+            $("#b_andSelf").click(function(){
+                $("div#d3").nextAll().andSelf().toggleClass("cResaltar");
+            });   
+            $("#b_contents").click(function(){
+               $("div#padre div").contents().not("label").toggleClass("cResaltar");               
+            });   
+            $("#b_end").click(function(){
+               $("div#padre div").has("span").toggleClass("cResaltar").end()
+                                 .has("label").toggleClass("cDestacar");
+            }); 
+            $("#b_reset").click(function(){location.reload();});
+         });
+      </script>
+      <style>
+         #padre  {padding:3px;margin:2px;}
+         .normal {border-style:groove;border-width:5px;width: 75px; height:68px;
+                  background-color:#58D3F7;border-color:cyan;padding:3px;margin:2px;}
+         .cb     {width: 230px; height:30px;}
+         .cbr    {width: 425px; height:30px;}                   
+         .cResaltar {background-color:#ACFA58;border-color:white;border-style:dashed;}
+         .cDestacar {border-color:red;border-style:solid;border-width:5px;}
+         label   {background-color:#75FFA3;}
+         span    {background-color:#B8E68A;}
+         p       {background-color:#ACFA58;border-style:groove;
+                  width: 480px;height:40px;
+                  font-family: Courier, "Courier New", monospace;font-size:16px;}  
+      </style>
+   </head>
+   <body>
+      <table border="10" style="border-color:#00BFFF"> 
+         <tr>
+            <td><input type="button" value="$('span').add('#res')" id="b_add"/></td>
+            <td><input type="button" value="$('div#d2').nextAll().addBack()" id="b_addBack"/></td>
+         </tr>
+         <tr>
+            <td><input type="button" value="$('div#d3').nextAll().andSelf()" id="b_andSelf"/></td>            
+            <td><input type="button" value="$('div#padre div').contents().not('label')" id="b_contents"/></td>
+         </tr>
+         <tr>
+            <td><input type="button" value="... .has('span') ... .end().has('label') ..." id="b_end"/></td>
+            <td><input type="button" value="reset" id="b_reset"/></td>
+         </tr>
+      </table>
+      <table>
+         <tr>
+            <td>
+               <div id="padre">
+                  <div id="d1" class="normal" style="float:left;"><b>Uno</b></div>
+                  <div id="d2" class="normal" style="float:left;"><span>Dos</span></div>
+                  <div id="d3" class="normal" style="float:left;"><label>Tres</label></div>
+                  <div id="d4" class="normal" style="float:left;"><span>Cuatro</span></div>   
+                  <div id="d5" class="normal" style="float:left;"><i>Cinco</i></div>                                             
+               </div>
+            </td>
+         </tr>
+         <tr><td><p id="res"> </p></td></tr>                          
+      </table>
+   </body>
+</html>

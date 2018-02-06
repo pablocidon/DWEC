@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Prueba - Mas filtros</title>
+      <script type = "text/javascript" src = "jquery.js"> </script> 
+      <script type = "text/javascript">
+         $(document).ready(function(){
+            $(":input[type='button']").addClass("cb");
+            $("#b_eq").click(function(){
+               $("div#padre div").eq(2).toggleClass("cResaltar");
+            });
+            $("#b_filter").click(function(){
+               $("div#padre div").filter(":even").toggleClass("cResaltar");
+            });
+            $("#b_first").click(function(){
+               $("div#padre div").first().toggleClass("cResaltar");
+            });   
+            $("#b_last").click(function(){
+               $("div#padre div").last().toggleClass("cResaltar");
+            });   
+            $("#b_has").click(function(){
+               $("div#padre div").has("span").toggleClass("cResaltar");
+            }); 
+            $("#b_map").click(function(){
+               $("div#padre div").removeClass("cDestacar");            
+                  $("#res").html( $("div#padre div").map(function(){
+                  return $(this).html();
+               }).get().join(", ") );
+            });
+            $("#b_not").click(function(){
+               $("div#padre .normal *").not("span").toggleClass("cResaltar");
+            });   
+            $("#b_slice").click(function(){
+               $("div#padre div").slice(1,4).toggleClass("cResaltar");
+            });                                    
+            $("div#padre div").click (function(){
+               $("div#padre div").removeClass("cDestacar");
+               if ($(this).is("div#padre div:first")){
+                  $("#res").html("<b>$('div#padre div:first')</b><br> -> Es el primero");
+               }
+               if ($(this).is("div#padre div:contains('Tres')")){
+                  $("#res").html("<b>$(\"div#padre div:contains('Tres')\")</b><br> -> Contiene 'Tres'");
+               }
+               if ($(this).is("div#padre div:eq(3)")){
+                  $("#res").html("<b>$('div#padre div:eq(3)')</b><br> -> Es el cuarto");
+               }                                         
+               if ($(this).is("div#padre div:last")){
+                  $("#res").html("<b>$('div#padre div:last')</b><br> -> Es el ultimo");                  
+               }
+               if ($(this).is("#d2")){
+                  $("#res").html("<b>$('#d2')</b><br> -> Es d2");                  
+               }
+               $(this).addClass("cDestacar");
+            });                                                                     
+            $("#b_reset").click(function(){location.reload();});
+         });
+      </script>
+      <style>
+         #padre  {overflow:auto;width:444px; height:90px;
+                  background-color:#58D3F7;border-color:cyan;padding:3px;margin:2px;}
+         .normal {border-style:groove;border-width:5px;width: 68px; height:68px;
+                  background-color:#58D3F7;border-color:cyan;padding:3px;margin:2px;}
+         .cb     {width: 210px; height:30px;}
+         .cbr    {width: 425px; height:30px;}                   
+         .cResaltar {background-color:#ACFA58;border-color:white;border-style:dashed;}
+         .cDestacar {border-color:red;border-style:solid;border-width:5px;}
+         label   {background-color:#75FFA3;}
+         span    {background-color:#B8E68A;}
+         p       {background-color:#ACFA58;border-style:groove;width: 444px;height:40px;
+                  font-family: Courier, "Courier New", monospace;font-size:16px;}  
+      </style>
+   </head>
+   <body>
+      <table border="10" style="border-color:#00BFFF"> 
+         <tr><td><input type="button" value="$('div#padre div').eq(2)" id="b_eq"/></td>
+             <td><input type="button" value="$('div#padre div').filter(':even')" id="b_filter"/></td></tr>
+         <tr><td><input type="button" value="$('div#padre div').first()" id="b_first"/></td>            
+             <td><input type="button" value="$('div#padre div').last()" id="b_last"/></td></tr>
+         <tr><td><input type="button" value="$('div#padre div').has('span')" id="b_has"/></td>
+             <td><input type="button" value="$('div#padre div').map()" id="b_map"/></td></tr>
+         <tr><td><input type="button" value="$('div#padre .normal *').not('span')" id="b_not"/></td>
+             <td><input type="button" value="$('div#padre div').slice(1,4)" id="b_slice"/></td></tr>                      
+         <tr><td colspan=2>
+             <input type="button" value="reset" id="b_reset" class="cbr"/></td></tr>
+      </table>
+      <table><tr><td>
+            <div id="padre">
+               <div id="d1" class="normal" style="float:left;"><b>Uno</b></div>
+               <div id="d2" class="normal" style="float:left;"><span>Dos</span></div>
+               <div id="d3" class="normal" style="float:left;"><label>Tres</label></div>
+               <div id="d4" class="normal" style="float:left;"><span>Cuatro</span></div>   
+               <div id="d5" class="normal" style="float:left;">Cinco</div>                                             
+            </div></td></tr>
+         <tr><td><p id="res"> </p></td></tr>                          
+      </table>
+   </body>
+</html>

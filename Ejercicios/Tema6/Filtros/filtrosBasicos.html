@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Prueba - filtros basicos</title>
+      <script type = "text/javascript" src = "jquery.js"> </script> 
+      <script type = "text/javascript">
+         $(document).ready(function(){
+            $(":target").addClass("ctarget");
+            $(":input[type='button']").addClass("cb");
+            $('#v_n').focus();
+            $("#nf").html("El foco lo tiene "+$(":focus").attr("id"));
+            var veces=5; n=5; r=0; var g=250; var b=255;
+            $("#v_n").val(veces);            
+            $("#b_inicio").click(function(){
+               veces=$("#v_n").val();
+               repetir();
+            });  
+            $(":input[type='text']").click(function(){
+               $("#nf").html("El foco lo tiene "+$(":focus").attr("id"));
+            }); 
+            $("#b_igual").click(function(){ejecutar("div:eq(2)","cigual",true);});   
+            $("#b_menor").click(function(){ejecutar("div:lt(2)","cmenor",true);});  
+            $("#b_mayor").click(function(){ejecutar("div:gt(2)","cmayor",true);});   
+            $("#b_even").click(function(){ejecutar("div:even","ceven",true);}); 
+            $("#b_odd").click(function(){ejecutar("div:odd","codd",true);});                 
+            $("#b_first").click(function(){ejecutar("div:first","cfirst",true);}); 
+            $("#b_last").click(function(){ejecutar("div:last","clast",true);});   
+            $("#b_header").click(function(){ejecutar(":header","cheader",false);});
+            $("#b_lang").click(function(){ejecutar(":lang(es-es)","clang",false);}); 
+            $("#b_not").click(function(){$(":header:not(h1,h3)").toggleClass("cnot");}); 
+            $("#b_root").click(function(){ejecutar(":root","croot",false);});            
+            $("#b_target").click(function(){ejecutar(":target","ctarget",false);});
+            $("#b_animated").click(function(){ejecutar("div:animated","cgrande",false);});                                                                                                                      
+            $("#b_reset").click(function(){location.reload();});
+            function ejecutar(expresion,clase,mov) {
+               $(expresion).each(function(idx,v) {
+                  $(this).toggleClass(clase);                 
+                  if (mov){mover($(this));}
+               }); 
+            }            
+            function ponValores(o,r,g,b){
+               o.css("background","rgb("+r+","+g+","+b+")");
+            }
+            function mover(e){
+               e.animate({width:"300px"},"slow").animate({width:"50px"},"slow");
+            }
+            function repetir(){
+              for (var i = 0; i < veces; i++) {
+                for (var m = 1; m < n+1; m++) {
+                   var c=$("#"+m);
+                   r=Math.floor((Math.random()*255)+1);
+                   g=Math.floor((Math.random()*255)+1);
+                   b=Math.floor((Math.random()*255)+1);
+                   ponValores(c,r,g,b); 
+                   var ol=Math.floor((Math.random()*200)+1);
+                   var ot=Math.floor((Math.random()*200)+1);
+                   var o = c.offset();
+                   o.left=ol; o.top=ot+200;
+                   c.offset(o).delay(10);
+                }                             
+                $("div").slideUp(1000).delay(100).slideDown(1000);
+                $("div").animate({ opacity: '.3' }).delay(100).animate({ opacity: '1' });
+             }
+          }
+        });
+      </script>
+      <style>
+        div {border-style:solid;border-width:1px;overflow:auto;width:50px;height:50px;background-color:#58D3F7}
+        .c1 {background-color:#F3E2A9}  
+        .cb {width: 150px; height:30px;} 
+        .cbr {width: 306px; height:30px;}          
+        .cgrande {width: 100px; height:100px;border-style:dotted;color: blue;} 
+        .cmenor {width:200px;height:30px;color:red;background-color:#2E2EFE;}         
+        .cigual {width:150px;height:80px;color: green;background-color:yellow;}
+        .cmayor {width:200px;height:30px;color: blue;background-color:#58FA82;}  
+        .ceven {width:10px;height:50px;color: gray;background-color:#FE9A2E;}                                
+        .codd {width:50px;height:10px;color: gray;background-color:#FF8000;}  
+        .cfirst {width: 50px;height:50px;color: gray;background-color:#FE2E2E;}  
+        .clast {width: 50px; height:50px;color: gray;background-color:#04B404;}
+        .cheader {background-color:#04B404;}    
+        .clang {border-width:10px;} 
+        .cnot {background-color:#CEF6CE;color: blue;}   
+        .croot {background-color:#86B404;color: red;}  
+        .ctarget {width: 200px; height:50px;background-color:#B40404;}                                                              
+      </style>
+   </head>
+   <body>
+      <table><tr><td>
+         <table border=1>
+            <tr><td>Numero de repeticiones</td>
+                <td><center><input type="text" id="v_n" size="3" maxlength="4" style="text-align:right" />
+                            <input type="text" id="v_x" size="3"/><center></td></tr>   
+            <tr><td><input type="button" value="div:even" id="b_even"/></td> 
+                <td><input type="button" value="div:odd" id="b_odd"/></td></tr>
+            <tr><td><input type="button" value="div:first" id="b_first"/></td> 
+                <td><input type="button" value="div:last" id="b_last"/></td></tr>
+            <tr><td><input type="button" value=":header" id="b_header"/></td>                   
+                <td><input type="button" value=":lang(es-es)" id="b_lang"/></td></tr>
+            <tr><td><input type="button" value=":header:not(h1,h3)" id="b_not"/></td>   
+                <td><input type="button" value=":root" id="b_root"/></td></tr>
+            <tr><td><input type="button" value=":target" id="b_target"/></td>
+                <td><input type="button" value="div:lt(2)" id="b_menor"/></td></tr>  
+            <tr><td><input type="button" value="div:eq(2)" id="b_igual"/></td>   
+                <td><input type="button" value="div:gt(2)" id="b_mayor"/></td></tr>
+            <tr><td><input type="button" value="Iniciar" id="b_inicio"/></td>
+                <td><input type="button" value="div:animated" id="b_animated"/></td></tr>                             
+            <tr><td colspan="2"><input type="button" value="Reset" id="b_reset" class="cbr"/></td></tr>
+         </table></td>
+         <td bgcolor="#FFFF00">
+            <h1>Header 1</h1><h2>Header 2</h2><h3>Header 3</h3><h4>Header 4</h3>
+      </td></tr><tr><td colspan="2"><span id="nf"></span></td></tr></table>           
+      <div id="1" lang="es-es"></div>  
+      <div id="2" lang="de"></div>      
+      <div id="3" lang="es-es"></div>    
+      <div id="4" lang="tr"></div>
+      <div id="5" lang="es-es"></div>                   
+   </body>
+</html>

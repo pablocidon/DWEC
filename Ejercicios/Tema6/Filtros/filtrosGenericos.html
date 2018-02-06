@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Prueba - filtros genericos</title>
+      <script type = "text/javascript" src = "jquery.js"> </script> 
+      <script type = "text/javascript">
+         $(document).ready(function(){
+            $("#b_todos").click(function(){
+               $("*").addClass("c1");
+            });  
+            $("#b_clase").click(function(){
+               $(".uno").addClass("c2");
+            });  
+            $("#b_elemento").click(function(){
+               $("h3").addClass("c3");
+            }); 
+            $("#b_id").click(function(){
+               $("#dos").addClass("c4");
+            });    
+            $("#b_multiple").click(function(){
+               $("#dos,h3,p[name='p1']").addClass("c5");
+            });                                                
+            $("#b_reset").click(function(){
+               location.reload();
+            });
+         });
+      </script>
+      <style>
+         .c1 { background-color:#F3E2A9}  
+         .c2 { background-color:#F4FA58}                        
+         .c3 { background-color:#FE9A2E}    
+         .c4 { background-color:#ACFA58}  
+         .c5 { background-color:#2EFEF7}
+      </style>
+   </head>
+   <body>
+      <div class="uno">
+         <p name="p1">Parrafo 1</p>
+         <span>span 1</span>
+         <h3>header 1</h3>            
+      </div>
+      <hr>
+      <div >
+         <p id="dos">Parrafo 2</p>
+         <span class="uno">span 2</span>
+         <h3>header 2</h3>            
+      </div>       
+      <input type="button" value="*" id="b_todos"/>
+      <input type="button" value=".class='uno'" id="b_clase"/> 
+      <input type="button" value="elemento='h3'" id="b_elemento"/>
+      <input type="button" value="#id='dos'" id="b_id"/>
+      <input type="button" value="#dos,h3,p[name='p1']" id="b_multiple"/>            
+      <input type="button" value="Reset" id="b_reset"/>
+   </body>
+</html>

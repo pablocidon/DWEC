@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="jquery" content="width=device-width">
+  <title>jQuery Ejemplos</title>
+  <script type="text/javascript"  src="jQuery.js"> </script>
+  <script> 
+       	       
+	// comprobación que el documento esta cargado
+       $(document).ready(function(){ 
+		    // comprobar el fondo
+			$("#id_fondo").click(function(){
+			      $("#bloque").toggleClass("fondo");
+			 });
+			$("#id_marco").click(function(){
+			    $("#bloque").toggleClass("marco");
+				});
+		});
+	   </script>
+	   <style>
+	        .fondo  {background:#58fAF4;}
+			.marco  {color:blue;
+					 border-style:solid;
+					 borde.width:3px;
+					}
+	   </style>
+	      
+</head>
+<body>
+    <p> Primer parrafo </p>
+	<div id="bloque"> Bloque de PRUEBAS </div><br>
+	<input type="button" value="Fondo" id="id_fondo" />
+	<input type="button" value="Marco" id="id_marco" />
+	
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Prueba - filtros para contenido</title>
+      <script type = "text/javascript" src = "jquery.js"> </script> 
+      <script type = "text/javascript">
+         $(document).ready(function(){
+            $(":input[type='button']").addClass("cb");
+            $("#b_contains").click(function(){
+               $("span:contains('Uno')").toggleClass("cContains");
+            });
+            $("#b_empty").click(function(){
+               $("div:empty,li:empty").toggleClass("cEmpty");
+            });
+            $("#b_has").click(function(){$("div:has(span)").toggleClass("cHas");});
+            $("#b_parent").click(function(){$("li:parent").toggleClass("cParent");});
+            $("#b_reset").click(function(){location.reload();});
+        });
+      </script>
+      <style>
+        div.conte {border-style:solid;border-width:1px;overflow:auto;
+                   width:130px;height:130px;}
+        div {border-style:solid;border-width:1px;overflow:auto;width:20px;
+             height:20px;background-color:#58D3F7;}
+        .cb {width: 155px; height:30px;}
+        .cbr {width: 318px; height:30px;}
+        .cContains {background-color:red;}
+        .cEmpty {background-color:#FFFF00;border-style:solid;border-color:green;}
+        .cHas {background-color:yellow;}
+        .cParent {background-color:#01DF01;}
+      </style>
+   </head>
+   <body>
+      <table border="10" style="border-width:10px;border-color:#00BFFF"> 
+         <tr>
+            <td><input type="button" value="span:contains('Uno')" id="b_contains"/></td>
+            <td><input type="button" value="div:empty,li:empty" id="b_empty"/></td>
+         </tr>
+         <tr>
+            <td><input type="button" value="div:has(span)" id="b_has"/></td>
+            <td><input type="button" value="li:parent" id="b_parent"/></td>
+         </tr>
+         <tr>
+            <td colspan="2">
+               <input type="button" value="Reset" id="b_reset" class="cbr"/>
+            </td>
+         </tr>
+      </table>
+      <hr>
+      <table>
+         <tr>
+            <td>
+               <table border=3>
+                  <tr><td>
+                     <span>Uno</span><br>
+                     <span>Dos</span><br>
+                     <span>Tres</span>
+                  </td></tr>
+                  <tr><td>
+                     <span>Uno</span><br>         
+                     <span>Dos</span>
+                  </td></tr>       
+                  <tr><td><span>Uno</span></td></tr>
+                  <tr><td><span></span></td></tr>
+               </table>
+            </td>
+            <td>
+            <div id="1" class="conte">
+               <span>Uno</span>
+               <div>1</div><div><span></span></div><div></div>
+            </div>
+            </td>
+            <td>
+               <div id="2" class="conte">
+                  <ul>
+                     <li>Uno</li>
+                     <li></li>
+                     <li>Tres</li>
+                  </ul>
+                  <ul>
+                     <li></li>
+                  </ul>
+               </div>
+            </td>
+         </tr>
+      </table>
+   </body>
+</html>

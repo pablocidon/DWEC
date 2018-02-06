@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="jquery" content="width=device-width">
+  <title>jQuery Ejemplos</title>
+  <script type="text/javascript"  src="jQuery.js"> </script>
+  <script> 
+       $(document).ready(function(){
+	        // Definimos la lista directamente como objeto
+			$.each(["lunes","martes","miercoles","jueves","viernes","sabado","domingo"],function(clave,valor){
+		         console.log('('+clave+') Valor asignado ('+valor+')');
+     		});
+		});
+	   </script>
+</head>
+<body>
+    
+</body>
+</html>

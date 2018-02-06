@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Prueba - filtros para formularios</title>
+    <script type = "text/javascript" src = "jquery.js"> </script> 
+    <script type = "text/javascript">
+      $(document).ready(function(){
+         $('#v_d1').focus();
+         $("#nf").html($(":focus").attr("id")+" tiene el foco");
+         $("#ns").html("El valor es "+$("#sel :selected").attr("value"));
+         var mr=false; var mc=false;
+         $(":input[type='button']").addClass("cb");
+         $(':input[type="checkbox"],:input[type="radio"]').change(function() {
+            $(':input[type="checkbox"],:input[type="radio"]').parent().removeClass("cChecked");
+            ponChecked();
+         });
+         $(":input[type='text'],:input[type='password']").click(function(){
+            $("#nf").html($(":focus").attr("id")+" tiene el foco");
+         });   
+         $("#datos").change(function() {
+            $("#ns").html("El valor es "+$("#sel :selected").attr("value"));
+         });
+         $("#b_button").click(function(){$("div :button").toggleClass("cResaltar");});
+         $("#b_checkbox").click(function(){$(":checkbox").parent().toggleClass("cResaltar");});
+         $("#b_checked").click(function(){
+            mc=!mc; ponChecked();                         
+         });
+         $("#b_disabled").click(function(){$("div :disabled").toggleClass("cResaltar");});
+         $("#b_enabled").click(function(){$("div :enabled").toggleClass("cResaltar");}); 
+         $("#b_file").click(function(){$("div :file").toggleClass("cResaltar");});  
+         $("#b_radio").click(function(){$(":radio").parent().toggleClass("cResaltar");});                                     
+         $("#b_image").click(function(){
+            $(":image").slideUp(500).delay(2).slideDown(500);
+            $(":image").animate({ opacity: '.3' }).delay(2).animate({ opacity: '1' });
+         });                                     
+         $("#b_input").click(function(){$("div :input").toggleClass("cResaltar");});
+         $("#b_password").click(function(){$(":password").toggleClass("cResaltar");});
+         $("#b_text").click(function(){$(":text").toggleClass("cResaltar");});
+         $("#b_reset").click(function(){$(":reset").toggleClass("cResaltar");});
+         $("#b_submit").click(function(){$(":submit").toggleClass("cResaltar");});                        
+         $("#b_recarga").click(function(){location.reload();});
+         function ponChecked() {
+            $(":checked").parent().removeClass("cChecked");
+            if (mc){$(":checked").parent().addClass("cChecked");}                             
+         }         
+      });
+    </script>
+    <style>
+      div#marco {border-style:outset;border-width:30px;overflow:auto;width:370px;
+           height:340px;background-color:#58D3F7;border-color:cyan;padding:20px}
+      div#radio {border-style:outset;border-width:3px;overflow:auto;background-color:#2ECCFA;}
+      div#check {border-style:outset;border-width:3px;overflow:auto;background-color:#2ECCFA;}        
+      .cb {width: 143px; height:30px;}
+      .cb2 {width: 110px; height:30px;}
+      .ct {border-style:inset;border-width:1px;border-color:green;border-width:3px;}        
+      .cbr {width: 290px; height:30px;}
+      .cRotulos {border-style:outset;border-color:green;width:80px;font-size:25px}
+      .cChecked {background-color:red;border-color:blue;border-style:solid;}                
+      .cResaltar {background-color:#ACFA58;border-color:white;border-style:dashed;}
+    </style>
+  </head>
+  <body>
+    <table border="10" style="border-color:#00BFFF"> 
+       <tr><td><input type="button" value=":button" id="b_button"/></td>
+           <td><input type="button" value=":checkbox" id="b_checkbox"/></td>
+           <td><input type="button" value=":checked" id="b_checked"/></td></tr>
+       <tr><td><input type="button" value=":disabled" id="b_disabled"/></td>
+           <td><input type="button" value=":enabled" id="b_enabled"/></td>
+           <td><input type="button" value=":file" id="b_file"/></td></tr>
+       <tr><td><input type="button" value=":radio" id="b_radio"/></td>
+           <td><input type="button" value=":image" id="b_image"/></td>
+           <td><input type="button" value=":input" id="b_input"/></td></tr>
+       <tr><td><input type="button" value=":password" id="b_password"/></td>
+           <td><input type="button" value=":text" id="b_text"/></td>
+           <td><input type="button" value=":reset" id="b_reset"/></td></tr>
+       <tr><td><input type="button" value=":submit" id="b_submit"/></td>
+           <td colspan=2><input type="button" value="Reset" id="b_recarga" class="cbr"/></td></tr>
+    </table>
+    <div id="marco">
+    <table>
+      <tr><td class="cRotulos"><span>Campo1</span></td>
+        <td colspan="1"><input type="text" id="v_d1" size="4" style="text-align:right" class="ct"/></td>
+        <td><span id="nf"></span></td></tr>
+      <tr><td class="cRotulos"><span>Campo2</span></td>
+          <td colspan="2"><input type="text" id="v_d2" size="28" disabled class="ct"/></td></tr>
+      <tr><td class="cRotulos"><span>Password</span></td>
+          <td colspan="2"><input type="password" id="v_pwd" size="8" class="ct"/></td></tr>
+      <tr><td class="cRotulos"><span>Seleccion</span></td>
+          <td><div id="sel">
+               <select id="datos">
+                  <option value="Dato1">Dato1</option>
+                  <option value="Dato2" selected="selected">Dato2</option>
+                  <option value="Dato3">Dato3</option>
+                  <option value="Dato4">Dato4</option>
+               </select>
+          </div></td>
+          <td><span id="ns"></span></td></tr>
+      <tr><td ><div id="radio" style="width:105px;height:95px">
+             <center><span class="cRotulos">Radios</span></center>
+             <span><input type="radio" name="grupo1" value="Radio1" checked>Radio1</span><br>
+             <span><input type="radio" name="grupo1" value="Radio2">Radio2</span><br>
+             <span><input type="radio" name="grupo1" value="Radio3">Radio3</span><br>
+           </div></td>
+           <td><div id="check" style="width:105px;height:95px">
+             <center><span class="cRotulos">Checks</span></center>
+             <span><input type="checkbox">Check1</span><br>
+             <span><input type="checkbox" disabled>Check2</span><br>   
+             <span><input type="checkbox" checked>Check3</span>
+           </div></td>
+         <td><input type="image" src="smile1.jpg" title="Mi imagen" width="110" height="50"/>
+             <textarea style="width:105px;height:40px"></textarea></td>
+      </tr>
+      <tr><td><input type="button" value="Boton1" id="b_boton1" class="cb2"/></td>
+          <td><input type="button" value="Boton2" id="b_boton2" class="cb2" disabled/></td>
+          <td><button class="cb2">Boton3</button></td></tr>
+      <tr><td><input type="reset" id="b_reset" disabled class="cb2"/></td>
+          <td><input type="submit" id="b_submit" class="cb2"/></td></tr>
+      <tr><td colspan=3><input type=file size=100 name="file1"></td></tr>
+   </table> 
+   </div>
+  </body>
+</html>

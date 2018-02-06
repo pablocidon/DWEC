@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Prueba - innerHeight(), innerWidth(),outerHeight() e outerWidth()</title>
+      <script type = "text/javascript" src = "jquery.js"> </script> 
+      <script type = "text/javascript">
+         $(document).ready(function(){
+            var w=100; var h=100; var m=20;
+            var r=0; var g=250; var b=255;
+            ponValores(w,h,m,r,g,b);           
+            $("#b_generar").click(function(){
+               w=Math.floor((Math.random()*200)+1);
+               h=Math.floor((Math.random()*200)+1);
+               m=Math.floor((Math.random()*100)+1);
+               r=Math.floor((Math.random()*255)+1);
+               g=Math.floor((Math.random()*255)+1);
+               b=Math.floor((Math.random()*255)+1);
+               ponValores(w,h,m,r,g,b);
+            });
+            $("#b_reset").click(function(){
+               location.reload();
+            });
+         });
+            function ponValores(w,h,m,r,g,b) {
+               $("#bloque").width(w);  //valor ancho del primer elemento
+               $("#bloque").height(h);   // valor alto del primer elemento
+               $("#bloque").css("margin",m); //establecer la propiedad del estilo del margen por el valor m      
+               $("#bloque").css("background","rgb("+r+","+g+","+b+")"); //establece el valor del color de fondo
+			   
+               $("#v_innerHeight").val( $("#bloque").innerHeight());
+               $("#v_innerWidth").val($("#bloque").innerWidth());
+               $("#v_outerHeight").val($("#bloque").outerHeight());
+               $("#v_outerHeightT").val($("#bloque").outerHeight(true));
+               $("#v_outerWidth").val($("#bloque").outerWidth());
+               $("#v_outerWidthT").val($("#bloque").outerWidth(true));                               
+            }         
+      </script>
+      <style>
+         div { border-style:solid; border-width:10px; padding:10px; }
+         .c1 { width: 70px; text-align: center; }
+         .c2 { width: 100px; height:30px;} 
+         .c3 { border-style:solid; border-width:1px;}
+         p   { background-color:yellow;}                
+      </style>
+   </head>
+   <body>
+    <! -- tabla con los valores que se sustitutyen por los referenciados en la función ponvalores -->
+      <table border=1>
+         <tr><td width="110">innerHeight</td><td><input type="text" id="v_innerHeight" class="c1" readonly/></td></tr>  
+         <tr><td>innerWidth</td><td><input type="text" id="v_innerWidth" class="c1" readonly/></td></tr>
+         <tr><td>outerHeight</td><td><input type="text" id="v_outerHeight" class="c1" readonly/></td></tr>
+         <tr><td>outerHeight(true)</td><td><input type="text" id="v_outerHeightT" class="c1" readonly/></td></tr>
+         <tr><td>outerWidth</td><td><input type="text" id="v_outerWidth" class="c1" readonly/></td></tr>
+         <tr><td>outerWidth(true)</td><td><input type="text" id="v_outerWidthT" class="c1" readonly/></td></tr>                      
+      <table>            
+      <input type="button" value="Generar" id="b_generar" class="c2"/>      
+      <input type="button" value="Reset" id="b_reset" class="c2"/>
+      <hr>
+      <div id="bloque"></div>
+   </body>
+</html>

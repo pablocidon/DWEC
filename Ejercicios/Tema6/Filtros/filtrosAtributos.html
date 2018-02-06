@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Prueba - filtros para atributos</title>
+      <script type = "text/javascript" src = "jquery.js"> </script> 
+      <script type = "text/javascript">
+         $(document).ready(function(){
+            $("#b_f1").click(function(){
+               var t="enero";
+               resalta("|",t,"c1");               
+            });
+            $("#b_f2").click(function(){
+               var t="dos";
+               resalta("*",t,"c2"); 
+            });                
+            $("#b_f3").click(function(){
+               var t="dos";
+               resalta("~",t,"c3");                
+            });
+            $("#b_f4").click(function(){
+               var t="marzo";
+               resalta("$",t,"c4");
+            }); 
+            $("#b_f5").click(function(){
+               var t="enero";
+               resalta("",t,"c5");
+            });  
+            $("#b_f6").click(function(){
+               $('div[class!="p"][name!="enero"]').addClass("c6");
+            });       
+            $("#b_f7").click(function(){
+               var t="enero";
+               resalta("^",t,"c7");
+            });   
+            $("#b_f8").click(function(){
+               $('div[miatr]').addClass("c8");           
+            });                                                                          
+            $("#b_reset").click(function(){
+               location.reload();
+            });
+         });
+         function resalta(operacion,texto,clase) {
+            var s=$('div[name'+operacion+"='"+texto+"']");
+            s.addClass(clase);
+            s.each(function(){
+               var t=$(this).html();
+               t=t.replace(texto,"<span><b>"+texto+"</b></span>");
+               $(this).html(t);
+            });
+         }
+      </script>
+      <style>
+         div.p { border-style:solid; border-width:1px; overflow:auto; padding:3px;}
+         .c1 { background-color:#F6E3CE}  
+         .c2 { background-color:#F3F781}         
+         .c3 { background-color:#BFFF00} 
+         .c4 { background-color:#3ADF00}
+         .c5 { background-color:#00FFFF} 
+         .c6 { background-color:#FFFF00}  
+         .c7 { background-color:#58ACFA}   
+         .c8 { background-color:#01DF3A}                      
+         .cb { width: 150px; height:30px;} 
+         span {color:red}          
+      </style>
+   </head>
+   <body>
+      <div class="p">
+         <div name="enero">enero</div>   
+         <div name="enero uno par" miatr="juanto">enero uno par</div>
+         <div name="dos impar febrero">dos impar febrero</div>
+         <div name="par tres marzo">par tres marzo</div>
+         <div name="enero-uno-par">enero-uno-par</div> 
+         <div name="abrildosimpar">marzodosimpar</div>
+         <div name="abril dos impar" miatr="juanto">abril dos impar</div> 
+         <div name="enerounopar">enero uno par</div>           
+      </div>   
+      <br>
+      <table border=1>                
+      <tr><td><input type="button" value="div[name|='enero']" id="b_f1" class="cb"/></td><td>Empieza por "enero" o "enero-"</td></tr> 
+      <tr><td><input type="button" value="div[name*='dos']" id="b_f2" class="cb"/></td><td>Contiene "dos"</td></tr> 
+      <tr><td><input type="button" value="div[name~='dos']" id="b_f3" class="cb"/></td><td>Contiene "dos" y esta delimitado por espacios</td></tr>  
+      <tr><td><input type="button" value="div[name$='marzo']" id="b_f4" class="cb"/></td><td>Acaba con "marzo"</td></tr>
+      <tr><td><input type="button" value="div[name='enero']" id="b_f5" class="cb"/></td><td>Coincide exactamente con "enero"</td></tr>  
+      <tr><td><input type="button" value="div[name!='enero']" id="b_f6" class="cb"/></td><td>NO Coincide exactamente con "enero"</td></tr>            
+      <tr><td><input type="button" value="div[name^='enero']" id="b_f7" class="cb"/></td><td>Empieza exactamente con "enero"</td></tr> 
+      <tr><td><input type="button" value="div['miatr']" id="b_f8" class="cb"/></td><td>Poseen el atributo "miatr"</td></tr>                          
+      <tr><td><input type="button" value="Reset" id="b_reset" class="cb"/></td><td>Situacion inicial</td></tr>
+      </table>
+   </body>
+</html>

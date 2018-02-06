@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+  <style>
+  #p1 {color: red;}
+  .c1 {color: blue;
+  .c2 {color: red;
+  .c3 {color: blue;
+  .c4 {color: blue;}
+</style>
+<body>
+
+</body>
+  <p class="c3"> </p>
+  <p class="c1"> </p>
+  <p id="p1"> sadiodsio  </p>
+  <p id="c4"> sdfasdfds </p>
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+ <script>
+  $("#p1").after("<p class=\"c1\"> <b> Texto añadido con after</b></p>");
+  $("<p class=\"c3\"> <b>Texto añadido con insertAfter</b></p>");
+  $("#p1").before("<p class=\"c2\"> <b> Texto añadido con before</b></p>");
+
+$("<p class=\"c4\"> <b>Texto añadido con insertBefore</b></p>").insertBefore("#p1");
+  </script>
+</html>
