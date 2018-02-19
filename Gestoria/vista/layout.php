@@ -19,52 +19,37 @@
     <link rel="stylesheet" href="webroot/css/bootstrap.min.css">
     <link rel="stylesheet" href="webroot/css/mdb.css">
     <link rel="stylesheet" href="webroot/css/mdb.min.css">
-    <title>PCB-DWES</title>
+    <link rel="stylesheet" href="webroot/css/estilos.css">
+    <title>GESTORÍA - ASESORÍA</title>
 </head>
 <body>
 <header>
-        <nav class="mb-1 navbar navbar-expand-lg navbar-dark bg-primary">
-            <a class="navbar-brand" href="#">Tienda Online</a>
+        <nav class="mb-1 navbar navbar-expand-lg navbar-dark blue">
+            <a class="navbar-brand" href="#">GESTORIA</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link waves-effect waves-light" href="#"><i class="fa fa-envelope"></i> Contact <span class="sr-only">(current)</span></a>
+                        <a class="nav-link waves-effect waves-light" href="#"><span class="fa fa-envelope"></span>Contacto<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link waves-effect waves-light" href="#"><i class="fa fa-gear"></i> Settings</a>
+                        <a class="nav-link waves-effect waves-light" href="#"><span class="fa fa-envelope"></span>Área de empleados<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <i class="fa fa-search"></i>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa fa-user"></i> Profile </a>
-                        <div class="dropdown-menu dropdown-menu-right dropdown-cyan" aria-labelledby="navbarDropdownMenuLink-4">
-                            <a class="dropdown-item waves-effect waves-light" href="#">My account</a>
-                            <a class="dropdown-item waves-effect waves-light" href="#">Log out</a>
-                        </div>
+                        <a class="nav-link waves-effect waves-light" href="#"><span class="fa fa-gear" aria-hidden="false"></span>Área de clientes</a>
                     </li>
                 </ul>
             </div>
         </nav>
 </header>
-    <div class="container">
-        <br><br>
+    <div class="container-fluid">
             <?php
-            if ($vista=="login"){
-                include_once 'vlogin.php';
-            }else if ($vista=="inicio"){
-                include_once 'vinicio.php';
-            }else if ($vista=="WIP"){
-                include_once 'vWIP.php';
-            }else if($vista=='codigo'){
-                include_once 'vcodigo.php';
-            }else if($vista=='registro'){
-                include_once 'vregistro.php';
-            }else if($vista=='SOAP') {
-                include_once 'vWSSOAP.php';
+            if (isset($_GET['pagina']) && isset($vistas[$_GET["pagina"]])){
+                require_once $vistas[$_GET["pagina"]];
+            }else{
+                echo "<p>Lo sentimos, hubo un error</p>";
             }
             ?>
     </div>
@@ -74,13 +59,19 @@
         <footer class="page-footer blue center-on-small-only">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-6">
-                        <h5 class="title">Footer Content</h5>
-                        <p>Here you can use rows and columns here to organize your footer content.</p>
-                    </div>
-                    <div class="col-md-6">
-                        <h5 class="title">Links</h5>
+                    <div class="col-md-6 text-center">
+                        <h5 class="title">Organismos oficiales</h5>
                         <ul>
+                            <li></li>
+                            <li><a href="http://www.agenciatributaria.es/" target="_blank">Agencia Tributaria</a></li>
+                            <li><a href="http://www.seg-social.es/Internet_1/index.htm" target="_blank">Seguridad Social</a></li>
+                            <li><a href="https://serviciossociales.jcyl.es/web/jcyl/ServiciosSociales/es/Plantilla66y33/1246991411473/_/_/_" target="_blank">Servicios Sociales</a></li>
+                            <li><a href="http://medioambiente.jcyl.es/web/jcyl/MedioAmbiente/es/Plantilla100/1131977745749/_/_/_" target="_blank">Medio Ambiente</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <h5 class="title">Compatibilidad en navegadores</h5>
+                        <ul class="navbar-nav ml-auto">
                             <li><i class="icon-large icon-search"></i></li>
                             <li><a href="#!">Link 2</a></li>
                             <li><a href="#!">Link 3</a></li>
@@ -88,11 +79,20 @@
                         </ul>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="rrss">
+                        <h5 class="title">Encuentranos en</h5>
+                        <a href="https://www.facebook.com/"><img src="webroot/media/images/facebook.jpg" alt="Facebook" title="Facebook" class="logos"></a>
+                        <a href="https://twitter.com/?lang=es"><img src="webroot/media/images/twitter.jpg" alt="Twitter" title="Twitter" class="logos"></a>
+                        <a href="https://plus.google.com/about?hl=es"><img src="webroot/media/images/google+.png" alt="Google+" title="Google+" class="logos"></a>
+                        <a href="https://es.linkedin.com/"><img src="webroot/media/images/linkedin.jpg" alt="Linkedin" title="Linkedin" class="logos"></a>
+                        <img src="webroot/media/images/rss.png" alt="RSS" title="RSS" class="logos"></a>
+                    </div>
+                </div>
             </div>
             <div class="footer-copyright">
                 <div class="container-fluid">
-                    © 2015 Copyright: <a href="https://www.MDBootstrap.com"> MDBootstrap.com </a>
-
+                    © 2018 Copyright: Pablo Cidón Barrio
                 </div>
             </div>
         </footer>
