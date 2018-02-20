@@ -1,7 +1,21 @@
 .logos{
     width: 5%;
-    margin-left: 5%;
+    margin-left: 2%;
 }
 .rrss{
-    margin-left: 5%;
+    float: right;
+    padding: 1% 0;
+}
+header, footer{
+    background: #2196F3;
+    color: white;
+}
+.footer-copyright, .navbar, .navbar-inverse{
+    background-color: #007bff;
+}
+a{
+    color: white;
+}
+.listapie{
+    list-style: none;
 }

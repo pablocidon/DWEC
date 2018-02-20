@@ -7,24 +7,6 @@
 */
 
 ?>
-<!--<form name="input" action="<?PHP echo $_SERVER['PHP_SELF']; ?>" method="post" class="form-horizontal">
-    <p class="h5 text-center mb-4">Iniciar Sesión</p>
-
-    <div class="md-form">
-        <i class="fa fa-envelope prefix grey-text"></i>
-        <input type="text" id="defaultForm-email" name="email" class="form-control">
-        <label for="defaultForm-email">Correo electrónico</label>
-    </div>
-
-    <div class="md-form">
-        <i class="fa fa-lock prefix grey-text"></i>
-        <input type="password" id="defaultForm-pass" class="form-control">
-        <label for="defaultForm-pass">Contraseña</label>
-    </div>
-    <div class="text-center">
-        <input type="submit" name="entrar" value="Iniciar Sesión" class="btn btn-success"></input>
-    </div>
-</form>-->
 <!--Carousel Wrapper-->
 <section class="main row">
     <aside class="col-md-3">
@@ -36,64 +18,61 @@
         </p>
     </aside>
     <article class="col-md-9">
-        <div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel">
-            <!--Indicators-->
+        <div id="carousel-1" class="carousel slide" data-ride="carousel">
+            <!--Indicadores-->
             <ol class="carousel-indicators">
-                <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
-                <li data-target="#carousel-example-2" data-slide-to="1"></li>
-                <li data-target="#carousel-example-2" data-slide-to="2"></li>
+                <li data-target="#carousel-1" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-1" data-slide-to="1"></li>
+                <li data-target="#carousel-1" data-slide-to="2"></li>
+                <li data-target="#carousel-1" data-slide-to="3"></li>
             </ol>
-            <!--/.Indicators-->
-            <!--Slides-->
+
+            <!--Contenedor slide -->
             <div class="carousel-inner" role="listbox">
-                <div class="carousel-item active">
-                    <div class="view hm-black-light">
-                        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg" alt="First slide">
-                        <div class="mask"></div>
-                    </div>
+                <div class="item active">
+                    <img src="webroot/media/images/imagestor.png" class="img-responsive" alt="" style="width: 1000px; height: 600px;">
                     <div class="carousel-caption">
-                        <h3 class="h3-responsive">Light mask</h3>
-                        <p>First text</p>
+                        <!--<p>Prueba 1</p>-->
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <!--Mask color-->
-                    <div class="view hm-black-strong">
-                        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(6).jpg" alt="Second slide">
-                        <div class="mask"></div>
-                    </div>
+
+                <div class="item">
+                    <img src="webroot/media/images/asesoria.png" class="img-responsive" alt="" style="width: 1000px; height: 600px;">
                     <div class="carousel-caption">
-                        <h3 class="h3-responsive">Strong mask</h3>
-                        <p>Secondary text</p>
+                        <!--<p>Prueba 2</p>-->
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <!--Mask color-->
-                    <div class="view hm-black-slight">
-                        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(9).jpg" alt="Third slide">
-                        <div class="mask"></div>
-                    </div>
+
+                <div class="item">
+                    <img src="webroot/media/images/autonomos.png" class="img-responsive" alt="" style="width: 1000px; height: 600px;">
                     <div class="carousel-caption">
-                        <h3 class="h3-responsive">Slight mask</h3>
-                        <p>Third text</p>
+                        <!--<p>Prueba 3</p>-->
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="webroot/media/images/gestoria_asesoria.png" class="img-responsive" alt="" style="width: 1000px; height: 600px;">
+                    <div class="carousel-caption">
+                        <!--<p>Prueba 4</p>-->
                     </div>
                 </div>
             </div>
-            <!--/.Slides-->
-            <!--Controls-->
-            <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
+            <!--controles-->
+            <!--<a href="#carousel-1" class="left carousel-control" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Anterior</span>
             </a>
-            <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-            <!--/.Controls-->
+            <a href="#carousel-1" class="right carousel-control" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Siguiente</span>
+            </a>-->
         </div>
+        <script src="webroot/js/jquery.js"></script>
+        <script src="webroot/js/bootstrap.min.js"></script>
     </article>
 </section>
-
+<script src="webroot/js/jquery.js"></script>
+<script src="webroot/js/bootstrap.min.js"></script>
 
 
 

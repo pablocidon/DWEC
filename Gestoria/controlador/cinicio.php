@@ -5,7 +5,6 @@
     * Archivo: cinicio.php
     * Modificado: 18-01-2018.
 */
-$vista='inicio';
 if(!isset($_SESSION['usuario'])){
     header("Location: index.php?pagina=login");
 }else{
