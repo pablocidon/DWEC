@@ -6,10 +6,10 @@
     * Modificado: 18-01-2018.
 */
 if(!isset($_SESSION['usuario'])){
-    header("Location: index.php?pagina=login");
-}else{
     $_GET["pagina"]="inicio";
     require_once 'vista/layout.php';
+}else{
+
 }
 if (isset($_POST['salir'])){
     unset($_SESSION['usuario']);

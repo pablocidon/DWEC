@@ -23,7 +23,13 @@
 <body>
     <header class="col-md-12">
         <div class="row">
-            <div class="rrss">
+            <div class="col-md-4">
+                <h3><span class="glyphicon glyphicon-earphone"></span> 980 35 01 47</h3>
+            </div>
+            <div class="col-md-4">
+                <h3><a href=""><span class="glyphicon glyphicon-envelope"></span> gestoria@gestoria.com</a></h3>
+            </div>
+            <div class="col-md-4 rrss">
                 <a href="https://www.facebook.com/"><img src="webroot/media/images/facebook.png" alt="Facebook" title="Facebook" class="logos"></a>
                 <a href="https://twitter.com/?lang=es"><img src="webroot/media/images/twitter.png" alt="Twitter" title="Twitter" class="logos"></a>
                 <a href="https://plus.google.com/about?hl=es"><img src="webroot/media/images/google+.png" alt="Google+" title="Google+" class="logos"></a>
@@ -31,28 +37,22 @@
                 <img src="webroot/media/images/rss.png" alt="RSS" title="RSS" class="logos"></a>
             </div>
         </div>
-        <nav class="navbar navbar-inverse">
+        <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">WebSiteName</a>
+                    <a class="navbar-brand" href="#">GESTORÍA</a>
                 </div>
-                <div class="collapse navbar-collapse" id="myNavbar">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#">Page 1</a></li>
-                        <li><a href="#">Page 2</a></li>
-                        <li><a href="#">Page 3</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                    </ul>
-                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Inicio</a></li>
+                    <li><a href="#">Personas</a></li>
+                    <li><a href="#">Empresas</a></li>
+                    <li><a href="#">Autónomos</a></li>
+                    <li><a href="#">Calculadora Salarial</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="<?php if (isset($_GET['pagina']) && $_GET['pagina']!="inicio" && $_GET['pagina']!="login"){ echo "index.php?pagina=registro&paginaAnterior=".$_GET['pagina']; }else { echo " index.php?pagina=registro "; } ?>"><span class="glyphicon glyphicon-user"></span> Regístrate</a></li>
+                    <li><a href="<?php if (isset($_GET['pagina']) && $_GET['pagina']!="inicio" && $_GET['pagina']!="login"){ echo "index.php?pagina=login&paginaAnterior=".$_GET['pagina']; }else { echo " index.php?pagina=login "; } ?>"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
             </div>
         </nav>
     </header>

@@ -16,6 +16,6 @@ if(isset($_SESSION['usuario'])&& !isset($_GET['pagina'])){
 if(isset($_GET['pagina'])){
     include_once $controladores[$_GET['pagina']];
 }else{
-    include_once $controladores['login'];
+    include_once $controladores['inicio'];
 }
 ?>

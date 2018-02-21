@@ -10,8 +10,8 @@ $error='';
 if(isset($_SESSION['usuario'])){
     header("Location: index.php?pagina=inicio");
 }else{
-    if(isset($_POST['registrar'])){
-        header("Location: index.php?pagina=registro");
+    if(isset($_POST['cancelar'])){
+        header("Location: index.php");
     }
     if(isset($_POST['aceptar'])) {
         $codUsuario = $_POST['usuario'];
