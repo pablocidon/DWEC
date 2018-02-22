@@ -27,7 +27,7 @@
                 <h3><span class="glyphicon glyphicon-earphone"></span> 980 35 01 47</h3>
             </div>
             <div class="col-md-4">
-                <h3><a href=""><span class="glyphicon glyphicon-envelope"></span> gestoria@gestoria.com</a></h3>
+                <h3><a href="<?php if (isset($_GET['pagina']) && $_GET['pagina']!="inicio" && $_GET['pagina']!="login"){ echo "index.php?pagina=contacto&paginaAnterior=".$_GET['pagina']; }else { echo " index.php?pagina=contacto "; } ?>"><span class="glyphicon glyphicon-envelope"></span> gestoria@gestoria.com</a></h3>
             </div>
             <div class="col-md-4 rrss">
                 <a href="https://www.facebook.com/"><img src="webroot/media/images/facebook.png" alt="Facebook" title="Facebook" class="logos"></a>
@@ -50,8 +50,8 @@
                     <li><a href="#">Calculadora Salarial</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="<?php if (isset($_GET['pagina']) && $_GET['pagina']!="inicio" && $_GET['pagina']!="login"){ echo "index.php?pagina=registro&paginaAnterior=".$_GET['pagina']; }else { echo " index.php?pagina=registro "; } ?>"><span class="glyphicon glyphicon-user"></span> Regístrate</a></li>
-                    <li><a href="<?php if (isset($_GET['pagina']) && $_GET['pagina']!="inicio" && $_GET['pagina']!="login"){ echo "index.php?pagina=login&paginaAnterior=".$_GET['pagina']; }else { echo " index.php?pagina=login "; } ?>"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    <li><a href="<?php if (isset($_GET['pagina']) && $_GET['pagina']!="inicio" && $_GET['pagina']!="login"){ echo "index.php?pagina=registro&paginaAnterior=".$_GET['pagina']; }else { echo " index.php?pagina=registro "; } ?>"><span class="glyphicon glyphicon-user"></span> <?php if(!isset($_SESSION['usuario'])){echo "Regístrate";}else{ echo "Cuenta";}?></a></li>
+                    <li><a href="<?php if (isset($_GET['pagina']) && $_GET['pagina']!="inicio" && $_GET['pagina']!="login"){ echo "index.php?pagina=login&paginaAnterior=".$_GET['pagina']; }else { echo " index.php?pagina=login "; } ?>"><?php if(!isset($_SESSION['usuario'])){echo "<span class=\"glyphicon glyphicon-log-in\"></span> Iniciar Sesión";}else{ echo "<span class=\"glyphicon glyphicon-log-out\"></span> Salir";}?></a></li>
                 </ul>
             </div>
         </nav>
