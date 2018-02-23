@@ -10,7 +10,7 @@ header, footer{
     background: #2196F3;
     color: white;
 }
-.footer-copyright, .navbar, .navbar-inverse{
+.footer-copyright{
     background-color: #007bff;
 }
 a{
@@ -18,4 +18,14 @@ a{
 }
 .listapie{
     list-style: none;
+}
+aside{
+    background-color: #ff3385;
+    color: white;
+}
+.carousel, .slide{
+    width: 100%;
+}
+form{
+    margin-top: 2%;
 }

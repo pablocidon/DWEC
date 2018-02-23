@@ -9,12 +9,14 @@ $vistas=[
     'inicio'=>'vista/vinicio.php',
     'login'=>'vista/vlogin.php',
     'registro'=>'vista/vregistro.php',
-    'contacto'=>'vista/vcontacto.php'
+    'contacto'=>'vista/vcontacto.php',
+    'calculadora'=>'vista/vcalculadora.php'
 ];
 $controladores=[
     'inicio'=>'controlador/cinicio.php',
     'login'=>'controlador/clogin.php',
     'registro'=>'controlador/cregistro.php',
-    'contacto'=>'controlador/ccontacto.php'
+    'contacto'=>'controlador/ccontacto.php',
+    'calculadora'=>'controlador/ccalculadora.php'
 ];
 ?>

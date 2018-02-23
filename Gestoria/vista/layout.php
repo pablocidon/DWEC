@@ -40,14 +40,14 @@
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#">GESTORÍA</a>
+                    <a class="navbar-brand" href="<?php if (isset($_GET['pagina']) && $_GET['pagina']!="inicio" && $_GET['pagina']!="login"){ echo "index.php?inicio=contacto&paginaAnterior=".$_GET['pagina']; }else { echo " index.php?pagina=inicio "; } ?>">GESTORÍA</a>
                 </div>
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">Inicio</a></li>
                     <li><a href="#">Personas</a></li>
                     <li><a href="#">Empresas</a></li>
                     <li><a href="#">Autónomos</a></li>
-                    <li><a href="#">Calculadora Salarial</a></li>
+                    <li><a href="<?php if (isset($_GET['pagina']) && $_GET['pagina']!="inicio" && $_GET['pagina']!="login"){ echo "index.php?pagina=calculadora&paginaAnterior=".$_GET['pagina']; }else { echo " index.php?pagina=calculadora "; } ?>">Calculadora Salarial</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="<?php if (isset($_GET['pagina']) && $_GET['pagina']!="inicio" && $_GET['pagina']!="login"){ echo "index.php?pagina=registro&paginaAnterior=".$_GET['pagina']; }else { echo " index.php?pagina=registro "; } ?>"><span class="glyphicon glyphicon-user"></span> <?php if(!isset($_SESSION['usuario'])){echo "Regístrate";}else{ echo "Cuenta";}?></a></li>
@@ -85,9 +85,12 @@
                         <h3 class="title">Compatibilidad en navegadores</h3>
                         <ul class="listapie">
                             <li><i class="icon-large icon-search"></i></li>
-                            <li><a href="#!">Link 2</a></li>
-                            <li><a href="#!">Link 3</a></li>
-                            <li><a href="#!">Link 4</a></li>
+                            <li><a href="#!">Google Chrome</a></li>
+                            <li><a href="#!">Opera</a></li>
+                            <li><a href="#!">Firefox</a></li>
+                            <li><a href="#!">Safari</a></li>
+                            <li><a href="#!">Internet Explorer</a></li>
+                            <li><a href="#!">Microsoft Edge</a></li>
                         </ul>
                     </div>
                 </div>
